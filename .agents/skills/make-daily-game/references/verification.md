@@ -1,4 +1,4 @@
-# Verification and local release
+# Verification and release
 
 프로젝트의 `package.json`과 게임별 스크립트를 먼저 읽고 실제 명령 이름을 사용한다. 없는 명령을 통과한 것처럼 기록하지 않는다.
 
@@ -89,6 +89,18 @@ node scripts/serve.mjs
 
 포털 스크립트가 이전 게임의 slug, 상태 필드, 목표 횟수, 결과 단위를 하드코딩했는지 먼저 검색한다. 새 slug를 인자로 받지 못하는 스모크는 새 게임을 검증한 것으로 인정하지 않는다. runner가 새 게임의 prefix와 `gameId`를 검증하면서도 다른 등록 게임을 깨뜨리지 않는지 확인한다.
 
+## 공개 아케이드 검증
+
+로컬 검증을 모두 통과한 뒤 [`publishing.md`](publishing.md)의 자동 공개 명령을 사용한다. preview, production deployment URL, 운영 도메인에서 같은 slug와 release SHA가 보이는지 확인하고, 포털 스모크로 한 판을 완주한다.
+
+다음 요청은 모두 200이어야 한다.
+
+- `/`, `/games/<slug>`, `/play/<slug>`
+- `entryUrl`, 모든 `styleUrls`, 라이카 일러스트, 게임 이미지와 오디오
+- `/catalog/games.json`
+
+운영 검증에서도 콘솔 오류, 페이지 오류, 실패 요청은 0건이어야 한다.
+
 ## 완료 판정
 
 다음 중 하나라도 남으면 `local-preview` 완료로 보고하지 않는다.
@@ -102,4 +114,4 @@ node scripts/serve.mjs
 - 릴리스와 카탈로그 해시 불일치
 - 실행하지 않은 검증을 통과로 표시한 기록
 
-외부 Vercel·Blob·Toss 공개는 별도 승인 전까지 미완료 외부 작업으로 남긴다.
+Vercel Blob과 기존 단일 아케이드 공개가 끝나지 않았으면 일일 제작 완료로 보고하지 않는다. Toss `.ait` 제출과 출시는 별도 승인 작업으로 남긴다.
