@@ -460,10 +460,6 @@ async function uploadRelease(context) {
       'public',
       '--content-type',
       upload.contentTypes[0],
-      '--allow-overwrite',
-      'false',
-      '--add-random-suffix',
-      'false',
       '--non-interactive',
       '--no-color',
     ], cliOptions)
