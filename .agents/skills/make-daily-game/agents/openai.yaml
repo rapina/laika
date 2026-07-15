@@ -1,4 +1,4 @@
 interface:
   display_name: "Make Daily Game"
-  short_description: "Build and publish today’s Sputnik Workshop game"
-  default_prompt: "Use $make-daily-game to build, publish, and verify today’s complete Sputnik Workshop game."
+  short_description: "Brand-blind creation with post-lock Laika authorship"
+  default_prompt: "Use $make-daily-game to build a brand-blind daily game, then write its Laika maker narrative, publish it, and verify production after game lock."

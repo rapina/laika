@@ -43,6 +43,8 @@ production 검증이 실패하면 아케이드 공개 커밋을 자동으로 되
 
 게임 `.studio.json`을 공개 뒤 다시 커밋하면 `releaseSha === HEAD`가 깨지는 순환이 생긴다. 따라서 공개 상태로 바꾸지 않는다.
 
+이미 공개된 게임의 논리 날짜만 바로잡은 후속 커밋은 보존 예외다. 이때 관제 카탈로그의 `sourceHead`, `publishedReleaseSha`, `metadataAmendedAfterRelease`를 함께 기록하고 기존 Blob 경로와 실제 생성·배포 시각은 바꾸지 않는다. 해당 소스 HEAD로 일반 `--dry-run`이나 재공개를 실행하지 않으며, artifact 교체가 필요하면 별도 교체 절차를 먼저 승인받는다.
+
 ## 인증 복구
 
 Vercel 인증이 없거나 프로젝트 연결이 사라졌으면 아케이드 디렉터리에서 다음을 안내한다.

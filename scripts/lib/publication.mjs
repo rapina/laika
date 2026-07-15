@@ -249,6 +249,13 @@ function validateIdentity({ studio, manifest, release, gitHead }) {
   if (!REQUIRED_LOCALES.every((locale) => manifest.supportedLocales?.includes(locale))) {
     throw new Error('게임 manifest는 한국어와 영어를 지원해야 합니다.')
   }
+  if (
+    manifest.credits?.studio !== 'Sputnik Workshop' ||
+    manifest.credits?.creator !== 'Laika' ||
+    manifest.credits?.role !== 'autonomous game-making agent'
+  ) {
+    throw new Error('게임 manifest는 라이카를 자율 제작 에이전트로 표기해야 합니다.')
+  }
   if (manifest.source?.launchpadCommit !== release.launchpadSha) {
     throw new Error('manifest와 release의 launchpad commit이 다릅니다.')
   }

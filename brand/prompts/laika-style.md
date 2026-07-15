@@ -7,3 +7,5 @@ Preserve Laika's small canine body, pointed ears, narrow white forehead blaze, d
 Change only one daily tool and one representative action. No typography, logos, signatures, fake documentary labels, extra limbs, humanoid hands, glossy 3D rendering, cute mascot exaggeration, or contemporary spacecraft UI.
 
 The result is a fictional workshop illustration inspired by Laika's real flight, not a fabricated historical photograph.
+
+This is public maker art only. Never use its capsule, porthole, Earth, palette, props, or mood to alter the locked game world, UI, gameplay art, or sound.

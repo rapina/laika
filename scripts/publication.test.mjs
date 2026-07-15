@@ -73,6 +73,11 @@ function fixture() {
     version: '1.0.0',
     releaseDate: studio.date,
     supportedLocales: ['ko', 'en'],
+    credits: {
+      studio: 'Sputnik Workshop',
+      creator: 'Laika',
+      role: 'autonomous game-making agent',
+    },
     source: { repository: 'rapina/toss-game-signal', launchpadCommit: '1234567' },
     media: {
       makerIllustration: {
@@ -132,6 +137,12 @@ test('publication plan pins an immutable release and completion marker', () => {
     source: '/__game-assets/:path*',
     destination: 'https://store123.public.blob.vercel-storage.com/:path*',
   })
+})
+
+test('publication rejects a non-maker Laika credit', () => {
+  const input = fixture()
+  input.manifest.credits.role = 'game editor and transmitter'
+  assert.throws(() => buildPublicationPlan(input), /라이카를 자율 제작 에이전트로/)
 })
 
 test('publication plan is byte-identical for the same verified inputs', () => {

@@ -1,6 +1,5 @@
 #!/usr/bin/env node
 
-import { createHash } from 'node:crypto'
 import { execFileSync } from 'node:child_process'
 import { existsSync, readFileSync, readdirSync } from 'node:fs'
 import { basename, dirname, join, parse, resolve } from 'node:path'
@@ -39,6 +38,12 @@ function seoulDate() {
     month: '2-digit',
     day: '2-digit',
   }).format(new Date())
+}
+
+function isValidDate(value) {
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(value ?? '')) return false
+  const parsed = new Date(`${value}T00:00:00.000Z`)
+  return !Number.isNaN(parsed.valueOf()) && parsed.toISOString().slice(0, 10) === value
 }
 
 function readJson(path) {
@@ -103,15 +108,7 @@ function gitSummary(path) {
 const options = parseArgs(process.argv.slice(2))
 const root = findWorkspace(options.start)
 const date = options.date ?? seoulDate()
-if (!/^\d{4}-\d{2}-\d{2}$/.test(date)) throw new Error(`Invalid date: ${date}`)
-
-const baseMetadata = readJson(join(root, 'brand/art/laika-base.json'))
-const baseSha256 = createHash('sha256')
-  .update(readFileSync(join(root, 'brand/art/laika-base.png')))
-  .digest('hex')
-if (baseSha256 !== baseMetadata.sha256) {
-  throw new Error('brand/art/laika-base.png does not match its metadata')
-}
+if (!isValidDate(date)) throw new Error(`Invalid date: ${date}`)
 
 const arcadeCatalog = readJson(join(root, 'arcade/public/catalog/games.json'))
 const games = gameDirectories(root)
@@ -150,11 +147,6 @@ const report = {
   targetGame,
   todayGames,
   recentGames: games.slice(-5).reverse(),
-  laikaBase: {
-    id: baseMetadata.id,
-    sha256: baseSha256,
-    verified: true,
-  },
   repositories: {
     root: gitSummary(root),
     launchpad: gitSummary(join(root, 'launchpad')),
