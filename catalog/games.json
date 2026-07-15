@@ -19,6 +19,20 @@
       "launchpadCommit": "4153053",
       "arcadeState": "local-preview",
       "tossState": "artifact-built"
+    },
+    {
+      "sequence": 2,
+      "date": "2026-07-16",
+      "slug": "rime",
+      "title": "성에",
+      "maker": "Laika",
+      "laikaBaseId": "laika-base-v1",
+      "makerIllustration": "games/2026/2026-07-16-rime/public/art/laika-rime-1280.jpg",
+      "repositoryPath": "games/2026/2026-07-16-rime",
+      "intendedRepository": "rapina/toss-game-rime",
+      "launchpadCommit": "4153053",
+      "arcadeState": "local-preview",
+      "tossState": "artifact-built"
     }
   ]
 }
