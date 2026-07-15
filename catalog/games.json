@@ -4,7 +4,10 @@
     "name": "Sputnik Workshop",
     "maker": "Laika"
   },
-  "defaultLocales": ["ko", "en"],
+  "defaultLocales": [
+    "ko",
+    "en"
+  ],
   "games": [
     {
       "sequence": 1,
@@ -31,7 +34,7 @@
       "repositoryPath": "games/2026/2026-07-16-rime",
       "intendedRepository": "rapina/toss-game-rime",
       "launchpadCommit": "4153053",
-      "arcadeState": "local-preview",
+      "arcadeState": "published",
       "tossState": "artifact-built"
     }
   ]
