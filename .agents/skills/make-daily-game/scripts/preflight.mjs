@@ -73,6 +73,19 @@ function gameSummary(path) {
   }
 }
 
+function publicationSummary(game, arcadeCatalog) {
+  const entry = arcadeCatalog.games?.find((candidate) => candidate.slug === game.slug)
+  const published = entry?.status === 'published' &&
+    entry?.artifact?.status === 'published' &&
+    /^[a-f0-9]{40}$/.test(entry?.artifact?.version ?? '') &&
+    entry.artifact.version === entry.artifact.release?.releaseSha
+  return {
+    ...game,
+    arcadeState: published ? 'published' : entry?.status ?? 'unregistered',
+    releaseSha: published ? entry.artifact.version : null,
+  }
+}
+
 function gitSummary(path) {
   if (!existsSync(join(path, '.git'))) return { repository: false }
   try {
@@ -100,25 +113,34 @@ if (baseSha256 !== baseMetadata.sha256) {
   throw new Error('brand/art/laika-base.png does not match its metadata')
 }
 
-const games = gameDirectories(root).map(gameSummary)
+const arcadeCatalog = readJson(join(root, 'arcade/public/catalog/games.json'))
+const games = gameDirectories(root)
+  .map(gameSummary)
+  .map((game) => publicationSummary(game, arcadeCatalog))
 const todayGames = games.filter((game) => game.date === date)
 const completedStates = new Set(['local-preview', 'published'])
-const unfinishedGames = games.filter((game) => !completedStates.has(game.publishState))
+const pendingGames = games.filter((game) =>
+  !completedStates.has(game.publishState) || game.arcadeState !== 'published')
 const todayGame = todayGames[0] ?? null
-const previousUnfinished = unfinishedGames.filter((game) => game.date !== date).at(-1) ?? null
+const previousPending = pendingGames.filter((game) => game.date !== date).at(-1) ?? null
 const recommendation = todayGames.length > 1
   ? 'resolve-date-conflict'
   : todayGame && !completedStates.has(todayGame.publishState)
     ? 'resume-today'
-    : todayGame
-      ? 'review-completed-today'
-      : previousUnfinished
-        ? 'resume-unfinished'
+    : todayGame && todayGame.arcadeState !== 'published'
+      ? 'resume-publication'
+      : todayGame
+        ? 'review-published-today'
+      : previousPending
+        ? completedStates.has(previousPending.publishState)
+          ? 'resume-publication'
+          : 'resume-unfinished'
         : 'create-today'
-const targetGame = recommendation === 'resume-today' || recommendation === 'review-completed-today'
+const targetGame = recommendation === 'resume-today' || recommendation === 'review-published-today' ||
+  (recommendation === 'resume-publication' && todayGame)
   ? todayGame
-  : recommendation === 'resume-unfinished'
-    ? previousUnfinished
+  : recommendation === 'resume-unfinished' || recommendation === 'resume-publication'
+      ? previousPending
     : null
 
 const report = {

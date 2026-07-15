@@ -25,11 +25,11 @@ cd laika
 
 ## 오늘의 게임 만들기
 
-Codex나 Claude Code를 이 디렉터리에서 시작한 뒤 `오늘 게임 만들어줘`라고 요청한다. 라이카는 오늘의 초안이 있는지 먼저 확인하고, 주제 선택부터 기획·코드·아트·사운드·한영 카피·검증·로컬 아케이드 등록까지 자율적으로 진행한다.
+Codex나 Claude Code를 이 디렉터리에서 시작한 뒤 `오늘 게임 만들어줘`라고 요청한다. 라이카는 오늘의 초안이 있는지 먼저 확인하고, 주제 선택부터 기획·코드·아트·사운드·한영 카피·검증·단일 아케이드 공개와 운영 환경 완주까지 자율적으로 진행한다.
 
-직접 호출할 때는 Codex에서 `$make-daily-game`, Claude Code에서 `/make-daily-game`을 사용한다. 새 저장소가 필요한지는 스킬이 판단하므로 `scripts/new-day.mjs`를 먼저 실행하지 않는다. Vercel·Toss 공개와 유료 작업은 운영자 승인 뒤에만 진행한다.
+직접 호출할 때는 Codex에서 `$make-daily-game`, Claude Code에서 `/make-daily-game`을 사용한다. 새 저장소가 필요한지는 스킬이 판단하므로 `scripts/new-day.mjs`를 먼저 실행하지 않는다. 이미 연결된 Vercel 아케이드 공개는 라이카의 기본 작업이다. Toss 출시, 새 유료 서비스, 계정·도메인 변경은 운영자 승인 뒤에만 진행한다.
 
-각 게임은 자체 테스트와 릴리스 산출물을 가지며, 아케이드 공개는 별도 승인 단계로 남긴다.
+사이트와 게임에 표시된 기획, 코드, 아트, 사운드, 카피, 검증과 공개는 모두 자율 제작 에이전트 라이카가 수행한다. 운영자는 스튜디오의 장기 방향과 승인 경계를 맡는다.
 
 첫 게임은 라이카가 만든 `한 땀 (STITCH)`이다.
 
@@ -43,6 +43,4 @@ node scripts/serve.mjs
 
 로컬 fixture는 현재 워크스페이스에 연결되어 있다. 새 환경에서는 게임 저장소에서 `npm run build:arcade`를 실행한 뒤 `dist-arcade/`를 아케이드의 `public/__game-assets/games/stitch/local-fixture/`로 복사한다. 이 디렉터리는 아케이드 Git에서 제외하며, 운영 배포에서는 Vercel Blob의 커밋 SHA 경로로 대체한다.
 
-외부 배포는 아직 하지 않았다. [현재 상태](STATUS.md)와 [단일 아케이드 결정](docs/architecture/0001-single-arcade.md)을 확인한 뒤 원격 저장소와 Vercel·Blob을 연결한다.
-
-Vercel에는 `rapina/laika-arcade`만 연결한다. 최초 사이트 배포와 Blob 게임 자산 연결은 [Vercel 배포 가이드](arcade/DEPLOY.md)를 따른다.
+Vercel에는 `rapina/laika-arcade`만 연결한다. 최초 인증과 매일의 자동 공개 절차는 [Vercel 배포 가이드](arcade/DEPLOY.md)를 따른다.
