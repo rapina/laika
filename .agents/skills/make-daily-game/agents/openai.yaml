@@ -1,0 +1,4 @@
+interface:
+  display_name: "Make Daily Game"
+  short_description: "Build today’s complete Sputnik Workshop game"
+  default_prompt: "Use $make-daily-game to build today’s complete Sputnik Workshop game."

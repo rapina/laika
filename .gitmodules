@@ -1,0 +1,9 @@
+[submodule "launchpad"]
+	path = launchpad
+	url = https://github.com/rapina/toss-game-launchpad.git
+[submodule "arcade"]
+	path = arcade
+	url = https://github.com/rapina/laika-arcade.git
+[submodule "games/2026/2026-07-15-stitch"]
+	path = games/2026/2026-07-15-stitch
+	url = https://github.com/rapina/toss-game-stitch.git

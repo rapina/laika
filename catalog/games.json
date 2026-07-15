@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "studio": {
+    "name": "Sputnik Workshop",
+    "maker": "Laika"
+  },
+  "defaultLocales": ["ko", "en"],
+  "games": [
+    {
+      "sequence": 1,
+      "date": "2026-07-15",
+      "slug": "stitch",
+      "title": "한 땀",
+      "maker": "Laika",
+      "laikaBaseId": "laika-base-v1",
+      "makerIllustration": "games/2026/2026-07-15-stitch/public/art/laika-stitch-1280.jpg",
+      "repositoryPath": "games/2026/2026-07-15-stitch",
+      "intendedRepository": "rapina/toss-game-stitch",
+      "launchpadCommit": "4153053",
+      "arcadeState": "local-preview",
+      "tossState": "artifact-built"
+    }
+  ]
+}
