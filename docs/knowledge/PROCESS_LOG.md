@@ -21,8 +21,15 @@
   독립 설계 검토가 `pass`한 뒤 라이카 서사 전담 단계가 두 산출물을 처음
   작성한다. 회귀 시험은 잠금 뒤 `WHY.md`가 없고 `ART.md` 바이트가 그대로인지
   확인한다.
+- 같은 사이클의 공개 dry-run은 채운 패널보다 0.5px 또는 1px 안쪽에 그린 정상
+  HUD 테두리 다섯 개를 개발용 판정 상자로 오인했다. 검사기는 같은 좌표의
+  `fillRect`만 패널로 인정하고, Canvas 선명도를 위한 대칭 inset은 몰랐다.
+  네 변이 모두 같은 수치로 1px 이하 좁아진 경우만 패널로 인정하게 했다.
+  한 변이라도 다른 상자와 배경 위의 임의 상자는 계속 거부하는 회귀 시험을
+  함께 고정했다.
 - 강제 위치: `scripts/prepare-editorial.mjs`,
   `scripts/prepare-editorial.test.mjs`,
+  `scripts/lib/dev-markers.mjs`, `scripts/dev-markers.test.mjs`,
   `.agents/skills/make-daily-game/SKILL.md` §4.
 
 ## 2026-07-14 · 출발: 브랜드 블라인드 제작

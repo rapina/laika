@@ -61,6 +61,16 @@ test('HUD 크롬 테두리는 판정 상자로 잡지 않는다', () => {
     ),
     [],
   )
+  // Canvas 1px 테두리를 선명하게 만드는 대칭 0.5px inset도 같은 패널이다.
+  assert.deepEqual(
+    rules('ctx.fillRect(28, 30, 334, 74)\nctx.strokeRect(28.5, 30.5, 333, 73)'),
+    [],
+  )
+  // 두꺼운 결과판의 대칭 1px inset도 같은 패널이다.
+  assert.deepEqual(
+    rules('ctx.fillRect(34, 646, 322, 137)\nctx.strokeRect(35, 647, 320, 135)'),
+    [],
+  )
   // 버튼: 테두리를 그리고 그 사각형을 탭 영역으로 등록한다.
   assert.deepEqual(
     rules(
@@ -89,6 +99,11 @@ test('크롬 면제가 디버그 마커의 도피처가 되지 않는다', () =>
   assert.deepEqual(rules('c.fillRect(0,0,390,844)\nc.strokeRect(0,0,12,12)'), [
     'render-bounding-box',
   ])
+  // 일부 변만 우연히 가까운 상자는 패널 inset이 아니다.
+  assert.deepEqual(
+    rules('ctx.fillRect(28,30,334,74)\nctx.strokeRect(28.5,30.5,332,73)'),
+    ['render-bounding-box'],
+  )
   // 탭 영역 등록이 곁에 있다는 것만으로 사면되면 안 된다. 같은 자리여야 한다.
   assert.deepEqual(
     rules('hitAreas.push(restart)\nc.strokeRect(hit.x-2,hit.y-2,hit.w+4,hit.h+4)'),

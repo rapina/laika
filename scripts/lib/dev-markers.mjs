@@ -67,9 +67,27 @@ function isChromeRect(line, nearby = '') {
   const rect = firstArgs(line, 'strokeRect')
   if (!rect || rect.length < 4) return false
   const same = (other) => other.length >= 4 && [0, 1, 2, 3].every((i) => other[i] === rect[i])
+  const insetPanel = (other) => {
+    if (other.length < 4) return false
+    const [sx, sy, sw, sh] = rect.map(Number)
+    const [fx, fy, fw, fh] = other.map(Number)
+    if (![sx, sy, sw, sh, fx, fy, fw, fh].every(Number.isFinite)) return false
+    const insets = [
+      sx - fx,
+      sy - fy,
+      fx + fw - (sx + sw),
+      fy + fh - (sy + sh),
+    ]
+    // Canvas의 1px 선을 선명하게 그리려고 채운 패널보다 0.5px 또는 1px
+    // 안쪽에 테두리를 두는 정상 패턴. 네 변이 같은 수치로 좁아질 때만
+    // 인정해, 배경 fillRect가 임의의 판정 상자를 사면하지 못하게 한다.
+    return insets[0] > 0
+      && insets[0] <= 1
+      && insets.every((value) => Math.abs(value - insets[0]) < 1e-9)
+  }
 
-  // 1. 같은 자리에 같은 크기로 깔린 패널 배경.
-  if (allArgs(nearby, 'fillRect').some(same)) return true
+  // 1. 같은 자리 또는 네 변을 똑같이 0.5~1px 안으로 넣어 깐 패널 배경.
+  if (allArgs(nearby, 'fillRect').some((other) => same(other) || insetPanel(other))) return true
 
   // 2. 같은 좌표가 탭 영역으로 등록된 버튼. 이름이 곁에 있는 것만으로는 안 되고,
   //    등록된 상자가 그린 상자와 같은 자리여야 한다.
