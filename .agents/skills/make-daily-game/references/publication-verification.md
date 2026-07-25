@@ -2,10 +2,11 @@
 
 ## 출고 검사
 
-- `design-review.json`은 schemaVersion 2의 fatal-only 검사다.
-- 여섯 `fatalChecks`가 pass이고 `verdict: "pass"`다.
+- `design-review.json`은 schemaVersion 3의 설계 일치 검사다.
+- GDD의 구체적 약속이 모두 `implemented`이고 `verdict: "pass"`다.
+- 제작자가 정한 게임별 테스트가 실행되어 모두 pass다.
+- 빌드가 배포 가능한 상태다.
 - `sourceHash`가 현재 `smoke-result.json`과 같다.
-- 난해함, 미완주와 비차단 notes는 고치지 않고 공개 기록에 옮긴다.
 
 ## 제작 서사
 
@@ -23,16 +24,15 @@
 ## 로컬·preview·production
 
 아케이드 카탈로그, 플레이 페이지와 불변 자산 경로를 확인한다. 프로덕션 스모크는
-fatal-only 모드를 사용한다.
+deployment-only 모드를 사용한다.
 
 - 포털과 게임이 뜬다.
 - 세로 화면에서 핵심 영역이 보인다.
-- 실제 포인터 입력 뒤 화면이 반응한다.
 - 콘솔·페이지·필수 요청 오류가 없다.
-- 게임이 종료형이면 결과 경로까지 확인할 수 있지만 완주는 모든 게임의 의무가 아니다.
 
-목표 화면과 `designProcess.scenes`는 선택 사항이다. 체르파 요약과 치명 검사
-결과는 공개할 수 있다.
+게임 규칙, 입력 결과와 완주는 제작자 테스트와 체르파 대조에서 이미 확인했으므로
+공개 스모크가 다시 규정하지 않는다. 목표 화면과 `designProcess.scenes`는 선택
+사항이다. 체르파 요약과 설계 일치 결과는 공개할 수 있다.
 
 ## 지구 플레이
 

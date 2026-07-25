@@ -5,9 +5,9 @@ description: Run one full studio cycle for Sputnik Workshop: check the verificat
 
 # Run Studio Cycle
 
-한 사이클은 게임 한 편과 출고 공정 한 바퀴다. sequence 22부터 창작에는 세로
-모바일 조건만 전달하고, 공정 개선은 창작 규칙을 늘리는 대신 치명 결함 검사의
-정확도와 공개 안정성만 다룬다.
+한 사이클은 게임 한 편과 출고 공정 한 바퀴다. sequence 23부터 창작에는 세로
+모바일 조건만 전달한다. 제작자는 게임별 테스트까지 소유하고, 공정 개선은 설계
+일치 검토와 공개 안정성을 다룬다.
 
 당신은 감독자다. 게임을 직접 만들지 않는다. 만드는 일은 맥락이 분리된 하위 에이전트에게 맡기고, 당신은 그 앞뒤를 맡는다.
 
@@ -105,8 +105,8 @@ node .agents/skills/make-daily-game/scripts/preflight.mjs
 
 - 게임 이름(한/영), sequence, slug, 콘셉트 잠금 요약
 - 단계별 하위 에이전트 목록과 각각에게 전달한 자료 범위
-- 체르파 출고 검사 결과(verdict, fatal checks, 실제 포인터 관측, blocked였다면 치명 결함 보완 내역)
-- 출고 확인(빌드, 부팅 스모크, 세로 뷰포트, 필수 자산과 실제 포인터 반응)
+- 체르파 출고 검사 결과(verdict, 설계 약속 대조, 제작자 테스트, blocked였다면 불일치 보완 내역)
+- 출고 확인(빌드, 배포 스모크, 세로 뷰포트와 필수 자산)
 - 공개 결과(운영 URL, designProcess 등록, 지구 기록 시점) 또는 막힌 지점
 - 실패했거나 건너뛴 항목의 정직한 목록
 - **공정이 거추장스러웠거나 모호했던 지점, 문서와 실제가 어긋난 지점.** 특히 스킬 문서를 읽고 따르며 헷갈린 부분을 구체적으로.
@@ -125,8 +125,8 @@ curl -s -o /dev/null -w "%{http_code}" https://laika365.vercel.app/play/<slug>
 
 `release-drift`가 로컬·원격·공개된 빌드를 나란히 보여 준다. 게이트는 전부 로컬을 보고 초록을 내므로, 사람들이 하는 빌드가 그것과 같은지는 따로 확인해야 한다.
 
-- `design-review.json`의 fatal checks가 모두 pass이고 `sourceHash`가 현재 `smoke-result.json`과 같은가
-- `method.inputPath`가 `pointer-events`인가
+- `design-review.json`의 설계 약속이 모두 implemented이고 `sourceHash`가 현재 `smoke-result.json`과 같은가
+- 기록된 제작자 테스트가 실제 명령과 결과에 대응하는가
 - 카탈로그에 등록한 선택적 과정 이미지와 필수 자산이 실제로 200으로 응답하는가
 - 보고한 수치와 커밋된 파일의 수치가 같은가
 
@@ -142,11 +142,12 @@ curl -s -o /dev/null -w "%{http_code}" https://laika365.vercel.app/play/<slug>
 
 우선순위:
 
-1. **재발하는 치명 결함**. 같은 부팅·자산·터치·세로 화면·배포 손수정이 두
+1. **재발하는 배포 결함**. 같은 부팅·자산·세로 화면·배포 손수정이 두
    사이클 연속 나오면 기계화한다.
 2. **검증층 결함**. 게이트가 놓친 것, 게이트 자신이 깨진 것.
 3. **문서 모순과 미문서화**. 스킬이 같은 절에서 서로 다른 것을 요구하거나, 스키마가 검증 실패로만 발견되는 경우.
-4. **새 치명 결함 유형**. 창작 취향과 난해함은 검사 항목으로 만들지 않는다.
+4. **설계와 구현의 불일치**. 게임별 규칙은 제작자 테스트로 돌려보내고 공통
+   테스트 항목으로 만들지 않는다.
 
 고친 뒤 `node scripts/health-check.mjs`를 다시 돌려 스스로 통과시킨다.
 

@@ -29,6 +29,10 @@ import {
 import { scanDevMarkers, formatDevMarkerReport } from './lib/dev-markers.mjs'
 import { scanCaptureTiming, formatCaptureTimingReport } from './lib/capture-timing.mjs'
 import { FATAL_REVIEW_FROM_SEQUENCE, verifyFatalOnlyReview } from './lib/fatal-review.mjs'
+import {
+  DESIGN_CONFORMANCE_FROM_SEQUENCE,
+  verifyDesignConformanceReview,
+} from './lib/design-conformance-review.mjs'
 
 const SECRET_ENV_PATTERN = /(?:TOKEN|SECRET|PASSWORD|PRIVATE_KEY)/i
 const BLOB_FETCH_TIMEOUT_MS = 10_000
@@ -284,6 +288,10 @@ function verifyDesignReviewGate(gameDirectory) {
   const smokePath = join(gameDirectory, 'smoke-result.json')
   if (!existsSync(smokePath)) throw new Error('smoke-result.json이 없어 설계 검토의 sourceHash를 대조할 수 없습니다.')
   const smokeHash = readJson(smokePath).sourceHash
+  if (Number.isInteger(sequence) && sequence >= DESIGN_CONFORMANCE_FROM_SEQUENCE) {
+    verifyDesignConformanceReview(review, smokeHash)
+    return
+  }
   if (Number.isInteger(sequence) && sequence >= FATAL_REVIEW_FROM_SEQUENCE) {
     verifyFatalOnlyReview(review, smokeHash)
     return

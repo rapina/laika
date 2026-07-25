@@ -138,7 +138,7 @@ function verifySmokeEvidence(directory, sequence) {
   if ((smoke.consoleErrors ?? []).length || (smoke.pageErrors ?? []).length) {
     throw new Error('smoke 증거에 콘솔/페이지 오류가 있습니다.');
   }
-  if (fatalOnly && smoke.interactionVerified !== true) {
+  if (sequence === 22 && smoke.interactionVerified !== true) {
     throw new Error('smoke 증거에 터치 상호작용 확인이 없습니다.');
   }
   // 결과 전달 증거는 두 형태를 모두 받는다. 예전 스모크는 결과 객체(gameResult)를

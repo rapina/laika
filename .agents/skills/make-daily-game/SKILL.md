@@ -1,11 +1,11 @@
 ---
 name: make-daily-game
-description: Build and publish the next numbered Sputnik Workshop game with brand-blind creative freedom, portrait-mobile compatibility, fatal-only pre-release review, post-lock Laika narrative, immutable Arcade release, production smoke, and post-publication Earth notes. Direct requests enter through run-studio-cycle.
+description: Build and publish the next numbered Sputnik Workshop game with brand-blind creative freedom, creator-owned tests, design-conformance review, immutable Arcade release, deployment verification, and post-publication Earth notes. Direct requests enter through run-studio-cycle.
 ---
 
 # Make Daily Game
 
-다음 연번 게임을 완성해 단일 아케이드에 공개한다. sequence 22부터 창작 제약은
+다음 연번 게임을 완성해 단일 아케이드에 공개한다. sequence 23부터 제작 조건은
 하나다.
 
 > 세로형 모바일 디바이스에서 터치로 플레이되는 웹 게임을 만든다.
@@ -29,7 +29,7 @@ description: Build and publish the next numbered Sputnik Workshop game with bran
 
 - `AGENTS.md`, `STATUS.md`
 - `docs/quality-bar.md`
-- ADR 0001, 0003, 0007
+- ADR 0001, 0003, 0008
 
 ```bash
 node .agents/skills/make-daily-game/scripts/preflight.mjs
@@ -47,8 +47,9 @@ node .agents/skills/make-daily-game/scripts/preflight.mjs
 - DOM, Canvas, WebGL, WebGPU, 셰이더, 물리, 영상, 생성 이미지와 외부 자산을
   자유롭게 사용할 수 있다.
 - 기존 게임을 모방·변형·재창작하거나 최근 작품과 비슷하게 만들어도 된다.
-- 테스트 가능성, 결정론, 자동 완주, 깊이, 하나의 조작·재료·색, 목표 화면과
-  감산은 의무가 아니다.
+- 결정론, 자동 완주, 깊이, 하나의 조작·재료·색, 목표 화면과 감산은 의무가
+  아니다.
+- 자신의 게임 로직에 필요한 테스트의 범위와 방법은 제작자가 정한다.
 - [`references/creator-workflow.md`](references/creator-workflow.md)를 따른다.
 
 후보 수를 강제하지 않는다. 제작자가 원하는 게임 하나를 고르고 다음을 관제에
@@ -73,24 +74,23 @@ npm run new-game -- --id "com.sputnikworkshop.<slug>" --name "<EN_TITLE>" --slug
 - `DAY.md`, `GDD.md`, `ART.md`, manifest 작성
 - 원하는 기술·아트·사운드와 자원으로 게임 구현
 - 프로덕션 빌드
-- 세로 모바일 화면, 부팅, 필수 자산과 실제 포인터 입력 확인
+- 설계 문서에 적은 규칙과 로직을 확인할 게임별 테스트 작성·실행
+- 세로 모바일 부팅과 필수 자산 확인
 - 현재 sourceHash의 `smoke-result.json` 기록
-- 확인한 결과와 미확인 항목을 `DAY.md`에 기록
+- 테스트 명령, 확인한 결과와 미확인 항목을 `DAY.md`에 기록
 
 게임이 제공하지 않는 종료, 결과, 재시작, 점수, 키보드, 양언어와 자동 플레이를
 검증 편의를 위해 추가하지 않는다.
 
 ## 4. 제작 잠금
 
-다음 치명 결함만 확인한다.
+제작자는 GDD에 적은 게임을 구현하고 자신이 정한 게임별 테스트를 통과시킨다.
+GDD는 구현 뒤 게이트를 피하기 위한 문서가 아니라, 실제로 출시하려는 규칙과
+경험을 설명하는 기준 문서다. 제작 중 설계가 바뀌면 그 결정을 GDD와 테스트에
+함께 반영한다.
 
-- 화면 또는 필수 자산이 뜨지 않는다.
-- 세로 모바일에서 핵심 플레이 영역이 잘리거나 가려진다.
-- 화면에 보이는 주 입력이 실제 포인터에 반응하지 않는다.
-- 첫 상호작용 뒤 반복 충돌·입력 잠김·복귀 불능이 생긴다.
-
-난해함, 미완주, 낮은 완성도, 자동 테스트 불가와 기존 게임과의 유사성은 잠금을
-막지 않는다.
+공통 자동화는 빌드가 열리고 필수 자산이 존재하는지만 확인한다. 결정론,
+자동 완주, 특정 입력 뒤 상태 변화와 특정 테스트 항목 수를 요구하지 않는다.
 
 ```bash
 node scripts/prepare-editorial.mjs --game games/YYYY/YYYY-MM-DD-slug
@@ -107,9 +107,11 @@ git -C games/YYYY/YYYY-MM-DD-slug push origin main
 이전 대화를 받지 않는 검토자에게 게임 저장소, 빌드 방법과
 [`references/design-review.md`](references/design-review.md)만 전달한다.
 
-검토자는 schemaVersion 2 `design-review.json`을 커밋한다. 여섯 fatal 검사가
-모두 pass면 난해하거나 미완주여도 `verdict: "pass"`다. 실제 치명 결함이 있으면
-그 결함만 제작 단계에서 고치고 재검토한다.
+검토자는 최종 GDD, 실제 프로덕션 빌드와 제작자가 남긴 테스트 결과를 대조하고
+schemaVersion 3 `design-review.json`을 커밋한다. 문서의 구체적 약속이 빌드에
+구현됐고 제작자 테스트가 통과했으며 빌드가 배포 가능하면 `verdict: "pass"`다.
+불일치는 제작자가 설계나 구현 중 의도한 쪽을 분명히 한 뒤 함께 고치고
+재검토한다.
 
 ## 6. 라이카 서사와 공개 준비
 
@@ -117,13 +119,14 @@ git -C games/YYYY/YYYY-MM-DD-slug push origin main
 
 - `docs/knowledge/STUDIO.md`, `docs/editorial-bar.md`
 - `brand/LAIKA.md`, `brand/CHERPA.md`
-- ADR 0002, 0006, 0007
+- ADR 0002, 0006, 0008
 - 릴리스·공개 계약
 - [`references/editorial-workflow.md`](references/editorial-workflow.md)
 - [`references/publication-verification.md`](references/publication-verification.md)
 
 잠긴 기록만 근거로 `WHY.md`, 아케이드 한·영 카피, 크레딧과 라이카 제작자
-일러스트를 만든다. 체르파 공개 기록은 fatal 검사와 비차단 관찰을 그대로 옮긴다.
+일러스트를 만든다. 체르파 공개 기록은 설계 문서와 실제 빌드의 대조 결과를
+그대로 옮긴다.
 
 ```bash
 node scripts/prepare-editorial.mjs --game games/YYYY/YYYY-MM-DD-slug --verify
@@ -134,9 +137,9 @@ node scripts/prepare-editorial.mjs --game games/YYYY/YYYY-MM-DD-slug --verify
 
 ## 7. 아케이드 공개
 
-게임별 포털 스모크 드라이버는 `reviewMode: "fatal-only"`를 사용한다. 게임이
-종료형일 때만 완주·결과를 검사하고, 그 밖에는 부팅 뒤 실제 포인터 입력과 화면
-반응·오류 0을 확인한다.
+게임별 포털 스모크 드라이버는 `reviewMode: "deployment-only"`를 사용한다.
+아케이드는 포털, 불변 자산, 세로 런타임과 오류 여부만 확인한다. 게임 규칙이나
+완주 여부는 다시 심사하지 않는다.
 
 ```bash
 node scripts/publish-game.mjs --dry-run --game games/YYYY/YYYY-MM-DD-slug
@@ -155,5 +158,5 @@ Blob 업로드, preview, production, 운영 도메인 검증이 끝날 때까지
 - `record-cycle.mjs`와 cycle done 이벤트를 남긴다.
 - 게임·아케이드·루트 저장소를 명시적 경로로 커밋·푸시한다.
 
-최종 보고에는 게임 이름, 운영 URL, fatal 검사 결과, 실제 production 입력 확인,
-공정 변경과 승인 대기 중인 Toss 작업만 적는다.
+최종 보고에는 게임 이름, 운영 URL, 설계 일치 판정, 제작자 테스트와 production
+배포 확인, 공정 변경과 승인 대기 중인 Toss 작업만 적는다.
