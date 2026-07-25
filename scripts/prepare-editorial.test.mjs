@@ -136,7 +136,8 @@ test('lock prepares independent review without writing public narrative', () => 
   const { container, directory } = fixture();
   try {
     const artBefore = readFileSync(join(directory, 'ART.md'));
-    assert.equal(run(directory).status, 0);
+    const result = run(directory);
+    assert.equal(result.status, 0, result.stderr);
     assert.equal(existsSync(join(directory, 'WHY.md')), false);
     assert.deepEqual(readFileSync(join(directory, 'ART.md')), artBefore);
     assert.equal(run(directory, '--verify').status, 0);
@@ -264,6 +265,26 @@ test('lock assigns the publication fields nobody owned', () => {
     assert.equal(run(directory, '--relock', '--reason', '번호 유지 확인').status, 0);
     const after = JSON.parse(readFileSync(join(directory, '.studio.json'), 'utf8'));
     assert.equal(after.sequence, first);
+  } finally {
+    rmSync(container, { recursive: true, force: true });
+  }
+});
+
+test('lock ignores a deleted tracked path and includes its untracked replacement', () => {
+  const { container, directory } = fixture();
+  try {
+    mkdirSync(join(directory, 'android'), { recursive: true });
+    writeFileSync(join(directory, 'android/old-entry.java'), 'final class OldEntry {}\n');
+    execFileSync('git', ['add', 'src/game.js', 'android/old-entry.java'], { cwd: directory });
+    rmSync(join(directory, 'android/old-entry.java'));
+    writeFileSync(join(directory, 'android/new-entry.java'), 'final class NewEntry {}\n');
+    writeSmokeEvidence(directory);
+
+    const result = run(directory);
+    assert.equal(result.status, 0, result.stderr);
+    const lock = JSON.parse(readFileSync(join(directory, '.creator-lock.json'), 'utf8'));
+    assert.equal(lock.files['android/old-entry.java'], undefined);
+    assert.equal(typeof lock.files['android/new-entry.java'], 'string');
   } finally {
     rmSync(container, { recursive: true, force: true });
   }

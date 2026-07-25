@@ -88,6 +88,14 @@
       "escaped": 1,
       "held": true,
       "note": "독립 설계 검토 1차 blocked 뒤 화면 기반 잎눈 corridor와 실패 교정을 보완해 pass. preview에서 원격 렌더 전 스모크 조기 입력 1건이 드러나 준비 조건을 실제 매듭 렌더로 강화. 실패한 공개 재시도의 release branch 충돌도 자동 suffix로 수리."
+    },
+    {
+      "sequence": 22,
+      "slug": "glassdive",
+      "interventions": 0,
+      "escaped": 0,
+      "held": false,
+      "note": "fatal-only 첫 사이클, 잠금의 삭제 경로 처리 수정"
     }
   ]
 }
