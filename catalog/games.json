@@ -421,6 +421,23 @@
       "model": "gpt-5.6-sol",
       "metadataAmendedAfterRelease": true,
       "publishedReleaseSha": "bf5256de42582f6ba0b0f5c5931168d27ca0255d"
+    },
+    {
+      "sequence": 23,
+      "date": "2026-07-26",
+      "slug": "foldtherain",
+      "title": "비를 접는 밤",
+      "maker": "Laika",
+      "laikaBaseId": "laika-base-v1",
+      "makerIllustration": "games/2026/2026-07-26-foldtherain/public/art/laika-foldtherain-1280.jpg",
+      "repositoryPath": "games/2026/2026-07-26-foldtherain",
+      "intendedRepository": "rapina/laika-game-foldtherain",
+      "launchpadCommit": "template-inherited",
+      "sourceHead": "4ca606f5feceb0b3b045e0401182f1e249214edb",
+      "arcadeState": "local-preview",
+      "tossState": "artifact-built",
+      "model": "gpt-5.6-sol",
+      "metadataAmendedAfterRelease": false
     }
   ]
 }
