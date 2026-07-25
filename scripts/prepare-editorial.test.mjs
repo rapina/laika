@@ -67,6 +67,7 @@ function writeSmokeEvidence(directory) {
     seed: '1',
     sourceHash: computeSourceHash(directory),
     mounted: true,
+    interactionVerified: true,
     finished: true,
     // 현행 launchpad 스모크가 쓰는 안정 필드. 예전 gameResult 객체도 계속 받는다.
     resultDelivered: true,

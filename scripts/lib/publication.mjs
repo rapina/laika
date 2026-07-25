@@ -181,7 +181,7 @@ function listFiles(directory) {
   })
 }
 
-export function verifyReleaseDirectory(distDirectory, release) {
+export function verifyReleaseDirectory(distDirectory, release, { enforceBudgets = true } = {}) {
   const dist = realpathSync(resolve(distDirectory))
   if (!Array.isArray(release.assets) || release.assets.length === 0) {
     throw new Error('release.assets가 비어 있습니다.')
@@ -221,11 +221,11 @@ export function verifyReleaseDirectory(distDirectory, release) {
   if (release.files !== release.assets.length || release.bytes !== bytes) {
     throw new Error('release 파일 수 또는 전체 바이트가 assets와 다릅니다.')
   }
-  if (release.bytes > 8 * 1024 * 1024) throw new Error('release 전체 크기가 8MB를 넘습니다.')
-  if (release.assets.some((asset) => asset.bytes > 4 * 1024 * 1024)) {
+  if (enforceBudgets && release.bytes > 8 * 1024 * 1024) throw new Error('release 전체 크기가 8MB를 넘습니다.')
+  if (enforceBudgets && release.assets.some((asset) => asset.bytes > 4 * 1024 * 1024)) {
     throw new Error('release의 단일 파일이 4MB를 넘습니다.')
   }
-  if (!Number.isSafeInteger(release.codeGzipBytes) || release.codeGzipBytes > 520 * 1024) {
+  if (!Number.isSafeInteger(release.codeGzipBytes) || (enforceBudgets && release.codeGzipBytes > 520 * 1024)) {
     throw new Error('release 코드 gzip 예산이 올바르지 않습니다.')
   }
 
@@ -247,7 +247,12 @@ function validateIdentity({ studio, manifest, release, gitHead }) {
   if (studio.publishState !== 'local-preview' && studio.publishState !== 'published') {
     throw new Error('local-preview 검증을 마친 게임만 게시할 수 있습니다.')
   }
-  if (!REQUIRED_LOCALES.every((locale) => manifest.supportedLocales?.includes(locale))) {
+  const fatalOnly = Number.isInteger(studio.sequence) && studio.sequence >= 22
+  if (
+    !Array.isArray(manifest.supportedLocales) ||
+    manifest.supportedLocales.length === 0 ||
+    (!fatalOnly && !REQUIRED_LOCALES.every((locale) => manifest.supportedLocales.includes(locale)))
+  ) {
     throw new Error('게임 manifest는 한국어와 영어를 지원해야 합니다.')
   }
   if (

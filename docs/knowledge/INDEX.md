@@ -5,6 +5,7 @@
 - 구조 결정: `../architecture/0001-single-arcade.md`
 - 자율 공개 결정: `../architecture/0002-autonomous-publication.md`
 - 브랜드 블라인드 제작 결정: `../architecture/0003-brand-blind-production.md`
+- 창작 자유와 치명 결함 전용 검토 결정: `../architecture/0007-creative-freedom-fatal-only-review.md`
 - 지구 플레이어 피드백 결정: `../architecture/0004-earth-player-feedback.md`
 - 연번 제작 결정: `../architecture/0005-numbered-production.md`
 - 게임 릴리스 계약: `../contracts/game-release-v1.md`

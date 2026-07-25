@@ -125,17 +125,21 @@ function verifyCspEvidence(directory) {
   }
 }
 
-function verifySmokeEvidence(directory) {
+function verifySmokeEvidence(directory, sequence) {
   const smokePath = join(directory, 'smoke-result.json');
   if (!existsSync(smokePath)) {
     throw new Error('smoke-result.json이 없습니다. npm run smoke를 실행하고 결과를 커밋해야 잠글 수 있습니다.');
   }
   const smoke = readJson(smokePath);
-  if (smoke.mounted !== true || smoke.finished !== true) {
+  const fatalOnly = Number.isInteger(sequence) && sequence >= 22;
+  if (smoke.mounted !== true || (!fatalOnly && smoke.finished !== true)) {
     throw new Error('smoke 증거가 완주 상태가 아닙니다. 게임이 마운트되고 한 판이 끝나야 합니다.');
   }
   if ((smoke.consoleErrors ?? []).length || (smoke.pageErrors ?? []).length) {
     throw new Error('smoke 증거에 콘솔/페이지 오류가 있습니다.');
+  }
+  if (fatalOnly && smoke.interactionVerified !== true) {
+    throw new Error('smoke 증거에 터치 상호작용 확인이 없습니다.');
   }
   // 결과 전달 증거는 두 형태를 모두 받는다. 예전 스모크는 결과 객체(gameResult)를
   // 통째로 적었지만, 블라인드 드라이버의 점수·최종 상태는 실행마다 달라져 게시 게이트의
@@ -145,10 +149,10 @@ function verifySmokeEvidence(directory) {
   const resultDelivered =
     smoke.resultDelivered === true ||
     (Boolean(smoke.gameResult) && typeof smoke.gameResult === 'object');
-  if (!resultDelivered) {
+  if (!fatalOnly && !resultDelivered) {
     throw new Error('smoke 증거에 결과 전달 기록이 없습니다. 게임 오버가 결과를 호스트로 전달해야 합니다.');
   }
-  if (smoke.restartVerified !== true) {
+  if (!fatalOnly && smoke.restartVerified !== true) {
     throw new Error('smoke 증거에 재시작 확인이 없습니다. 종료 화면에서 화면 탭으로 새 판이 시작되어야 합니다.');
   }
   if (typeof smoke.sourceHash !== 'string') {
@@ -339,7 +343,7 @@ function relock(directory, studio, reason) {
   if (studio.editorialState !== 'ready') throw new Error('editorialState가 ready인 게임만 다시 잠글 수 있습니다.');
 
   // 갱신본도 최초 잠금과 같은 증거를 요구한다. 낡은 smoke로는 다시 잠글 수 없다.
-  verifySmokeEvidence(directory);
+  verifySmokeEvidence(directory, studio.sequence);
 
   const previous = readJson(lockPath);
   const snapshot = creatorSnapshot(directory, studio);
@@ -401,7 +405,8 @@ function prepare(directory, studio) {
   for (const required of ['DAY.md', 'GDD.md', 'ART.md', 'game.manifest.json']) {
     if (!existsSync(join(directory, required))) throw new Error(`${required} is required before game lock.`);
   }
-  verifySmokeEvidence(directory);
+  const sequence = Number.isInteger(studio.sequence) ? studio.sequence : nextSequence(studio.slug);
+  verifySmokeEvidence(directory, sequence);
   verifyCspEvidence(directory);
   if (existsSync(join(directory, 'WHY.md'))) throw new Error('WHY.md must not exist before game lock.');
   if (existsSync(join(directory, '.creator-lock.json'))) {
@@ -423,7 +428,7 @@ function prepare(directory, studio) {
     if (existsSync(join(directory, path))) throw new Error(`${path} must not exist before game lock.`);
   }
 
-  if (!Array.isArray(studio.defaultLocales) || !['ko', 'en'].every((locale) => studio.defaultLocales.includes(locale))) {
+  if (sequence < 22 && (!Array.isArray(studio.defaultLocales) || !['ko', 'en'].every((locale) => studio.defaultLocales.includes(locale)))) {
     throw new Error('.studio.json must include Korean and English default locales.');
   }
 
@@ -432,8 +437,7 @@ function prepare(directory, studio) {
     manifest.slug !== studio.slug ||
     manifest.releaseDate !== studio.date ||
     manifest.title?.ko !== studio.title ||
-    typeof manifest.title?.en !== 'string' ||
-    !manifest.title.en.trim()
+    (sequence < 22 && (typeof manifest.title?.en !== 'string' || !manifest.title.en.trim()))
   ) {
     throw new Error('Game manifest identity must match the locked studio metadata.');
   }
@@ -458,7 +462,7 @@ function prepare(directory, studio) {
     editorialState: 'ready',
     // 잠긴 게임은 게시 후보다. publish-game이 요구하는 두 값을 여기서 채운다.
     publishState: studio.publishState === 'published' ? 'published' : 'local-preview',
-    sequence: Number.isInteger(studio.sequence) ? studio.sequence : nextSequence(studio.slug),
+    sequence,
   };
   const lock = {
     ...creatorSnapshot(directory, studio),

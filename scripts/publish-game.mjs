@@ -28,6 +28,7 @@ import {
 } from './lib/publication.mjs'
 import { scanDevMarkers, formatDevMarkerReport } from './lib/dev-markers.mjs'
 import { scanCaptureTiming, formatCaptureTimingReport } from './lib/capture-timing.mjs'
+import { FATAL_REVIEW_FROM_SEQUENCE, verifyFatalOnlyReview } from './lib/fatal-review.mjs'
 
 const SECRET_ENV_PATTERN = /(?:TOKEN|SECRET|PASSWORD|PRIVATE_KEY)/i
 const BLOB_FETCH_TIMEOUT_MS = 10_000
@@ -280,12 +281,16 @@ function verifyDesignReviewGate(gameDirectory) {
     throw new Error('design-review.json이 없습니다. 설계 검토 게이트를 먼저 통과하세요.')
   }
   const review = readJson(reviewPath)
-  if (review.verdict !== 'pass') {
-    throw new Error(`설계 검토 verdict가 pass가 아닙니다: "${review.verdict}". 공개를 진행할 수 없습니다.`)
-  }
   const smokePath = join(gameDirectory, 'smoke-result.json')
   if (!existsSync(smokePath)) throw new Error('smoke-result.json이 없어 설계 검토의 sourceHash를 대조할 수 없습니다.')
   const smokeHash = readJson(smokePath).sourceHash
+  if (Number.isInteger(sequence) && sequence >= FATAL_REVIEW_FROM_SEQUENCE) {
+    verifyFatalOnlyReview(review, smokeHash)
+    return
+  }
+  if (review.verdict !== 'pass') {
+    throw new Error(`설계 검토 verdict가 pass가 아닙니다: "${review.verdict}". 공개를 진행할 수 없습니다.`)
+  }
   if (typeof review.sourceHash !== 'string' || review.sourceHash !== smokeHash) {
     throw new Error('설계 검토의 sourceHash가 현재 smoke 증거와 다릅니다. 소스 변경 뒤 재검토가 필요합니다.')
   }
@@ -414,13 +419,17 @@ function loadContext(workspace, gameInput, blobOriginInput, allowPublishedReplac
   if (!existsSync(releasePath)) throw new Error('dist-arcade/release.json이 없습니다.')
   const releaseJsonBytes = readFileSync(releasePath)
   const release = JSON.parse(releaseJsonBytes.toString('utf8'))
-  verifyReleaseDirectory(join(gameDirectory, 'dist-arcade'), release)
-  verifyDevMarkers(gameDirectory)
-  verifyCaptureTiming(gameDirectory)
+  const studio = readJson(join(gameDirectory, '.studio.json'))
+  const fatalOnly = Number.isInteger(studio.sequence) && studio.sequence >= FATAL_REVIEW_FROM_SEQUENCE
+  verifyReleaseDirectory(join(gameDirectory, 'dist-arcade'), release, { enforceBudgets: !fatalOnly })
+  if (!fatalOnly) {
+    verifyDevMarkers(gameDirectory)
+    verifyCaptureTiming(gameDirectory)
+  }
   verifyDesignReviewGate(gameDirectory)
   const gitHead = git(gameDirectory, ['rev-parse', 'HEAD'])
   const plan = buildPublicationPlan({
-    studio: readJson(join(gameDirectory, '.studio.json')),
+    studio,
     manifest: readJson(join(gameDirectory, 'game.manifest.json')),
     release,
     releaseJsonBytes,
