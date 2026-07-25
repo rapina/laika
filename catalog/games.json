@@ -433,11 +433,12 @@
       "repositoryPath": "games/2026/2026-07-26-foldtherain",
       "intendedRepository": "rapina/laika-game-foldtherain",
       "launchpadCommit": "template-inherited",
-      "sourceHead": "4ca606f5feceb0b3b045e0401182f1e249214edb",
-      "arcadeState": "local-preview",
+      "sourceHead": "dec3d21f7b191f19c848231d81954a6cdd768d8c",
+      "arcadeState": "published",
       "tossState": "artifact-built",
       "model": "gpt-5.6-sol",
-      "metadataAmendedAfterRelease": false
+      "metadataAmendedAfterRelease": false,
+      "publishedReleaseSha": "dec3d21f7b191f19c848231d81954a6cdd768d8c"
     }
   ]
 }
