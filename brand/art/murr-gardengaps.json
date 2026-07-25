@@ -1,0 +1,39 @@
+{
+  "id": "murr-gardengaps-v1",
+  "createdAt": "2026-07-26",
+  "generator": "OpenAI Codex built-in image_gen",
+  "reference": "brand/art/murr-base.png",
+  "prompt": "brand/prompts/murr-gardengaps.md",
+  "source": {
+    "path": "brand/art/murr-gardengaps.png",
+    "width": 1536,
+    "height": 1024,
+    "sha256": "f1e36ee39c4a90ec928bbb9d20ef0f5f87ab27c0d58472edb41ffec0ac93f4c1"
+  },
+  "derivatives": [
+    {
+      "path": "arcade/public/art/murr-gardengaps-640.jpg",
+      "width": 640,
+      "height": 426,
+      "sha256": "f297782fe9e1744aeaf744df6d193d08564c237871e864350b8d05b265fc0e10"
+    },
+    {
+      "path": "arcade/public/art/murr-gardengaps-1280.jpg",
+      "width": 1280,
+      "height": 853,
+      "sha256": "5ef83e01d375f2306c946955c9d1d2ff5fe86167dd90877890b9f3d135c5de95"
+    }
+  ],
+  "review": {
+    "oneCat": true,
+    "naturalFelineAnatomy": true,
+    "earthReceivingRoom": true,
+    "pawPartingLinkedReeds": true,
+    "tealLeafBuds": true,
+    "beetleNotYetHome": true,
+    "noTextOrLogo": true,
+    "noExtraPawsOrHumanHands": true,
+    "mobileCropReadable": true
+  },
+  "notes": "Murr and the receiving room remain recognizable. The uncertain paw and nearly similar reed knots reflect the public player's real difficulty distinguishing the next valid gap."
+}

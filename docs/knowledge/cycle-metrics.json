@@ -80,6 +80,14 @@
       "escaped": 1,
       "held": false,
       "note": "제작 자율 완주. 지구 평가가 이번엔 무르 목소리로 나옴(지난 어미 게이트 유효). 등급 배지 픽셀 폰트 거칠게 공개(경미)"
+    },
+    {
+      "sequence": 21,
+      "slug": "gardengaps",
+      "interventions": 0,
+      "escaped": 1,
+      "held": true,
+      "note": "독립 설계 검토 1차 blocked 뒤 화면 기반 잎눈 corridor와 실패 교정을 보완해 pass. preview에서 원격 렌더 전 스모크 조기 입력 1건이 드러나 준비 조건을 실제 매듭 렌더로 강화. 실패한 공개 재시도의 release branch 충돌도 자동 suffix로 수리."
     }
   ]
 }
