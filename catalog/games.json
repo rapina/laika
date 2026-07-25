@@ -416,10 +416,11 @@
       "intendedRepository": "rapina/laika-game-glassdive",
       "launchpadCommit": "template baseline; game-local runtime",
       "sourceHead": "bf5256de42582f6ba0b0f5c5931168d27ca0255d",
-      "arcadeState": "local-preview",
+      "arcadeState": "published",
       "tossState": "not-built",
       "model": "gpt-5.6-sol",
-      "metadataAmendedAfterRelease": false
+      "metadataAmendedAfterRelease": false,
+      "publishedReleaseSha": "bf5256de42582f6ba0b0f5c5931168d27ca0255d"
     }
   ]
 }
