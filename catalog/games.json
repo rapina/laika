@@ -398,10 +398,11 @@
       "intendedRepository": "rapina/laika-game-gardengaps",
       "launchpadCommit": "local-template-2026-07-25",
       "sourceHead": "3b47dbcc0c2b6d8297c4e6b52fd155d5d94bad9d",
-      "arcadeState": "local-preview",
+      "arcadeState": "published",
       "tossState": "artifact-built",
       "model": "gpt-5.6-sol",
-      "metadataAmendedAfterRelease": false
+      "metadataAmendedAfterRelease": false,
+      "publishedReleaseSha": "3b47dbcc0c2b6d8297c4e6b52fd155d5d94bad9d"
     }
   ]
 }
