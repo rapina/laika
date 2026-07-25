@@ -119,7 +119,7 @@ node arcade/scripts/validate.mjs
 7. 독립 public 저장소를 만들고 불변 릴리스를 아케이드 카탈로그에 등록한다.
 8. 공개 URL에서 실제 한 판을 완주해 배포 상태를 확인한다.
 
-제작의 완료 조건과 역할 경계는 [RTK.md](RTK.md), 세부 배포 계약은
+제작의 완료 조건과 역할 경계는 [AGENTS.md](AGENTS.md), 세부 배포 계약은
 [`docs/contracts/`](docs/contracts/)에서 확인할 수 있다.
 
 ## 설계 원칙
@@ -132,8 +132,8 @@ node arcade/scripts/validate.mjs
   버전을 고정한다.
 - **접근 가능한 기본값:** 한국어·영어, 세로형 모바일 화면과 무음 플레이를 기본
   계약으로 삼는다.
-- **열린 코드, 분리된 브랜드:** 제작 시스템과 코드는 재사용할 수 있지만 Laika
-  캐릭터·로고·브랜드 아트에는 별도 조건이 적용된다.
+- **열린 코드와 아트:** 제작 시스템은 MIT, 프로젝트 아트는 CC0로 공개한다.
+  파생 프로젝트는 원본이나 공식 프로젝트로 오인되지 않게 소개한다.
 
 ## 기여하기
 
@@ -145,10 +145,10 @@ node arcade/scripts/validate.mjs
 ## 라이선스
 
 - 코드와 제작 자동화: [MIT](LICENSE)
-- 문서와 비브랜드 원본 아트: [CC BY 4.0](CONTENT-LICENSE.md)
-- Laika, Murr, Cherpa, Enos 캐릭터·로고·브랜드 아트:
-  [별도 브랜드 조건](BRAND-LICENSE.md)
+- 문서: [CC BY 4.0](CONTENT-LICENSE.md)
+- Laika, Murr, Cherpa, Enos 캐릭터·로고·프로젝트 아트:
+  [CC0 1.0](BRAND-NOTICE.md)
 - Galmuri 폰트와 제3자 자료: 각 저장소에 포함된 원래 라이선스 및 provenance
 
-새 Laika 로고는 프로젝트의 브랜드 자산이며
-[`BRAND-LICENSE.md`](BRAND-LICENSE.md)의 적용을 받는다.
+실존 우주견 Laika의 이름·외형·역사에 독점권을 주장하지 않는다. 새 Laika
+로고를 포함한 프로젝트 아트에도 권리를 주장하지 않으며 CC0로 공개한다.

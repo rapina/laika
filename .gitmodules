@@ -1,6 +1,6 @@
 [submodule "launchpad"]
 	path = launchpad
-	url = https://github.com/rapina/toss-game-launchpad.git
+	url = https://github.com/rapina/laika-game-lunchpad.git
 [submodule "arcade"]
 	path = arcade
 	url = https://github.com/rapina/laika-arcade.git
