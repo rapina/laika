@@ -1,6 +1,6 @@
 ---
 name: make-daily-game
-description: Build and publish the next numbered hyper-casual game for Sputnik Workshop with a context-isolated, brand-blind concept and production stage followed by a post-lock Laika maker narrative, original art and sound, Korean/English copy, deterministic tests, Arcade registration, verified Vercel production release, and production QA. This is the production workflow, normally invoked by an orchestrator that the run-studio-cycle skill delegates to; when a user asks for a new game directly, run-studio-cycle is the entry point because it checks the verification layer first and repairs the process afterwards. Resume the pending draft instead of creating a duplicate. Do not use for a small edit to an existing completed game unless the user asks to run the full production cycle.
+description: Build and publish the next numbered small experimental game for Sputnik Workshop with a context-isolated, brand-blind concept and production stage followed by a post-lock Laika maker narrative, original art and sound, Korean/English copy, interaction-appropriate verification, Arcade registration, verified Vercel production release, and production QA. This is the production workflow, normally invoked by an orchestrator that the run-studio-cycle skill delegates to; when a user asks for a new game directly, run-studio-cycle is the entry point because it checks the verification layer first and repairs the process afterwards. Resume the pending draft instead of creating a duplicate. Do not use for a small edit to an existing completed game unless the user asks to run the full production cycle.
 ---
 
 # Make Daily Game
@@ -22,9 +22,9 @@ description: Build and publish the next numbered hyper-casual game for Sputnik W
 
 ## 1. 중립 사전 점검
 
-1. `RTK.md`, `launchpad/`, `arcade/`, `scripts/new-day.mjs`가 있는 관제 저장소 루트를 찾는다.
+1. `AGENTS.md`, `launchpad/`, `arcade/`, `scripts/new-day.mjs`가 있는 관제 저장소 루트를 찾는다.
 2. 다음 중립 자료만 읽는다.
-   - `AGENTS.md`, `RTK.md`, `STATUS.md`
+   - `AGENTS.md`, `STATUS.md`
    - `docs/quality-bar.md`
    - `docs/knowledge/CRAFT.md`
    - `docs/architecture/0001-single-arcade.md`, `docs/architecture/0003-brand-blind-production.md`
@@ -51,15 +51,20 @@ node .agents/skills/make-daily-game/scripts/preflight.mjs
 최근 게임에서는 실제 제목, 서사, 공개 카피를 제외하고 다음 반복 지문만 추린다.
 
 ```text
-핵심 입력 / 시스템 반응 / 재료 / 시각 매체 / 대표 색 / 세션 구조 / 깊이 구조(난이도 단계 수, 판정 단계 수)
+상호작용 문법 / 반복해서 내리는 결정 / 입력이 세계에 남는 방식 / 목표 구조 /
+실패·종료 구조 / 점수 구조 / 재료 / 시각 매체 / 대표 색 / 세션 구조
 ```
 
 이전 대화를 물려받지 않는 새 에이전트 맥락을 만든다. Codex에서는 `fork_turns: "none"`인 하위 에이전트를 사용하고, 다른 환경에서는 동등한 새 맥락을 사용한다. 에이전트에는 아래 항목만 전달한다.
 
-- 390×844 기준의 한 손 세로 게임. 한 판 길이는 콘셉트가 정한다(기본 30초~3분). 짧은 세션은 선택지이지 목표가 아니며, 규칙을 배우고 교정할 시간을 세션이 담아야 한다.
-- 한국어·영어와 접근성, 결정론 요구
-- 최근 게임의 중립 반복 지문과 깊이 구조 기준선. 새 콘셉트의 깊이는 이 기준선 이상이어야 한다.
-- 깊이 축은 콘셉트에 내장되어야 한다는 요구. 규칙의 자연 변수(속도, 판정 폭, 목표 배치, 리듬)를 조이는 것만으로 긴장이 상승해야 하며, 별도 기능을 접붙여야 깊이가 생기는 후보는 제출할 수 없다.
+- 390×844 기준의 한 손 세로 게임. 탭·드래그·놓기·선택처럼 서로 의존하는
+  동사를 하나의 상호작용 문법 안에서 조합할 수 있다. 세션 길이와 종료 유무는
+  콘셉트가 정한다.
+- 한국어·영어와 접근성 요구. 결과에 관여하는 규칙만 재현 가능해야 한다.
+- 최근 게임의 중립 반복 지문. 표면 입력과 재료가 달라도 플레이어의 결정 구조가
+  같으면 반복으로 본다.
+- 깊이는 숙련 정확도뿐 아니라 공간, 순서, 조합, 상태 누적, 위험 교환, 발견,
+  표현에서 만들 수 있다. 핵심 경험에 필요한 최소 규칙 조합을 허용한다.
 - 시각·물리 매체의 자유: WebGL 셰이더, 실시간 물리, 유체, 파티클 같은 동적 매체도 동등한 후보이며, 후보 중 최소 하나는 동적 매체를 핵심 표현으로 써야 한다는 요구. 판정에 관여하는 시뮬레이션만 결정론을 유지하면 된다.
 - `docs/knowledge/CRAFT.md`의 깊이 구조 절
 - 최근 플레이 피드백의 중립 학습. 과거 제목, 세계, 제작자 서사와 공개 카피는 제외한다.
@@ -116,21 +121,29 @@ npm run new-game -- --id "com.sputnikworkshop.<slug>" --name "<EN_TITLE>" --slug
 
 ## 4. 제작 잠금
 
-관제 에이전트가 결과를 콘셉트 잠금과 대조한다. 플레이 가능한 첫 버전에서 감산 패스를 두 번 적용하고, 대표 조작과 장면을 강화한다. 새 기능으로 빈자리를 채우지 않는다.
+관제 에이전트가 결과를 콘셉트 잠금과 대조한다. 플레이 가능한 첫 버전에서 감산
+패스를 적용해 핵심 상호작용과 장면을 강화한다. 획일적인 기능 수 목표는 두지
+않고, 다음 결정을 만들지 않는 기능만 제거한다.
 
 감산 뒤 잠금 전에 깊이 게이트를 확인한다.
 
-- 진행 중 목표·위험·공간·리듬·판정 중 하나 이상이 변해 숙련 판단이 생기는가
-- 그 변화가 GDD 수치와 테스트로 검증되는가
-- 한 판이 끝난 뒤 점수 차이를 만드는 지표가 실제 플레이어 실력 차이를 반영하는가
-- 사람 모델 플레이 가능성 게이트(직관·숙련 두 정책 시뮬레이션)를 수치로 통과했고 그 수치가 `DAY.md`에 있는가
-- 첫 판 화면 캡처만 보고 세 질문(입력이 무엇을 하는지 · 언제 행동하는지 · 목표와 종료 조건)에 답할 수 있는가
+- 플레이어가 숙련·선택·공간·순서·누적·위험·발견·표현 중 무엇을 경험하는지
+  GDD에 명시했고 실제 플레이에서 다음 행동이 달라지는가
+- `challenge`, `puzzle`, `strategy`, `survival`, `construction`, `exploration`,
+  `toy` 중 검증 프로필을 골랐고 그 프로필에 맞는 증거가 `DAY.md`에 있는가
+- 점수·판정·실패·완주가 있는 게임만 각각의 유효성을 검증했는가. 없는 구조를
+  검증 편의를 위해 추가하지 않았는가
+- 첫 판 화면에서 시작 방법과 안전한 첫 행동을 알 수 있는가. 발견이 핵심이면
+  전략과 결과를 미리 설명하지 않아도 된다.
 - 게임 오버 화면 캡처만 보고 두 질문(판이 끝났는가 · 어떻게 다시 시작하는가)에 답할 수 있는가
-- 판정 등급별 핵심 동사 직후 캡처만 보고 재료의 반응과 판정 등급을 답할 수 있는가
+- 핵심 상호작용 직후 캡처에서 세계가 어떻게 변했는지 답할 수 있는가. 판정
+  등급이 있는 게임만 등급별 증거를 요구한다.
 - 검증 캡처가 GDD 뒤에 만든 목표 화면 수준에 도달했는가(의도적 차이는 `DAY.md` 기록으로만 인정)
 - 대표 모바일 뷰포트에서 Canvas backing-store가 CSS 표시 크기보다 작지 않고 DPR을 반영하는가. 확대 캡처에서 글자·대각선·원형 테두리가 흐릿하거나 픽셀 보간된 흔적이 있으면 자동 플레이 통과와 무관하게 잠금·공개를 중단한다.
 
-깊이 게이트 미달은 감산이 만든 여백이 아니라 결함이다. 새 기능을 붙이는 대신 핵심 입력의 변주(단계, 가속, 판정 폭, 목표 배치)로 보강하고, 보강 뒤 콘셉트 잠금과 다시 대조한다.
+경험 게이트가 미달이면 원인을 고친다. 숙련형은 수치 조정으로, 퍼즐·전략형은
+선택과 상태 관계로, 탐색·장난감형은 발견 가능한 반응의 폭으로 보강할 수 있다.
+새 규칙 추가와 감산 중 콘셉트에 맞는 쪽을 선택하고 다시 잠금과 대조한다.
 
 제작 검증이 통과하면 다음 명령으로 제작 소유 파일을 잠그고 라이카 제작 서사 경로를 연다.
 

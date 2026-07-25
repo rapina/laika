@@ -19,7 +19,7 @@ function findWorkspace(start) {
   const filesystemRoot = parse(current).root
   while (true) {
     const required = [
-      'RTK.md',
+      'AGENTS.md',
       'scripts/new-day.mjs',
       'launchpad',
       'arcade',
