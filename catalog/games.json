@@ -403,6 +403,23 @@
       "model": "gpt-5.6-sol",
       "metadataAmendedAfterRelease": false,
       "publishedReleaseSha": "3b47dbcc0c2b6d8297c4e6b52fd155d5d94bad9d"
+    },
+    {
+      "sequence": 22,
+      "date": "2026-07-26",
+      "slug": "glassdive",
+      "title": "유리잠수",
+      "maker": "Laika",
+      "laikaBaseId": "laika-base-v1",
+      "makerIllustration": "games/2026/2026-07-26-glassdive/public/art/laika-glassdive-1280.jpg",
+      "repositoryPath": "games/2026/2026-07-26-glassdive",
+      "intendedRepository": "rapina/laika-game-glassdive",
+      "launchpadCommit": "template baseline; game-local runtime",
+      "sourceHead": "bf5256de42582f6ba0b0f5c5931168d27ca0255d",
+      "arcadeState": "local-preview",
+      "tossState": "not-built",
+      "model": "gpt-5.6-sol",
+      "metadataAmendedAfterRelease": false
     }
   ]
 }

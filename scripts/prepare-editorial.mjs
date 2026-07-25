@@ -238,6 +238,10 @@ function repositoryFiles(directory, slug) {
   })
     .split('\n')
     .filter(Boolean)
+    // `new-game` relocates the Android MainActivity before the first game
+    // commit. `git ls-files --cached` still lists the deleted template path;
+    // a lock snapshots the working tree, so deleted index entries are absent.
+    .filter((path) => existsSync(join(directory, path)))
     .filter((path) => !excluded.has(path))
     .sort();
 }
