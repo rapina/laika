@@ -128,6 +128,22 @@ function expectFailure(result, pattern) {
   assert.match(result.stderr, pattern);
 }
 
+// 설계 검토는 공개 서사보다 먼저다. 잠금 명령이 WHY 초안이나 라이카 아트
+// 부록을 미리 쓰면 브랜드를 모르는 검토자가 공개 서사를 보게 되고, 서사
+// 전담 단계가 아닌 곳에서 공개 문장이 생긴다.
+test('lock prepares independent review without writing public narrative', () => {
+  const { container, directory } = fixture();
+  try {
+    const artBefore = readFileSync(join(directory, 'ART.md'));
+    assert.equal(run(directory).status, 0);
+    assert.equal(existsSync(join(directory, 'WHY.md')), false);
+    assert.deepEqual(readFileSync(join(directory, 'ART.md')), artBefore);
+    assert.equal(run(directory, '--verify').status, 0);
+  } finally {
+    rmSync(container, { recursive: true, force: true });
+  }
+});
+
 test('creator lock permits narrative fields and blocks creator-owned changes', () => {
   const { container, directory } = fixture();
   try {

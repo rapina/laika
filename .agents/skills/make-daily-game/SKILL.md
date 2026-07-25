@@ -152,6 +152,9 @@ node scripts/prepare-editorial.mjs --game games/YYYY/YYYY-MM-DD-slug
 ```
 
 이 명령 전에는 라이카 관련 자료를 읽지 않는다. `.creator-lock.json`이 만들어지고 `.studio.json.editorialState`가 `ready`가 되었는지 확인한다.
+이 명령은 설계 검토를 위한 잠금만 만든다. `WHY.md`를 만들거나 `ART.md`에
+공개 일러스트 부록을 붙이지 않는다. 두 공개 서사 산출물은 독립 설계 검토가
+`pass`한 뒤 라이카 제작 서사 단계가 처음 작성한다.
 
 잠금 파일과 제작 결과를 라이카 제작 서사 전 기준 커밋으로 남긴다. `.creator-lock.json`은 손으로 편집하지 않는다. 서사 단계에서는 이 파일이 바뀌면 안 되고, 제작 결함을 고칠 때만 아래 `--relock` 명령으로 갱신한다.
 

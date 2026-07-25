@@ -367,6 +367,22 @@
       "model": "gpt-5.6-sol",
       "publishedReleaseSha": "828b2834ed304936ce9d03b41d57e3825fb55f6a",
       "metadataAmendedAfterRelease": false
+    },
+    {
+      "sequence": 20,
+      "date": "2026-07-25",
+      "slug": "papervein",
+      "title": "종이맥",
+      "maker": "Laika",
+      "laikaBaseId": "laika-base-v1",
+      "makerIllustration": "games/2026/2026-07-25-papervein/public/art/laika-papervein-1280.jpg",
+      "repositoryPath": "games/2026/2026-07-25-papervein",
+      "intendedRepository": "rapina/laika-game-papervein",
+      "launchpadCommit": "local-template-2026-07-25",
+      "sourceHead": "2a9fb2287750e6c4a66e7d5891d5016837856bb4",
+      "arcadeState": "local-preview",
+      "tossState": "artifact-built",
+      "model": "gpt-5.6-sol"
     }
   ]
 }

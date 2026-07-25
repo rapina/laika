@@ -449,17 +449,6 @@ function prepare(directory, studio) {
   const baseBytes = readFileSync(join(root, 'brand/art/laika-base.png'));
   if (sha256(baseBytes) !== base.sha256) throw new Error('Laika base image does not match its metadata.');
 
-  const why = readFileSync(join(root, 'templates/WHY.md'), 'utf8')
-    .replaceAll('{{TITLE}}', studio.title);
-
-  const artAppendix = readFileSync(join(root, 'templates/LAIKA_ART.md'), 'utf8')
-    .replaceAll('{{BASE_ID}}', base.id)
-    .replaceAll('{{BASE_SHA}}', base.sha256)
-    .replaceAll('{{SLUG}}', studio.slug);
-  const artPath = join(directory, 'ART.md');
-  const art = readFileSync(artPath);
-  const updatedArt = Buffer.concat([art, Buffer.from(artAppendix)]);
-
   const updatedStudio = {
     ...studio,
     studio: 'Sputnik Workshop',
@@ -481,20 +470,15 @@ function prepare(directory, studio) {
     },
   };
   const lockPath = join(directory, '.creator-lock.json');
-  const whyPath = join(directory, 'WHY.md');
   const studioPath = join(directory, '.studio.json');
   const originalStudio = readFileSync(studioPath);
 
   try {
     atomicWrite(lockPath, `${JSON.stringify(lock, null, 2)}\n`);
-    atomicWrite(whyPath, why);
-    atomicWrite(artPath, updatedArt);
     atomicWrite(studioPath, `${JSON.stringify(updatedStudio, null, 2)}\n`);
     verifyLock(directory, updatedStudio);
   } catch (error) {
     if (existsSync(lockPath)) unlinkSync(lockPath);
-    if (existsSync(whyPath)) unlinkSync(whyPath);
-    atomicWrite(artPath, art);
     atomicWrite(studioPath, originalStudio);
     throw error;
   }
