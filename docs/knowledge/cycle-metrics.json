@@ -96,6 +96,14 @@
       "escaped": 0,
       "held": false,
       "note": "fatal-only 첫 사이클, 잠금의 삭제 경로 처리 수정"
+    },
+    {
+      "sequence": 23,
+      "slug": "foldtherain",
+      "interventions": 0,
+      "escaped": 0,
+      "held": true,
+      "note": "제작자 테스트와 설계 일치 재검토가 공개 전 다섯 불일치를 보완"
     }
   ]
 }

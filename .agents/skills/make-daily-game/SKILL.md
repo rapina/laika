@@ -62,9 +62,9 @@ node .agents/skills/make-daily-game/scripts/preflight.mjs
 ## 3. 저장소와 제작
 
 ```bash
-node scripts/new-day.mjs YYYY-MM-DD slug "한국어 제목"
+node scripts/new-day.mjs YYYY-MM-DD slug "한국어 제목" # slug: ^[a-z][a-z0-9]*$
 node scripts/create-game-repository.mjs --game games/YYYY/YYYY-MM-DD-slug
-npm run new-game -- --id "com.sputnikworkshop.<slug>" --name "<EN_TITLE>" --slug "<slug>" --display "<KO_TITLE>"
+npm --prefix games/YYYY/YYYY-MM-DD-slug run new-game -- --id "com.sputnikworkshop.<slug>" --name "<EN_TITLE>" --slug "<slug>" --display "<KO_TITLE>"
 ```
 
 게임 저장소만 볼 수 있는 새 제작 맥락에 콘셉트, creator-workflow와
@@ -140,6 +140,10 @@ node scripts/prepare-editorial.mjs --game games/YYYY/YYYY-MM-DD-slug --verify
 게임별 포털 스모크 드라이버는 `reviewMode: "deployment-only"`를 사용한다.
 아케이드는 포털, 불변 자산, 세로 런타임과 오류 여부만 확인한다. 게임 규칙이나
 완주 여부는 다시 심사하지 않는다.
+
+공개 전에 `arcade/scripts/smoke-drivers/<slug>.mjs`를 만들고, 로컬 아케이드와
+루트 카탈로그에 같은 sequence의 초안 항목을 각각 한 개 등록한다. 드라이버는
+`waitForReady`와 `screenshotLocator`를 제공한다.
 
 ```bash
 node scripts/publish-game.mjs --dry-run --game games/YYYY/YYYY-MM-DD-slug

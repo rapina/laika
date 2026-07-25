@@ -71,7 +71,7 @@
     "verdict": "pass",                                 // blocked는 공개 불가이므로 카탈로그에 실리지 않는다
     "summary": { "ko": "…", "en": "…" },               // 480자 이하
     "checks": [                                        // 1개 이상
-      { "status": "met",                               // met 또는 gap (fatal은 공개 불가)
+      { "status": "pass",                              // sequence 22부터 pass
         "claim":    { "ko": "…", "en": "…" },          // 320자 이하
         "observed": { "ko": "…", "en": "…" } }         // 320자 이하
     ]

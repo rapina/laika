@@ -417,3 +417,10 @@
 - 강제 위치: `references/publication-verification.md`의 "포털 스모크 드라이버" 절(호출 계약 15개 멤버 + 기존 드라이버 복제 지시 + 상태 노출 요구).
 - **validate 길이 오류가 원인을 말하게 했다.** designProcess 요약 480자 초과 등이 그냥 `... is invalid`로만 떠서 손조립 시 여러 번 잘라 봐야 했다(연번 17·18). 이제 `(N자, 상한 M자 — K자 초과)`로 적는다. 강제 위치: `arcade/scripts/validate.mjs`의 `localizedBlock`.
 - 남긴 것(미조치, 다음 사이클 후보): ① 카탈로그 엔트리 사전 작성 범위·아케이드↔루트 스키마 차이·local fixture 규약이 문서에 없어 역설계. ② 게임별 GitHub origin 생성이 자율 범위인지 경계 목록에 없음(17편 관행). ③ 3저장소 커밋/푸시 순서가 체크리스트로 없음. ④ **`manifest.source.launchpadCommit`이 `TODO-launchpad-sha`인 채로 통과 — build가 그대로 복사해 등식 검사가 자명하게 참이 되는 무효 검사**(연번 17·18 동일). 실제 sha를 요구하거나 검사를 없애야 한다. ⑤ 잠금이 서사 템플릿을 생성하는데 격리 위반처럼 보임.
+## 2026-07-26 · 새 검토는 게임 결함을 잡았고, 공개 준비는 문서 틈에서 멈췄다 (연번 23)
+
+- 계기: 새 제작자 소유 테스트와 설계 일치 검사를 처음 적용했다. 체르파 1차는 밤별 물 요구량, 점수 HUD, 마지막 장면 재시작을 잡았고, 2차는 지붕 충돌과 둑의 낮은 끝 물길이 구현되지 않은 것을 잡았다. 제작자가 테스트를 25개에서 29개로 늘리고 구현·GDD를 함께 고친 뒤 3차가 통과했다. 공개 뒤로 샌 게임 결함은 0건이다.
+- 확인: 고정 자동 완주를 없애도 독립 검토가 GDD의 구체적 약속을 따라 실제 게임별 결함 다섯 건을 잡았다. 강제 위치는 `references/design-review.md`, schemaVersion 3 `design-review.json`, 제작자 테스트다.
+- 공개 준비 마찰: 스킬 예시는 하이픈 slug처럼 보였지만 `new-day.mjs`는 영소문자와 숫자만 허용했다. `npm run new-game`도 루트에는 package.json이 없어 게임 저장소에서만 실행됐다. 공개기는 카탈로그 초안과 게임별 드라이버가 없으면 시작할 수 있지만 스킬 본문은 생성 위치를 말하지 않았다. `editorial-workflow.md`는 review check를 `met`으로 예시했지만 sequence 22부터 실제 검증기는 `pass`만 받았다.
+- 조치: `make-daily-game/SKILL.md`에 실제 slug 정규식, `npm --prefix` 실행, 카탈로그 초안과 deployment-only 드라이버 준비를 적었다. `editorial-workflow.md`의 최신 check status를 `pass`로 맞췄다.
+- 남은 것: 카탈로그 초안은 여전히 손조립이다. 아케이드와 루트의 서로 다른 스키마, local-fixture 경로를 자동 생성하는 도구가 없어서 다음 사이클에도 오탈자 위험이 남는다. 문서 보정은 강제 위치가 아니므로 자동 등록 스크립트가 다음 공정 후보다.
