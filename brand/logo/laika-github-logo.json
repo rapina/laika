@@ -1,0 +1,22 @@
+{
+  "id": "laika-github-logo-v1",
+  "created": "2026-07-25",
+  "generator": "OpenAI Codex image_gen",
+  "identityReference": "brand/art/laika-base.png",
+  "source": {
+    "path": "brand/logo/laika-github-logo-source.png",
+    "width": 1254,
+    "height": 1254,
+    "sha256": "b7573b4032953c6e8e528549de52f1f676ac7eb5d7d6b5d915748dcee3423e5a"
+  },
+  "derivatives": [
+    {
+      "path": "brand/logo/laika-github-logo.png",
+      "width": 512,
+      "height": 512,
+      "sha256": "b3723eb5518cdb5e17112f85d9c19e82e7273f27bcbb19a1aeb459683929bd03"
+    }
+  ],
+  "promptSummary": "A compact, vector-friendly screen-print emblem derived from the Laika identity reference, using near-black, warm cream, and one oxidized-orange harness accent.",
+  "license": "Brand asset; see ../../BRAND-LICENSE.md"
+}
