@@ -16,12 +16,12 @@ Laika를 구성하는 저장소 22개를 모두 public으로 공개했다.
 ## 라이선스
 
 - 코드와 제작 자동화: MIT
-- 원본 문서와 비브랜드 원본 아트: CC BY 4.0
-- Laika, Murr, Cherpa, Enos 캐릭터·로고·브랜드 아트: 별도 허가
+- 원본 문서: CC BY 4.0
+- Laika, Murr, Cherpa, Enos 캐릭터·로고·프로젝트 아트: CC0 1.0
 - Galmuri 폰트: SIL Open Font License 1.1
 - 제3자 자료: 각 자료의 원래 라이선스와 provenance 기록
 
-루트에는 `LICENSE`, `CONTENT-LICENSE.md`, `BRAND-LICENSE.md`,
+루트에는 `LICENSE`, `CONTENT-LICENSE.md`, `BRAND-NOTICE.md`,
 `CONTRIBUTING.md`, `SECURITY.md`를 둔다. 모든 독립 저장소에는 MIT와 콘텐츠
 라이선스를 명시했으며, Galmuri 파일이 있는 저장소에는 `OFL-GALMURI.md`를
 동봉했다.

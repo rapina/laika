@@ -98,7 +98,7 @@ function findWorkspace(start) {
   const filesystemRoot = parse(current).root
   while (true) {
     if (
-      existsSync(join(current, 'RTK.md')) &&
+      existsSync(join(current, 'AGENTS.md')) &&
       existsSync(join(current, 'arcade')) &&
       existsSync(join(current, 'catalog/games.json'))
     ) return current

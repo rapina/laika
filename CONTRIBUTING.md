@@ -10,7 +10,7 @@ This repository coordinates several independent repositories:
 - `arcade/` contains the public gallery and player;
 - `games/YYYY/.../` contains one game per repository;
 - `docs/` contains contracts and production knowledge; and
-- `brand/` contains reserved character and brand material.
+- `brand/` contains character references and CC0 project artwork.
 
 Clone with submodules:
 
@@ -27,8 +27,8 @@ cd laika
 3. Record the source and license of every added font, image, audio file, or
    generated asset.
 4. Run the tests and builds documented by the affected repository.
-5. Do not use the reserved characters or brand artwork in a fork unless you
-   have permission under `BRAND-LICENSE.md`.
+5. Project artwork is available under CC0. Do not present a fork as the
+   original or an official Sputnik Workshop project.
 
 Changes spanning a game, the arcade, and this control repository should use
 separate commits in each repository. Update the submodule pointer only after
@@ -39,13 +39,13 @@ the child repository commit exists.
 By submitting a contribution, you agree that:
 
 - code contributions are licensed under MIT;
-- original prose documentation and original non-brand artwork are licensed
-  under CC BY 4.0; and
+- original prose documentation is licensed under CC BY 4.0;
+- original project artwork is dedicated under CC0 1.0; and
 - you have the right to submit any third-party or generated material and have
   documented its provenance.
 
-Contributions to reserved brand material require explicit maintainer approval
-and do not change the terms in `BRAND-LICENSE.md`.
+Contributions to project artwork must preserve clear project identity as
+described in `BRAND-NOTICE.md`.
 
 ## Pull requests
 

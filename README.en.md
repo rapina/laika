@@ -130,7 +130,7 @@ game. The daily production cycle then:
    with the arcade.
 8. Completes a real playthrough on the public URL to verify production.
 
-See [RTK.md](RTK.md) for completion criteria and role boundaries, and
+See [AGENTS.md](AGENTS.md) for completion criteria and role boundaries, and
 [`docs/contracts/`](docs/contracts/) for detailed publication contracts.
 
 ## Design principles
@@ -145,8 +145,9 @@ See [RTK.md](RTK.md) for completion criteria and role boundaries, and
   Git SHA, and the catalog pins that version.
 - **Accessible defaults:** Korean and English, portrait mobile layouts, and
   silent play are baseline contracts.
-- **Open code, separate brand:** the production system and code can be reused,
-  while the Laika characters, logos, and brand art have separate terms.
+- **Open code and art:** the production system is MIT-licensed and project art
+  is released under CC0. Derivatives should not imply that they are original
+  or official Sputnik Workshop projects.
 
 ## Contributing
 
@@ -159,12 +160,12 @@ through [SECURITY.md](SECURITY.md), not a public issue.
 ## License
 
 - Code and production automation: [MIT](LICENSE)
-- Documentation and original non-brand artwork:
-  [CC BY 4.0](CONTENT-LICENSE.md)
-- Laika, Murr, Cherpa, and Enos characters, logos, and brand artwork:
-  [separate brand terms](BRAND-LICENSE.md)
+- Documentation: [CC BY 4.0](CONTENT-LICENSE.md)
+- Laika, Murr, Cherpa, and Enos characters, logos, and project artwork:
+  [CC0 1.0](BRAND-NOTICE.md)
 - Galmuri fonts and third-party material: their original licenses and
   provenance records included in the relevant repository
 
-The new Laika logo is a project brand asset and is governed by
-[`BRAND-LICENSE.md`](BRAND-LICENSE.md).
+The project claims no exclusive rights in the historical space dog Laika, her
+name, likeness, or history. Project artwork, including the new Laika logo, is
+released under CC0 without an assertion of copyright.
