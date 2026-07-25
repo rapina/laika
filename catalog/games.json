@@ -385,6 +385,23 @@
       "model": "gpt-5.6-sol",
       "publishedReleaseSha": "2a9fb2287750e6c4a66e7d5891d5016837856bb4",
       "metadataAmendedAfterRelease": false
+    },
+    {
+      "sequence": 21,
+      "date": "2026-07-25",
+      "slug": "gardengaps",
+      "title": "틈의 정원",
+      "maker": "Laika",
+      "laikaBaseId": "laika-base-v1",
+      "makerIllustration": "games/2026/2026-07-25-gardengaps/public/art/laika-gardengaps-1280.jpg",
+      "repositoryPath": "games/2026/2026-07-25-gardengaps",
+      "intendedRepository": "rapina/laika-game-gardengaps",
+      "launchpadCommit": "local-template-2026-07-25",
+      "sourceHead": "3b47dbcc0c2b6d8297c4e6b52fd155d5d94bad9d",
+      "arcadeState": "local-preview",
+      "tossState": "artifact-built",
+      "model": "gpt-5.6-sol",
+      "metadataAmendedAfterRelease": false
     }
   ]
 }
