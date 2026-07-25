@@ -846,7 +846,12 @@ async function publish(initialContext, options) {
   await uploadRelease(context)
 
   const repository = githubRepository(context.arcadeDirectory)
-  const branch = `release/${context.plan.slug}-${context.plan.releaseSha.slice(0, 12)}-${context.plan.planSha256.slice(0, 8)}`
+  const branchBase = `release/${context.plan.slug}-${context.plan.releaseSha.slice(0, 12)}-${context.plan.planSha256.slice(0, 8)}`
+  let branch = branchBase
+  for (let attempt = 2; git(context.arcadeDirectory, ['branch', '--list', branch])
+    || git(context.arcadeDirectory, ['ls-remote', '--heads', 'origin', branch]); attempt += 1) {
+    branch = `${branchBase}-${attempt}`
+  }
   git(context.arcadeDirectory, ['switch', '-c', branch], { capture: false })
   let releaseCommit = null
   let productionPushed = false
