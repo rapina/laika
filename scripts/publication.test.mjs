@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict'
 import test from 'node:test'
-import { mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs'
+import { mkdirSync, mkdtempSync, readFileSync, rmSync, utimesSync, writeFileSync } from 'node:fs'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import {
@@ -352,5 +352,37 @@ test('stale published screenshots are refused at publish time', () => {
     /captures 목록에 없습니다/,
   )
 
+  rmSync(root, { recursive: true, force: true })
+})
+
+test('pre-code target screens may be older than source, actual screenshots may not', () => {
+  const root = mkdtempSync(join(tmpdir(), 'papervein-targets-'))
+  const targets = join(root, 'design/targets')
+  const published = join(root, 'press')
+  mkdirSync(targets, { recursive: true })
+  mkdirSync(published, { recursive: true })
+  mkdirSync(join(root, 'src'), { recursive: true })
+  const target = join(targets, 'first-play.png')
+  const actual = join(published, 'first-play.png')
+  const source = join(root, 'src/game.ts')
+  writeFileSync(target, 'design target')
+  writeFileSync(actual, 'actual screenshot')
+  writeFileSync(source, 'export const a = 1\n')
+  const old = new Date('2026-01-01T00:00:00Z')
+  const current = new Date('2026-07-25T00:00:00Z')
+  utimesSync(target, old, old)
+  utimesSync(actual, old, old)
+  utimesSync(source, current, current)
+  const manifestPath = join(root, 'game.manifest.json')
+  const readJson = (path) => JSON.parse(readFileSync(path, 'utf8'))
+
+  writeFileSync(manifestPath, JSON.stringify({ media: { screenshots: ['design/targets/first-play.png'] } }))
+  verifyPublishedScreenshotFreshness(root, 'a'.repeat(64), readJson)
+
+  writeFileSync(manifestPath, JSON.stringify({ media: { screenshots: ['press/first-play.png'] } }))
+  assert.throws(
+    () => verifyPublishedScreenshotFreshness(root, 'a'.repeat(64), readJson),
+    /현재 소스보다 오래됐습니다/,
+  )
   rmSync(root, { recursive: true, force: true })
 })

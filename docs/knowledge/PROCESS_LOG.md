@@ -27,9 +27,16 @@
   네 변이 모두 같은 수치로 1px 이하 좁아진 경우만 패널로 인정하게 했다.
   한 변이라도 다른 상자와 배경 위의 임의 상자는 계속 거부하는 회귀 시험을
   함께 고정했다.
+- 다음 dry-run은 코드 전에 만든 `design/targets/` 목표 화면이 코드보다
+  오래됐다는 이유로 다시 멈췄다. 목표 화면은 GDD 뒤, 구현 전에 만드는 것이
+  계약인데 게시 검사는 모든 manifest 스크린샷을 실제 빌드 캡처로 가정했다.
+  목표 화면은 시각 방향의 사전 기록이므로 수정 시각 비교에서 제외했다.
+  같은 경로에 구형 캡처 증거가 있으면 sourceHash 대조는 계속 적용하고,
+  목표 화면 밖 실제 스크린샷은 소스보다 오래되면 계속 거부한다.
 - 강제 위치: `scripts/prepare-editorial.mjs`,
   `scripts/prepare-editorial.test.mjs`,
   `scripts/lib/dev-markers.mjs`, `scripts/dev-markers.test.mjs`,
+  `scripts/lib/publication.mjs`, `scripts/publication.test.mjs`,
   `.agents/skills/make-daily-game/SKILL.md` §4.
 
 ## 2026-07-14 · 출발: 브랜드 블라인드 제작

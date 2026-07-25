@@ -486,6 +486,11 @@ export function verifyPublishedScreenshotFreshness(gameDirectory, smokeHash, rea
       }
       continue
     }
+    // 현행 제작 순서의 design/targets는 GDD 뒤, 코드 전에 만든 목표 화면이다.
+    // 실제 빌드 캡처가 아니므로 소스보다 오래된 것이 정상이다. 예전 게임은
+    // 이 경로에 실제 캡처와 *-evidence.json을 함께 두기도 했으므로, 증거가
+    // 있는 경우에는 위의 sourceHash 대조를 그대로 적용한다.
+    if (relativePath.split(sep).join('/').startsWith('design/targets/')) continue
     // 캡처 증거가 없는 이미지는 내용으로 대조할 수 없으니 수정 시각으로라도 막는다.
     if (newestSourceMtime !== null && statSync(absolute).mtimeMs < newestSourceMtime) {
       throw new Error(
