@@ -95,3 +95,31 @@ test('두 정책 점수가 구분되지 않으면 막는다', () => {
   const r = evaluateGates({ ...passing, skilled: { ...passing.skilled, scoreMedian: 20 } })
   assert.ok(r.failedGates.includes('policiesScoreIndistinct'))
 })
+
+test('장난감 프로필은 완주와 실패 없이 반응 폭으로 통과한다', () => {
+  const r = evaluateGates({
+    profile: 'toy',
+    evidence: {
+      meaningfulActions: 8,
+      distinctOutcomes: 5,
+      discoverableReactions: 5,
+      resetWorks: true,
+    },
+  })
+  assert.deepEqual(r, { pass: true, failedGates: [] })
+})
+
+test('퍼즐 프로필은 선택이 상태를 바꾸고 목표에 닿아야 한다', () => {
+  const r = evaluateGates({
+    profile: 'puzzle',
+    evidence: {
+      meaningfulActions: 6,
+      distinctOutcomes: 3,
+      resetWorks: true,
+      reachableGoal: false,
+      choiceChangesState: true,
+    },
+  })
+  assert.equal(r.pass, false)
+  assert.ok(r.failedGates.includes('goalNotReachable'))
+})
