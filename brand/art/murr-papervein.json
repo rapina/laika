@@ -1,0 +1,41 @@
+{
+  "id": "murr-papervein-v1",
+  "createdAt": "2026-07-25",
+  "generator": "OpenAI Codex built-in image_gen",
+  "reference": "brand/art/murr-base.png",
+  "prompt": "brand/prompts/murr-papervein.md",
+  "source": {
+    "path": "brand/art/murr-papervein.png",
+    "width": 1536,
+    "height": 1024,
+    "sha256": "736ba2da189255d0a541c98057b5efc94903fbdbadecbc018fd176ae16e397ce"
+  },
+  "derivatives": [
+    {
+      "path": "arcade/public/art/murr-papervein-640.jpg",
+      "width": 640,
+      "height": 426,
+      "sha256": "d14808a4807052e2fc1a6e3b074cb659b1246c7ad14686fee903c2883afe31da"
+    },
+    {
+      "path": "arcade/public/art/murr-papervein-1280.jpg",
+      "width": 1280,
+      "height": 853,
+      "sha256": "aed663b4d0cc329da5bb9d562179e87076fd67fa7761ce6d17c6efd9e07eef3f"
+    }
+  ],
+  "review": {
+    "oneCat": true,
+    "naturalFelineAnatomy": true,
+    "nickedEar": true,
+    "earthReceivingRoom": true,
+    "pawPullingVermilionFiber": true,
+    "wetPaperSheet": true,
+    "noTextOrLogo": true,
+    "noExtraPawsOrHumanHands": true,
+    "noLaikaIdentityElements": true,
+    "noCherpaControlDeskElements": true,
+    "mobileCropReadable": true
+  },
+  "notes": "Murr identity and the worn receiving room remain clear. One natural front paw pulls a vermilion fiber over a wet handmade paper sheet, gathering its openings into a readable vein-like seam. No text, extra limbs, human hands, spacecraft, porthole, planet, harness, orange identity elements, or Cherpa drafting elements."
+}
