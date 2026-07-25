@@ -295,7 +295,9 @@ function verifyDesignReviewGate(gameDirectory) {
   verifyPromiseTable(review)
   verifyStrategyLegibility(review, sequence)
   verifyGradeLegibility(review, sequence)
-  verifyIdleRun(review, sequence)
+  const playabilityPath = join(gameDirectory, 'verification', 'playability-result.json')
+  const playabilityProfile = existsSync(playabilityPath) ? readJson(playabilityPath).profile : undefined
+  verifyIdleRun(review, sequence, playabilityProfile)
   verifyInputCoverage(review, gameDirectory)
   verifyPublishedScreenshotFreshness(gameDirectory, smokeHash, readJson)
   verifyPlayabilityResult(gameDirectory, smokeHash, sequence, readJson)

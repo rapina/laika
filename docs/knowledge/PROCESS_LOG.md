@@ -8,6 +8,12 @@
 
 "강제 위치"는 그 규칙을 기계적으로 강제하는 스크립트나 게이트다. 문서에만 있는 규칙은 지켜지지 않았던 것이 이 로그의 반복 교훈이다.
 
+## 2026-07-26 · 기다리는 퍼즐을 화면보호기로 오인했다
+
+- 계기: sequence 21 「틈의 정원」. 제작 문서와 독립 검토는 퍼즐·전략·건설·탐색·장난감에서 무입력 대기를 정상으로 허용했다. 그러나 공개 게이트는 게임 종류를 읽지 않고 모든 게임에 도전형의 생존 비율 문턱을 적용했다. 입력 전에는 안전하게 멈춰 있는 퍼즐을 판 전체가 저절로 진행되는 화면보호기로 오인해 dry-run을 막았다.
+- 변경: 공개 게이트가 `verification/playability-result.json`의 프로필을 읽는다. 무입력 판 실행과 0~1 범위 기록은 모든 프로필에 계속 요구한다. `puzzle`, `strategy`, `construction`, `exploration`, `toy`는 안전한 대기를 허용하고, `challenge`와 `survival`은 기존 생존 비율 문턱을 유지한다.
+- 강제 위치: `scripts/lib/publication.mjs`, `scripts/publish-game.mjs`, `scripts/grade-legibility.test.mjs`.
+
 ## 2026-07-25 · 검토 전에 작품 노트가 생겼다
 
 - 계기: sequence 20 「종이맥」. 제작 잠금 명령을 실행하자 독립 설계 검토보다

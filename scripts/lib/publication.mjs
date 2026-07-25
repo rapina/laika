@@ -629,7 +629,7 @@ export const idleGateFromSequence = 15
 
 const IDLE_FATAL_FRACTION = 1 / 3
 
-export function verifyIdleRun(review, sequence) {
+export function verifyIdleRun(review, sequence, profile) {
   if (Number.isInteger(sequence) && sequence < idleGateFromSequence) return
   const block = review?.idleRun
   if (!block || typeof block !== 'object') {
@@ -646,6 +646,10 @@ export function verifyIdleRun(review, sequence) {
       'idleRun.survivedFraction이 0~1 사이의 수가 아닙니다. 무입력으로 판의 어디까지 살아남았는지 비율로 적어야 합니다.',
     )
   }
+  // 무입력 진행을 약속하지 않는 퍼즐·전략·건설·탐색·장난감은 가만히
+  // 안전하게 기다리는 것이 정상이다. 이 프로필들에 challenge용 생존 비율
+  // 문턱을 적용하면 입력 전에는 진행하지 않는 퍼즐을 화면보호기로 오인한다.
+  if (['puzzle', 'strategy', 'construction', 'exploration', 'toy'].includes(profile)) return
   if (fraction > IDLE_FATAL_FRACTION) {
     throw new Error(
       `무입력으로 판의 ${Math.round(fraction * 100)}%를 넘겼습니다. 그 구간은 플레이가 아니라 화면보호기입니다. 앞 구간이 저절로 굴러가지 않도록 난도 곡선을 고친 뒤 다시 검토하십시오.`,

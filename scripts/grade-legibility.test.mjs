@@ -94,3 +94,13 @@ test('무입력으로 판의 3분의 1을 넘기면 막고, 그 아래는 gap으
   assert.throws(idle(0.5), /화면보호기/)
   assert.throws(idle(1), /화면보호기/)
 })
+
+test('무입력 진행을 약속하지 않는 프로필은 안전한 대기를 허용한다', () => {
+  for (const profile of ['puzzle', 'strategy', 'construction', 'exploration', 'toy']) {
+    assert.doesNotThrow(() => verifyIdleRun({ idleRun: { ran: true, survivedFraction: 1 } }, 15, profile))
+  }
+  assert.throws(
+    () => verifyIdleRun({ idleRun: { ran: true, survivedFraction: 1 } }, 15, 'challenge'),
+    /화면보호기/,
+  )
+})
