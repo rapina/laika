@@ -1,0 +1,13 @@
+{
+  "id": "murr-countergel-v1",
+  "date": "2026-07-17",
+  "generator": "OpenAI Codex image_gen",
+  "baseId": "murr-base-v1",
+  "baseSha256": "4f846e65948c878868bb6091cfe5ca57cab29aacb2e4682cf6d1348c6b54a72c",
+  "source": { "path": "brand/art/murr-countergel.png", "width": 1536, "height": 1024, "sha256": "51644c0b03ec9f1d6dfa6adfed0a55056fea16af094e89e1f7ef79c04a77261b" },
+  "derivatives": [
+    { "path": "arcade/public/art/murr-countergel-640.jpg", "width": 640, "height": 426, "sha256": "e1606bddd5d81967d31749df68a578bd8619d874d827f88e54f9fff441698640" },
+    { "path": "arcade/public/art/murr-countergel-1280.jpg", "width": 1280, "height": 853, "sha256": "88275ab099e4748895ac4540fa747ae3e829ffc766b933e7d22dff1239bd9643" }
+  ],
+  "review": { "oneCat": true, "naturalFelineAnatomy": true, "nickedEar": true, "earthListeningRoom": true, "noTextOrLogo": true, "noLaikaIdentityElements": true }
+}

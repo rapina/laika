@@ -1,0 +1,22 @@
+# Knowledge Index
+
+필요한 문서만 읽는다.
+
+- 구조 결정: `../architecture/0001-single-arcade.md`
+- 자율 공개 결정: `../architecture/0002-autonomous-publication.md`
+- 브랜드 블라인드 제작 결정: `../architecture/0003-brand-blind-production.md`
+- 지구 플레이어 피드백 결정: `../architecture/0004-earth-player-feedback.md`
+- 연번 제작 결정: `../architecture/0005-numbered-production.md`
+- 게임 릴리스 계약: `../contracts/game-release-v1.md`
+- 게임 공개 계약: `../contracts/game-publication-v1.md`
+- 공통 품질 기준: `../quality-bar.md`
+- 라이카 제작 서사 품질 기준: `../editorial-bar.md`
+- 게임 잠금 뒤 읽는 스튜디오 정체성과 크레딧: `STUDIO.md`
+- 게임 잠금 뒤 읽는 라이카의 서사, 목소리, 일러스트 기준: `../../brand/LAIKA.md`
+- 공개 플레이 평가자의 목소리와 일러스트 기준: `../../brand/MURR.md`
+- 런치패드 역이식 후보: `LAUNCHPAD_BACKLOG.md`
+- 다음 제작에 넘길 중립 플레이 학습: `PLAYER_FEEDBACK.md`
+- 브랜드 블라인드 제작에 전달하는 중립 크래프트 플레이북: `CRAFT.md`
+
+게임별 맥락과 검증 결과는 각 게임 저장소의 `DAY.md`가 소유한다.
+- 공정 변경의 내부 연혁과 갱신 규칙: `PROCESS_LOG.md` (공개 페이지 /history와 짝)

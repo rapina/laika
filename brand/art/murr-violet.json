@@ -1,0 +1,39 @@
+{
+ "id": "murr-violet-v1",
+ "createdAt": "2026-07-18",
+ "generator": "OpenAI Codex built-in image_gen",
+ "reference": "brand/art/murr-base.png",
+ "prompt": "brand/prompts/murr-violet.md",
+ "source": {
+  "path": "brand/art/murr-violet.png",
+  "width": 1536,
+  "height": 1024,
+  "sha256": "7d7025687e5c5c7f3f1f8c1c8c06515ec160d843d85e2151116d99e39e2dd257"
+ },
+ "derivatives": [
+  {
+   "path": "arcade/public/art/murr-violet-640.jpg",
+   "width": 640,
+   "height": 427,
+   "sha256": "37d5ea85d739cb1d80e71fea5750209189f29c30bf8d7c5910bd1e793bbf3daa"
+  },
+  {
+   "path": "arcade/public/art/murr-violet-1280.jpg",
+   "width": 1280,
+   "height": 853,
+   "sha256": "b512210e3d7b72f2e8a4468053e7adf47b2c366a7b8c329560018977c6aa273a"
+  }
+ ],
+ "review": {
+  "oneCat": true,
+  "naturalFelineAnatomy": true,
+  "nickedEar": true,
+  "earthListeningRoom": true,
+  "singleButtonAndRod": true,
+  "glowingGlassOnlyWarmAccent": true,
+  "turnRingHint": true,
+  "noTextOrLogo": true,
+  "noLaikaIdentityElements": true,
+  "mobileCropReadable": true
+ }
+}

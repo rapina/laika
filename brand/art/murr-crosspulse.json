@@ -1,0 +1,26 @@
+{
+  "id": "murr-crosspulse-v1",
+  "createdAt": "2026-07-22",
+  "generator": "OpenAI Codex built-in image_gen",
+  "reference": "brand/art/murr-base.png",
+  "prompt": "brand/prompts/murr-crosspulse.md",
+  "source": { "path": "brand/art/murr-crosspulse.png", "width": 1536, "height": 1024, "sha256": "4c3b5b836e56715b1df4da1dcc7c454f782ece50adb23cf2c00ad41debb23ab5" },
+  "derivatives": [
+    { "path": "arcade/public/art/murr-crosspulse-640.jpg", "width": 640, "height": 426, "sha256": "8a2f1065e709f18c0ab216b2ef80f613f3223aae3a42b64a93e5796356c9d135" },
+    { "path": "arcade/public/art/murr-crosspulse-1280.jpg", "width": 1280, "height": 853, "sha256": "4e123846e343a01f3ad36eca3bdf3f337c8e3017a2d1a01b234ee6f1df850de6" }
+  ],
+  "review": {
+    "oneCat": true,
+    "naturalFelineAnatomy": true,
+    "nickedEar": true,
+    "earthReceivingRoom": true,
+    "pawPressingVibrationPlate": true,
+    "dropAndWaveMeetingAtCenter": true,
+    "noTextOrLogo": true,
+    "noExtraPawsOrHumanHands": true,
+    "noLaikaIdentityElements": true,
+    "noCherpaControlDeskElements": true,
+    "mobileCropReadable": true
+  },
+  "notes": "Murr identity and the worn radio room remain clear. One paw rests on a moss-green vibration plate; the adjacent gel cylinder shows a descending crimson drop meeting a rising white compression wave at its center. No text, extra limbs, human hands, spacecraft, porthole, planet, harness, orange accent, or Cherpa drafting elements."
+}

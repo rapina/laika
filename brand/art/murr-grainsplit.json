@@ -1,0 +1,41 @@
+{
+ "id": "murr-grainsplit-v1",
+ "createdAt": "2026-07-19",
+ "generator": "OpenAI Codex built-in image_gen",
+ "reference": "brand/art/murr-base.png",
+ "prompt": "brand/prompts/murr-grainsplit.md",
+ "source": {
+  "path": "brand/art/murr-grainsplit.png",
+  "width": 1536,
+  "height": 1024,
+  "sha256": "80fc101668747a1f03e01d4b4b57f418e7b5f756e34097e37b680298e7259c76"
+ },
+ "derivatives": [
+  {
+   "path": "arcade/public/art/murr-grainsplit-640.jpg",
+   "width": 640,
+   "height": 427,
+   "sha256": "aab0058beab022be15db71665e84c4f6d70e49ab93a197c325269839a69cb391"
+  },
+  {
+   "path": "arcade/public/art/murr-grainsplit-1280.jpg",
+   "width": 1280,
+   "height": 853,
+   "sha256": "53766a367a98b6b9b9ab3be16e2d000feb25d6d5a5d35ab3390827db327d10a5"
+  }
+ ],
+ "review": {
+  "oneCat": true,
+  "naturalFelineAnatomy": true,
+  "nickedEar": true,
+  "earthListeningRoom": true,
+  "singleButtonAndLogbook": true,
+  "ironWedgeInLogEndFace": true,
+  "crackBendingAtKnot": true,
+  "mossGreenBandOnlyAccent": true,
+  "noTextOrLogo": true,
+  "noExtraPawsOrHumanHands": true,
+  "noLaikaIdentityElements": true,
+  "mobileCropReadable": true
+ }
+}

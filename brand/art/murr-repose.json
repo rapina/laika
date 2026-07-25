@@ -1,0 +1,31 @@
+{
+  "id": "murr-repose-v1",
+  "createdAt": "2026-07-21",
+  "generator": "OpenAI Codex built-in image_gen",
+  "reference": "brand/art/murr-base.png",
+  "prompt": "brand/prompts/murr-repose.md",
+  "source": {
+    "path": "brand/art/murr-repose.png",
+    "width": 1536,
+    "height": 1024,
+    "sha256": "e6afb644989e79084a0103aafdbc36fd9ee4523d6574e80d9bf0b45ce979260a"
+  },
+  "derivatives": [
+    { "path": "arcade/public/art/murr-repose-640.jpg", "width": 640, "height": 427, "sha256": "8c64dbdeb9f71a34b71001d3bce8ea3d9b2f005e8836b9a15873f934bb6e7d59" },
+    { "path": "arcade/public/art/murr-repose-1280.jpg", "width": 1280, "height": 853, "sha256": "32ff257f2ddced9f54705491c3c09992b7d7d17ad8aed016f261bde945d28f5c" }
+  ],
+  "review": {
+    "oneCat": true,
+    "naturalFelineAnatomy": true,
+    "nickedEar": true,
+    "earthListeningRoom": true,
+    "pawTippingWhiteDish": true,
+    "blackSandSlumpingAndSpilling": true,
+    "noTextOrLogo": true,
+    "noExtraPawsOrHumanHands": true,
+    "noLaikaIdentityElements": true,
+    "noCherpaControlDeskElements": true,
+    "mobileCropReadable": true
+  },
+  "notes": "허용된 소품이 흰 접시뿐이라 이끼색 강조가 옅게 나오고 전체는 따뜻한 세피아다. 무르의 얼룩무늬, 나뉜 귀, 청취실 창은 유지된다."
+}

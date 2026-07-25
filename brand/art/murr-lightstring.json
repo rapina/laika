@@ -1,0 +1,36 @@
+{
+  "id": "murr-lightstring-v1",
+  "createdAt": "2026-07-17",
+  "generator": "OpenAI image_gen",
+  "reference": "brand/art/murr-base.png",
+  "source": {
+    "path": "brand/art/murr-lightstring.png",
+    "width": 1536,
+    "height": 1024,
+    "sha256": "55927edee729a9e7159b1fff45e8b98003766886454b6d303ed05c1f25d6a7f4"
+  },
+  "derivatives": [
+    {
+      "path": "arcade/public/art/murr-lightstring-640.jpg",
+      "width": 640,
+      "height": 426,
+      "sha256": "5cff75b9c74a63f7e9d7daf0d5b4eea647bca5c1683d4acde235171ef23d4151"
+    },
+    {
+      "path": "arcade/public/art/murr-lightstring-1280.jpg",
+      "width": 1280,
+      "height": 853,
+      "sha256": "cd0f8ae637c1e53e0fb178e4d686bda101dd7296390a9284a149528c64475758"
+    }
+  ],
+  "review": {
+    "oneCat": true,
+    "naturalFelineAnatomy": true,
+    "nickedEar": true,
+    "earthListeningRoom": true,
+    "singleStringAndButton": true,
+    "noTextOrLogo": true,
+    "noLaikaIdentityElements": true,
+    "mobileCropReadable": true
+  }
+}

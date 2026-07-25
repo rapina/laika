@@ -1,0 +1,85 @@
+{
+  "schemaVersion": 1,
+  "cycles": [
+    {
+      "sequence": 9,
+      "slug": "drizzle",
+      "interventions": 2,
+      "escaped": 0,
+      "held": false,
+      "note": "새 공정 첫 적용"
+    },
+    {
+      "sequence": 10,
+      "slug": "maejil",
+      "interventions": 3,
+      "escaped": 0,
+      "held": true,
+      "note": "설계 검토 첫 차단"
+    },
+    {
+      "sequence": 11,
+      "slug": "violet",
+      "interventions": 0,
+      "escaped": 2,
+      "held": false,
+      "note": "무개입 완주, preview에서 CSP 결함 2건"
+    },
+    {
+      "sequence": 12,
+      "slug": "ripples",
+      "interventions": 1,
+      "escaped": 5,
+      "held": false,
+      "note": "감독자 밖에서 제작, 개발용 표시 5종·자동 조준·낡은 게시 이미지가 운영 노출, 검토가 껍데기 스키마로 통과. 공개 후 검토 3회 blocked를 유지보수로 해소하고 4회차 pass(met 13/gap 5/fatal 0)로 915adcb 재공개. 원인 하나는 origin/main 미푸시로 수정본이 로컬에만 있던 것"
+    },
+    {
+      "sequence": 13,
+      "slug": "grainsplit",
+      "interventions": 0,
+      "escaped": 5,
+      "held": false,
+      "note": "감독 사이클 첫 완주, 산문 규칙 4건을 기계로 이관. 공개 후 핵심 동사 재료 반응 미달이 플레이어 보고로 드러나 누출 5건째 — 검증 캡처가 고정 지연으로 해소 순간을 지나쳐 설계 검토 두 번이 결함을 볼 수 없었다. 유지보수로 해소하고 릴리스 771598a 재공개(검토 왕복 1회, 2차 pass 18 met/4 gap/0 fatal). 캡처 타이밍 게이트 신설"
+    },
+    {
+      "sequence": 14,
+      "slug": "flock",
+      "interventions": 0,
+      "escaped": 4,
+      "held": true,
+      "note": "감독 사이클 2회 완주. 등급 사다리·무입력 검출을 산문에서 기계로 이관하고, 산문 규칙이 강제로 위장하던 구멍(강제 위치가 .md여도 통과)을 health-check에 막았다. 제작 측이 좁힌 dev-marker 면제에서 구멍 셋을 실증해 다시 좁혔다. 무입력 구간을 안고 공개(연번 15부터 거부)"
+    },
+    {
+      "sequence": 15,
+      "slug": "ironbloom",
+      "interventions": 0,
+      "escaped": 2,
+      "held": true,
+      "note": "감독 사이클 3회 완주. 설계 검토가 첫 판에 blocked(안내가 겨냥하라던 백금 고리가 화면에 없었고, 깊이라던 규칙이 성적을 -8%로 오히려 해쳤다). 보완 뒤 pass 16 met/5 gap/0 fatal. 공정 조치 다섯 중 둘은 새 검사가 아니라 있던 검사를 앞으로(게시->잠금) 공용층으로(게임->launchpad) 옮긴 것 — 옳은 검사도 늦거나 좁으면 도달하지 못해 샌다. 쉬운 말 규칙을 기계로 옮기자마자 이번 게임의 위반 5건이 즉시 드러났다. 누출: 화면의 내부 용어 밴드 N, 회복 시간 2.5s/9s 문서 모순"
+    },
+    {
+      "sequence": 16,
+      "slug": "repose",
+      "interventions": 0,
+      "escaped": 1,
+      "held": true,
+      "note": "설계 검토 2회 blocked(깊이 축이 화면에 없음→물리와 반대)→실측 후 목적지+리드 캐럿으로 pass. 영어 안내 줄겹침이 공개 뒤 발견돼 재공개. 증거 해시가 추적 안 하는 파일 포함하던 버그로 통과 검토 무효화, 게임·템플릿·관제 3곳 수정. new-day 업스트림 해제로 템플릿 오염 방지"
+    },
+    {
+      "sequence": 17,
+      "slug": "shadowfit",
+      "interventions": 0,
+      "escaped": 2,
+      "held": false,
+      "note": "제작 자율 완주. 두 지구 평가 소감이 무르 아닌 목소리로 공개까지 새어 나감(게이트가 어미 미검사)"
+    },
+    {
+      "sequence": 18,
+      "slug": "whirlline",
+      "interventions": 0,
+      "escaped": 1,
+      "held": false,
+      "note": "제작 자율 완주. 지구 평가가 이번엔 무르 목소리로 나옴(지난 어미 게이트 유효). 등급 배지 픽셀 폰트 거칠게 공개(경미)"
+    }
+  ]
+}

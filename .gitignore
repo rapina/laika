@@ -1,0 +1,11 @@
+# Product directories are independent repositories registered as submodules.
+
+# Local operating state.
+.DS_Store
+*.log
+.tmp/
+.vercel/
+.env*
+
+# Supabase 쓰기 키는 로컬 전용이다. RLS를 우회하므로 절대 커밋하지 않는다.
+.env.local

@@ -1,0 +1,42 @@
+{
+  "id": "murr-flock-v1",
+  "createdAt": "2026-07-20",
+  "generator": "OpenAI Codex built-in image_gen",
+  "reference": "brand/art/murr-base.png",
+  "prompt": "brand/prompts/murr-flock.md",
+  "source": {
+    "path": "brand/art/murr-flock.png",
+    "width": 1536,
+    "height": 1024,
+    "sha256": "3501c424bfa82896ff2936febed1babbfbce3bd275732f72bb072f643757be78"
+  },
+  "derivatives": [
+    {
+      "path": "arcade/public/art/murr-flock-640.jpg",
+      "width": 640,
+      "height": 426,
+      "sha256": "4f042b149d14c86d9406952316e785aa0724d19d3d010afde3adc9ad014358ba"
+    },
+    {
+      "path": "arcade/public/art/murr-flock-1280.jpg",
+      "width": 1280,
+      "height": 853,
+      "sha256": "1a17470575fe80d8cbc6f84d08a4ee7f1f9fa86378bbf30abb217a2ddc06a123"
+    }
+  ],
+  "review": {
+    "oneCat": true,
+    "naturalFelineAnatomy": true,
+    "nickedEar": true,
+    "earthListeningRoom": true,
+    "singleButtonAndLogbook": true,
+    "beaconLampWithLightShaft": true,
+    "flockStreakingAcrossNightAir": true,
+    "mossGreenOnlyInBeaconHalo": true,
+    "noTextOrLogo": true,
+    "noExtraPawsOrHumanHands": true,
+    "noLaikaIdentityElements": true,
+    "noCherpaControlDeskElements": true,
+    "mobileCropReadable": true
+  }
+}

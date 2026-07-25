@@ -1,0 +1,39 @@
+{
+ "id": "murr-maejil-v1",
+ "createdAt": "2026-07-18",
+ "generator": "OpenAI Codex built-in image_gen",
+ "reference": "brand/art/murr-base.png",
+ "prompt": "brand/prompts/murr-maejil.md",
+ "source": {
+  "path": "brand/art/murr-maejil.png",
+  "width": 1536,
+  "height": 1024,
+  "sha256": "15d398c4f0ec7a25ef90127caa83aa150165746ab3e304f0e49a3dcf37d1c663"
+ },
+ "derivatives": [
+  {
+   "path": "arcade/public/art/murr-maejil-640.jpg",
+   "width": 640,
+   "height": 426,
+   "sha256": "8e7f32ce1f5a07f411c4b5abe11d60a7a96c63d184e12c18727cb288672949ed"
+  },
+  {
+   "path": "arcade/public/art/murr-maejil-1280.jpg",
+   "width": 1280,
+   "height": 853,
+   "sha256": "0808341ed34d41876f6d150b93e8f9ee93b519254b6382821580e5f63d2f41e1"
+  }
+ ],
+ "review": {
+  "oneCat": true,
+  "naturalFelineAnatomy": true,
+  "nickedEar": true,
+  "earthListeningRoom": true,
+  "singleButtonAndAnvil": true,
+  "glowingIronOnlyWarmAccent": true,
+  "dashedTargetHint": true,
+  "noTextOrLogo": true,
+  "noLaikaIdentityElements": true,
+  "mobileCropReadable": true
+ }
+}

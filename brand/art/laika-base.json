@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "id": "laika-base-v1",
+  "path": "brand/art/laika-base.png",
+  "sha256": "820e6d43e915c4e9e32ddcd3cc14d0f2537d99f6d8d397bbd40fc416137a6712",
+  "width": 1122,
+  "height": 1402,
+  "createdAt": "2026-07-15",
+  "generator": {
+    "tool": "OpenAI Codex image_gen",
+    "promptPath": "brand/prompts/laika-style.md"
+  },
+  "historicalReference": {
+    "path": "brand/reference/laika-1957-public-domain.jpg",
+    "sha256": "566a67ea1d2aaaf46e0ecb9ad07f4696420376efff5046c2a4e8961b0d5cf57f",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:%D0%9B%D0%B0%D0%B9%D0%BA%D0%B0_(%D1%81%D0%BE%D0%B1%D0%B0%D0%BA%D0%B0-%D0%BA%D0%BE%D1%81%D0%BC%D0%BE%D0%BD%D0%B0%D0%B2%D1%82)2.jpg",
+    "rights": "Public domain"
+  },
+  "webRenditions": [
+    {
+      "path": "arcade/public/art/laika-base-480.jpg",
+      "width": 384,
+      "height": 480,
+      "sha256": "91c6b94a7e5d3685f0966a5dabbe46f8da3dda426ab9211239a08a32a2ca1cb5"
+    },
+    {
+      "path": "arcade/public/art/laika-base-960.jpg",
+      "width": 768,
+      "height": 960,
+      "sha256": "aef40f9dff163642631bd0b2be48eda5b61699d904eaa8722ee1885ac5c37b0d"
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "id": "murr-fluxforge-v1",
+  "createdAt": "2026-07-17",
+  "generator": "OpenAI Codex built-in image_gen",
+  "reference": "brand/art/murr-base.png",
+  "source": {
+    "path": "brand/art/murr-fluxforge.png",
+    "width": 1536,
+    "height": 1024,
+    "sha256": "31a1cee14e13c203144cbcec8701e281b636d25a5261ddc952eb3bd7b6bf4034"
+  },
+  "derivatives": [
+    {
+      "path": "arcade/public/art/murr-fluxforge-640.jpg",
+      "width": 640,
+      "height": 426,
+      "sha256": "cb9b9447ee4b7fd53a699e66e1e3df7fd9ec8b4b2dad9a6d3635e63133e2ae34"
+    },
+    {
+      "path": "arcade/public/art/murr-fluxforge-1280.jpg",
+      "width": 1280,
+      "height": 853,
+      "sha256": "9c69e408570df68f5a6e1102fd1fcadcbce2ab33f3b9390a9dc1309b4b6fc02c"
+    }
+  ],
+  "review": {
+    "oneCat": true,
+    "naturalFelineAnatomy": true,
+    "nickedEar": true,
+    "earthListeningRoom": true,
+    "singleButtonAndCopperPlate": true,
+    "noTextOrLogo": true,
+    "noLaikaIdentityElements": true,
+    "mobileCropReadable": true
+  }
+}

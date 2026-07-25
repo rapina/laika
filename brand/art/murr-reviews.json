@@ -1,0 +1,83 @@
+{
+  "createdAt": "2026-07-16",
+  "generator": "OpenAI image_gen",
+  "identityReference": "brand/art/murr-base.png",
+  "prompt": "brand/prompts/murr-reviews.md",
+  "items": [
+    {
+      "slug": "stitch",
+      "source": {
+        "path": "brand/art/murr-stitch.png",
+        "sha256": "949611db74cfe82d24c32910f1079fab17ca14509f8567a968a098a358b6d846"
+      },
+      "web": [
+        {
+          "path": "arcade/public/art/murr-stitch-640.jpg",
+          "sha256": "6ac02824da2a379c720a3ad0a717b3f69092379101696dd24a3083858a3acbdd"
+        },
+        {
+          "path": "arcade/public/art/murr-stitch-1280.jpg",
+          "sha256": "92bae1b0ad4248897d1927b2a49af5f1dd0c820c35098ec48cfc87a9d962607d"
+        }
+      ]
+    },
+    {
+      "slug": "rime",
+      "source": {
+        "path": "brand/art/murr-rime.png",
+        "sha256": "1048910788163634f1d286d4e7090a040fe12538c44d57b26e5387cf3b052e7e"
+      },
+      "web": [
+        {
+          "path": "arcade/public/art/murr-rime-640.jpg",
+          "sha256": "257704fd14a23d4b28ca37a9145f826b61c67af4c2019a5247e95c833bc000fd"
+        },
+        {
+          "path": "arcade/public/art/murr-rime-1280.jpg",
+          "sha256": "ea537ccc0d5ee65f0667e1260edcce8451dba3e61dd97dd3c6a5eed54ac56860"
+        }
+      ]
+    },
+    {
+      "slug": "gates",
+      "source": {
+        "path": "brand/art/murr-gates.png",
+        "sha256": "c585a1126bc8e2204ac06e3c6387cfb82a4bfc9346be889521eecb42f6b88402"
+      },
+      "web": [
+        {
+          "path": "arcade/public/art/murr-gates-640.jpg",
+          "sha256": "201965b8f7b88628d9726e22a488cd83285bcdc3c10159b0312cd46f94867018"
+        },
+        {
+          "path": "arcade/public/art/murr-gates-1280.jpg",
+          "sha256": "f7431eb095ecbd2ae9bb1b616185dbf8e2b7d0b0642c0124490d093e519a2c03"
+        }
+      ]
+    },
+    {
+      "slug": "glaze",
+      "source": {
+        "path": "brand/art/murr-glaze.png",
+        "sha256": "e329bf057bae65095f1160bf27f70c2b3dbfe2a335be91b6d51a228bb2667882"
+      },
+      "web": [
+        {
+          "path": "arcade/public/art/murr-glaze-640.jpg",
+          "sha256": "b4de7ee61697a97557a3d4461ab5fc9e8a6b8684d70eb9c85dca7defe142e460"
+        },
+        {
+          "path": "arcade/public/art/murr-glaze-1280.jpg",
+          "sha256": "4953a9bbca6a5220fc2c4c5c6ce8fe439ac43997c66f30388d87a8e924c62563"
+        }
+      ]
+    }
+  ],
+  "review": {
+    "murrIdentityConsistent": true,
+    "oneGameActionPerImage": true,
+    "naturalFelineAnatomy": true,
+    "noTextOrLogo": true,
+    "laikaIdentityElementsAbsent": true
+  }
+}

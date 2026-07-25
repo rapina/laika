@@ -1,0 +1,26 @@
+{
+  "id": "murr-whirlline-v1",
+  "createdAt": "2026-07-22",
+  "generator": "OpenAI Codex built-in image_gen",
+  "reference": "brand/art/murr-base.png",
+  "prompt": "brand/prompts/murr-whirlline.md",
+  "source": { "path": "brand/art/murr-whirlline.png", "width": 1536, "height": 1024, "sha256": "88a974f3f8eac12e3b43970be4872c1a5d8a144286acc8fbdd0700b9d91cb869" },
+  "derivatives": [
+    { "path": "arcade/public/art/murr-whirlline-640.jpg", "width": 640, "height": 426, "sha256": "1ad146886df4343a31839a22552e1bd26607cd7dc4da977c9d090e0d315318db" },
+    { "path": "arcade/public/art/murr-whirlline-1280.jpg", "width": 1280, "height": 853, "sha256": "e832ae1ac1f202541954471d5b4d24b76612796119e4b7f752f04337afbadbf1" }
+  ],
+  "review": {
+    "oneCat": true,
+    "naturalFelineAnatomy": true,
+    "nickedEar": true,
+    "earthReceivingRoom": true,
+    "pawTurningDial": true,
+    "waterWhirlingRimClimbing": true,
+    "noTextOrLogo": true,
+    "noExtraPawsOrHumanHands": true,
+    "noLaikaIdentityElements": true,
+    "noCherpaControlDeskElements": true,
+    "mobileCropReadable": true
+  },
+  "notes": "정체성 요소(나뉜 귀, 얼룩무늬, 옅은 주둥이, 앰버 눈, 자연 골격/발)와 장면 제약을 모두 충족. 앞발이 책상 위 둥근 녹색 노브를 돌리고, 그 옆 키 큰 유리 실린더 속 물이 중앙으로 깔때기 소용돌이를 이루며 이끼색 잉크 팔레트로만 렌더링됨(파랑/시안/주황 없음). 카피어트: 물이 향해 오르는 상단의 '표시선'이 다소 은근하게 읽히지만 소용돌이와 가장자리 상승은 명확함. 텍스트/로고, 추가 발/사람 손, 라이카(캡슐·현창·지구·하네스·주황)·체르파(제어탁/CRT/청사진) 요소 없음."
+}

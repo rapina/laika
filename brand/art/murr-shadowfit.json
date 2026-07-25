@@ -1,0 +1,18 @@
+{
+  "id": "murr-shadowfit-v1",
+  "createdAt": "2026-07-21",
+  "generator": "OpenAI Codex built-in image_gen",
+  "reference": "brand/art/murr-base.png",
+  "prompt": "brand/prompts/murr-shadowfit.md",
+  "source": { "path": "brand/art/murr-shadowfit.png", "width": 1536, "height": 1024, "sha256": "aae385bd594f2ae6f87d9f3f5186fd2161253e4bcc7c51574db23bc9e11b99fe" },
+  "derivatives": [
+    { "path": "arcade/public/art/murr-shadowfit-640.jpg", "width": 640, "height": 427, "sha256": "ed1d656af82110caba72ec2bab66071cbc054d3815836182f74a637b4a5a76a4" },
+    { "path": "arcade/public/art/murr-shadowfit-1280.jpg", "width": 1280, "height": 853, "sha256": "248ed2454ffc7a186e030942a784b5f27680ec4fa6264580e30d3bd4da08e059" }
+  ],
+  "review": {
+    "oneCat": true, "naturalFelineAnatomy": true, "nickedEar": true, "earthListeningRoom": true,
+    "pawNudgingCandle": true, "blockShadowsLiningIntoOutline": true,
+    "noTextOrLogo": true, "noExtraPawsOrHumanHands": true, "noLaikaIdentityElements": true, "noCherpaControlDeskElements": true, "mobileCropReadable": true
+  },
+  "notes": "나뉜 귀가 에칭 질감에서 다소 은근하게 읽힌다. 나머지 정체성 요소(얼룩무늬, 청취실 창, 자연 골격)와 장면 제약은 모두 충족."
+}

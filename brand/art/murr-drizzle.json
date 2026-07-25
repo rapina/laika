@@ -1,0 +1,38 @@
+{
+  "id": "murr-drizzle-v1",
+  "createdAt": "2026-07-18",
+  "generator": "OpenAI Codex built-in image_gen",
+  "reference": "brand/art/murr-base.png",
+  "prompt": "brand/prompts/murr-drizzle.md",
+  "source": {
+    "path": "brand/art/murr-drizzle.png",
+    "width": 1536,
+    "height": 1024,
+    "sha256": "891464909424b67fa86dd63919786d7fd8754e9a6f9d16a8725910903e74a6ab"
+  },
+  "derivatives": [
+    {
+      "path": "arcade/public/art/murr-drizzle-640.jpg",
+      "width": 640,
+      "height": 427,
+      "sha256": "4a9ab71396b5263db81ef5892d06da055e0162885cf6c11a282cb37dfd4a4bbf"
+    },
+    {
+      "path": "arcade/public/art/murr-drizzle-1280.jpg",
+      "width": 1280,
+      "height": 853,
+      "sha256": "4c90ab0a4164b10a0377a8093644f202b94480b5a72ca3c1b8ac10002f8bcb1a"
+    }
+  ],
+  "review": {
+    "oneCat": true,
+    "naturalFelineAnatomy": true,
+    "nickedEar": true,
+    "earthListeningRoom": true,
+    "singleButtonAndMarbleSlab": true,
+    "amberSugarThreadOnly": true,
+    "noTextOrLogo": true,
+    "noLaikaIdentityElements": true,
+    "mobileCropReadable": true
+  }
+}

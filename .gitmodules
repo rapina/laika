@@ -1,0 +1,63 @@
+[submodule "launchpad"]
+	path = launchpad
+	url = https://github.com/rapina/toss-game-launchpad.git
+[submodule "arcade"]
+	path = arcade
+	url = https://github.com/rapina/laika-arcade.git
+[submodule "games/2026/2026-07-14-stitch"]
+	path = games/2026/2026-07-14-stitch
+	url = https://github.com/rapina/laika-game-stitch.git
+[submodule "games/2026/2026-07-15-rime"]
+	path = games/2026/2026-07-15-rime
+	url = https://github.com/rapina/laika-game-rime.git
+[submodule "games/2026/2026-07-17-furrow"]
+	path = games/2026/2026-07-17-furrow
+	url = https://github.com/rapina/laika-game-furrow.git
+[submodule "games/2026/2026-07-16-glaze"]
+	path = games/2026/2026-07-16-glaze
+	url = https://github.com/rapina/laika-game-glaze.git
+[submodule "games/2026/2026-07-17-astralpress"]
+	path = games/2026/2026-07-17-astralpress
+	url = https://github.com/rapina/laika-game-astralpress.git
+[submodule "games/2026/2026-07-17-countergel"]
+	path = games/2026/2026-07-17-countergel
+	url = https://github.com/rapina/laika-game-countergel.git
+[submodule "games/2026/2026-07-17-lightstring"]
+	path = games/2026/2026-07-17-lightstring
+	url = https://github.com/rapina/laika-game-lightstring.git
+[submodule "games/2026/2026-07-18-drizzle"]
+	path = games/2026/2026-07-18-drizzle
+	url = https://github.com/rapina/laika-game-drizzle.git
+[submodule "games/2026/2026-07-18-maejil"]
+	path = games/2026/2026-07-18-maejil
+	url = https://github.com/rapina/laika-game-maejil.git
+[submodule "games/2026/2026-07-18-violet"]
+	path = games/2026/2026-07-18-violet
+	url = https://github.com/rapina/laika-game-violet.git
+[submodule "games/2026/2026-07-19-ripples"]
+	path = games/2026/2026-07-19-ripples
+	url = https://github.com/rapina/laika-game-ripples.git
+[submodule "games/2026/2026-07-19-grainsplit"]
+	path = games/2026/2026-07-19-grainsplit
+	url = https://github.com/rapina/laika-game-grainsplit.git
+[submodule "games/2026/2026-07-19-flock"]
+	path = games/2026/2026-07-19-flock
+	url = https://github.com/rapina/laika-game-flock.git
+[submodule "games/2026/2026-07-20-repose"]
+	path = games/2026/2026-07-20-repose
+	url = https://github.com/rapina/laika-game-repose.git
+[submodule "games/2026/2026-07-17-fluxforge"]
+	path = games/2026/2026-07-17-fluxforge
+	url = https://github.com/rapina/laika-game-fluxforge.git
+[submodule "games/2026/2026-07-20-ironbloom"]
+	path = games/2026/2026-07-20-ironbloom
+	url = https://github.com/rapina/laika-game-ironbloom.git
+[submodule "games/2026/2026-07-21-shadowfit"]
+	path = games/2026/2026-07-21-shadowfit
+	url = https://github.com/rapina/laika-game-shadowfit.git
+[submodule "games/2026/2026-07-22-whirlline"]
+	path = games/2026/2026-07-22-whirlline
+	url = https://github.com/rapina/laika-game-whirlline.git
+[submodule "games/2026/2026-07-22-crosspulse"]
+	path = games/2026/2026-07-22-crosspulse
+	url = https://github.com/rapina/laika-game-crosspulse.git

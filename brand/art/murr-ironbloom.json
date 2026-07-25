@@ -1,0 +1,43 @@
+{
+  "id": "murr-ironbloom-v1",
+  "createdAt": "2026-07-20",
+  "generator": "OpenAI Codex built-in image_gen",
+  "reference": "brand/art/murr-base.png",
+  "prompt": "brand/prompts/murr-ironbloom.md",
+  "source": {
+    "path": "brand/art/murr-ironbloom.png",
+    "width": 1536,
+    "height": 1024,
+    "sha256": "c425c4abe7201cdc0f155f76eac5840e05318e535376f032b5df7816f16d42be"
+  },
+  "derivatives": [
+    {
+      "path": "arcade/public/art/murr-ironbloom-640.jpg",
+      "width": 640,
+      "height": 427,
+      "sha256": "17035c0b9e8c7dd0b85f370f938cab1ecdc0399e38c4be375358493755b5d81c"
+    },
+    {
+      "path": "arcade/public/art/murr-ironbloom-1280.jpg",
+      "width": 1280,
+      "height": 853,
+      "sha256": "562788316ff243ad16d1f533cbe66b140b0d72d58292825584fe5d7d5f725c69"
+    }
+  ],
+  "review": {
+    "oneCat": true,
+    "naturalFelineAnatomy": true,
+    "nickedEar": true,
+    "earthListeningRoom": true,
+    "singleButtonAndLogbook": true,
+    "pawHeldStillOnDarkGlass": true,
+    "singleSpikeRisenIntoRing": true,
+    "mossGreenOnlyInAccentHardware": true,
+    "noTextOrLogo": true,
+    "noExtraPawsOrHumanHands": true,
+    "noLaikaIdentityElements": true,
+    "noCherpaControlDeskElements": true,
+    "mobileCropReadable": true
+  },
+  "notes": "고리 주변 빛이 이끼색이 아니라 따뜻한 황금빛으로 나왔다. 이끼색 강조는 램프 암과 조작기 버튼에 남아 있어 무르 팔레트는 유지된다."
+}

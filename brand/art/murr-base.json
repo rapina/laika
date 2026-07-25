@@ -1,0 +1,35 @@
+{
+  "id": "murr-base-v1",
+  "createdAt": "2026-07-16",
+  "generator": "OpenAI image_gen",
+  "reference": "brand/art/laika-base.png",
+  "referenceUse": "screen-print texture and documentary composition only",
+  "source": {
+    "path": "brand/art/murr-base.png",
+    "width": 1536,
+    "height": 1024,
+    "sha256": "4f846e65948c878868bb6091cfe5ca57cab29aacb2e4682cf6d1348c6b54a72c"
+  },
+  "derivatives": [
+    {
+      "path": "arcade/public/art/murr-base-640.jpg",
+      "width": 640,
+      "height": 426,
+      "sha256": "c59f9b819bfde71b0ba54a7e2853bd8afdf2638ba393a7e00664a07bd2388e8e"
+    },
+    {
+      "path": "arcade/public/art/murr-base-1280.jpg",
+      "width": 1280,
+      "height": 853,
+      "sha256": "c12e931bc685c354f1bc81bdda6176b3aa3b2e337113e10e08d26a62fdbdc1fc"
+    }
+  ],
+  "review": {
+    "oneCat": true,
+    "naturalFelineAnatomy": true,
+    "nickedEar": true,
+    "earthListeningRoom": true,
+    "noTextOrLogo": true,
+    "noLaikaIdentityElements": true
+  }
+}
