@@ -278,7 +278,8 @@ function verifyCaptureTiming(gameDirectory) {
 const designReviewRequiredFromSequence = 9
 
 function verifyDesignReviewGate(gameDirectory) {
-  const sequence = readJson(join(gameDirectory, '.studio.json')).sequence
+  const studio = readJson(join(gameDirectory, '.studio.json'))
+  const sequence = studio.sequence
   const reviewPath = join(gameDirectory, 'design-review.json')
   if (!existsSync(reviewPath)) {
     if (Number.isInteger(sequence) && sequence < designReviewRequiredFromSequence) return
@@ -288,7 +289,7 @@ function verifyDesignReviewGate(gameDirectory) {
   const smokePath = join(gameDirectory, 'smoke-result.json')
   if (!existsSync(smokePath)) throw new Error('smoke-result.json이 없어 설계 검토의 sourceHash를 대조할 수 없습니다.')
   const smokeHash = readJson(smokePath).sourceHash
-  if (Number.isInteger(sequence) && sequence >= DESIGN_CONFORMANCE_FROM_SEQUENCE) {
+  if (studio.edition === 'retro-reboot' || (Number.isInteger(sequence) && sequence >= DESIGN_CONFORMANCE_FROM_SEQUENCE)) {
     verifyDesignConformanceReview(review, smokeHash)
     return
   }

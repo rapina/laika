@@ -6,6 +6,11 @@
       "sequence": 27,
       "slug": "ashdocket",
       "primaryGenre": "덱빌딩"
+    },
+    {
+      "sequence": 1,
+      "slug": "moonmail",
+      "primaryGenre": "핀볼"
     }
   ],
   "excluded": [

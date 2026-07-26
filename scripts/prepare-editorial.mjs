@@ -25,6 +25,7 @@ const gamesRoot = join(root, 'games');
 // 채우는 값이다. sequence는 게임의 설계가 아니라 카탈로그가 부여하는 공개 번호이고,
 // 잠금 전에 정해질 수도 잠금 뒤에 정해질 수도 있어 제작 소유로 보지 않는다.
 const editorialStudioKeys = new Set([
+  'edition',
   'editorialState',
   'laikaBaseId',
   'laikaBaseSha256',
@@ -394,6 +395,10 @@ function relock(directory, studio, reason) {
 // 채운다. 잠금이 소유한다.
 function nextSequence(slug) {
   const catalogPath = join(root, 'arcade', 'public', 'catalog', 'games.json');
+  const ledgerPath = join(root, 'docs', 'knowledge', 'GENRE_LEDGER.json');
+  const archiveThroughSequence = existsSync(ledgerPath)
+    ? Number(readJson(ledgerPath).archiveThroughSequence ?? 0)
+    : 0;
   let highest = 0;
   if (existsSync(catalogPath)) {
     for (const game of readJson(catalogPath).games ?? []) {
@@ -411,6 +416,7 @@ function nextSequence(slug) {
       if (!existsSync(path)) continue;
       const other = readJson(path);
       if (other.slug === slug) continue;
+      if (Number.isInteger(other.sequence) && other.sequence <= archiveThroughSequence) continue;
       if (Number.isInteger(other.sequence)) highest = Math.max(highest, other.sequence);
     }
   }
