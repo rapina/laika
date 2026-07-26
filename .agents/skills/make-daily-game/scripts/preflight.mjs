@@ -145,7 +145,7 @@ const report = {
   targetGame,
   nextSequence: highestSequence + 1,
   pendingGames,
-  recentGames: games.slice(-5).reverse(),
+  archivedGameCount: games.filter((game) => game.sequence <= 27).length,
   repositories: {
     root: gitSummary(root),
     launchpad: gitSummary(join(root, 'launchpad')),

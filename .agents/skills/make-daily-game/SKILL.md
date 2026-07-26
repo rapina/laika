@@ -30,7 +30,7 @@ description: Build and publish the next numbered full-production Sputnik Worksho
 
 - `AGENTS.md`, `STATUS.md`
 - `docs/quality-bar.md`
-- ADR 0001, 0003, 0008, 0009, 0010
+- ADR 0001, 0003, 0008, 0009, 0010, 0011, 0012, 0013
 
 ```bash
 node .agents/skills/make-daily-game/scripts/preflight.mjs
@@ -61,22 +61,21 @@ node .agents/skills/make-daily-game/scripts/preflight.mjs
 - 자신의 게임 로직에 필요한 테스트의 범위와 방법은 제작자가 정한다.
 - [`references/creator-workflow.md`](references/creator-workflow.md)를 따른다.
 
-관제는 최근 10편의 `장르 / 주 입력 / 공간 구조 / 플레이어 역할 / 실패 구조 /
-진행 구조 / 화면 표현`을 중립 지문으로 만든다. 최근작과 세 항목 이상 겹치는
-장르 후보는 제작에 넘기지 않는다. 최근 5편에 쓰지 않은 장르를 우선하되,
-목록을 순환표처럼 기계적으로 소비하지 않는다.
+관제는 `docs/knowledge/GENRE_LEDGER.json`만 보고 사용·제외되지 않은 주 장르
+하나를 고른다. 이전 게임의 저장소, 카탈로그, 제작 기록과 플레이 피드백을
+장르 선택이나 제작 입력으로 읽지 않는다. 제작 에이전트에는 원장도 전달하지
+않고 선택된 주 장르 하나만 전달한다.
 
 제작자는 받은 주 장르 하나에 원하는 세계, 소재, 규칙, 보조 장르와 기술을
 결합한다. 후보 수는 강제하지 않는다. 다음을 관제에 돌려준다.
 
 ```text
 제목 / slug / 주 장르 / 장르의 완성 약속 4~6개 / 무엇을 하는 게임인가 /
-주 입력 / 기술·매체 / 세션 구조 / 최근 10편과 다른 구조
+주 입력 / 기술·매체 / 세션 구조
 ```
 
-장르명이 다르다는 이유만으로 통과시키지 않는다. 같은 점을 드래그해 선이나
-면을 만드는 식으로 실제 플레이 구조가 최근작과 겹치면 콘셉트 단계에서 다시
-고른다.
+이전 게임과의 비교를 요청하지 않는다. 선택된 장르가 요구하는 플레이 구조와
+완성 약속만으로 콘셉트를 판단한다.
 
 ## 3. 저장소와 제작
 
@@ -192,7 +191,9 @@ Blob 업로드, preview, production, 운영 도메인 검증이 끝날 때까지
 별도 평가자가 운영 URL에서 실제로 플레이한다. 완주를 의무화하지 않고 경험한
 범위, 좋았던 점과 걸린 점만 한·영 기록에 남긴다. 깊이·재도전 분석은 선택이다.
 
-- `DAY.md`, `STATUS.md`, `PLAYER_FEEDBACK.md`를 실제 결과로 갱신한다.
+- `DAY.md`, `STATUS.md`를 실제 결과로 갱신한다.
+- `GENRE_LEDGER.json`에 새 sequence, slug와 주 장르만 추가한다. 게임 내용,
+  구조 지문과 플레이 피드백은 원장에 넣지 않는다.
 - 공정을 바꿨으면 `PROCESS_LOG.md`와 아케이드 `/history`를 함께 갱신한다.
 - `record-cycle.mjs`와 cycle done 이벤트를 남긴다.
 - 게임·아케이드·루트 저장소를 명시적 경로로 커밋·푸시한다.

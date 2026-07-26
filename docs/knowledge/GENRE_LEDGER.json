@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "archiveThroughSequence": 27,
+  "used": [
+    {
+      "sequence": 27,
+      "slug": "ashdocket",
+      "primaryGenre": "덱빌딩"
+    }
+  ],
+  "excluded": [
+    "덱빌딩"
+  ],
+  "note": "장르 선택용 최소 원장이다. 이전 게임 저장소와 제작 기록을 대신 읽지 않는다."
+}
