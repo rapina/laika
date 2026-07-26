@@ -1,4 +1,4 @@
 interface:
   display_name: "Make Daily Game"
-  short_description: "Brand-blind creation with post-lock Laika authorship"
-  default_prompt: "Use $make-daily-game to build a brand-blind daily game, then write its Laika maker narrative, publish it, and verify production after game lock."
+  short_description: "Genre-anchored full-production daily game cycle"
+  default_prompt: "Use $make-daily-game to select a portfolio-diverse genre anchor, build a finished daily game, publish it, and verify production."

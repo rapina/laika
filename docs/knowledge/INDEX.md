@@ -9,6 +9,7 @@
 - 제작자 소유 테스트와 설계 일치 검토 결정: `../architecture/0008-creator-owned-tests-and-design-conformance.md`
 - 풀 프로덕션 완성작 목표 결정: `../architecture/0009-full-production-not-prototype.md`
 - 제작자 내부 플레이와 재제작 결정: `../architecture/0010-creator-internal-playtest-loop.md`
+- 장르 앵커와 작품군 다양성 결정: `../architecture/0011-genre-anchored-portfolio-diversity.md`
 - 지구 플레이어 피드백 결정: `../architecture/0004-earth-player-feedback.md`
 - 연번 제작 결정: `../architecture/0005-numbered-production.md`
 - 게임 릴리스 계약: `../contracts/game-release-v1.md`

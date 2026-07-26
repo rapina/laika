@@ -1,6 +1,6 @@
 ---
 name: make-daily-game
-description: Build and publish the next numbered full-production Sputnik Workshop game with brand-blind creative freedom, creator-owned tests, design-conformance review, immutable Arcade release, deployment verification, and post-publication Earth notes. Direct requests enter through run-studio-cycle.
+description: Build and publish the next numbered full-production Sputnik Workshop game using a portfolio-diverse genre anchor, brand-blind creative freedom, creator-owned tests, design-conformance review, immutable Arcade release, deployment verification, and post-publication Earth notes. Direct requests enter through run-studio-cycle.
 ---
 
 # Make Daily Game
@@ -39,28 +39,40 @@ node .agents/skills/make-daily-game/scripts/preflight.mjs
 `resume-unfinished`와 `resume-publication`이면 기존 게임을 이어서 끝낸다.
 `create-next`일 때만 새 게임을 만든다.
 
-## 2. 자유 콘셉트
+## 2. 장르 앵커와 자유 콘셉트
 
 이전 대화를 받지 않는 `fork_turns: "none"` 제작 맥락에 다음만 전달한다.
 
 - 세로형 모바일 디바이스와 실제 터치를 고려한다.
 - 프로토타입이나 작은 실험에서 멈추지 않고 출시할 완성작을 만든다.
 - 완성작이라고 판단할 때까지 필요한 시간과 자원을 사용한다.
+- [`references/genre-pool.md`](references/genre-pool.md)에서 관제가 고른 하나의
+  주 장르와 그 장르의 완성 약속을 지킨다.
 - 무엇을 얼마나 크게 만들지는 자유다.
 - DOM, Canvas, WebGL, WebGPU, 셰이더, 물리, 영상, 생성 이미지와 외부 자산을
   자유롭게 사용할 수 있다.
-- 기존 게임을 모방·변형·재창작하거나 최근 작품과 비슷하게 만들어도 된다.
+- 기존 게임을 모방·변형·재창작해도 된다.
 - 결정론, 자동 완주, 깊이, 하나의 조작·재료·색, 목표 화면과 감산은 의무가
   아니다.
 - 자신의 게임 로직에 필요한 테스트의 범위와 방법은 제작자가 정한다.
 - [`references/creator-workflow.md`](references/creator-workflow.md)를 따른다.
 
-후보 수를 강제하지 않는다. 제작자가 원하는 게임 하나를 고르고 다음을 관제에
-돌려준다.
+관제는 최근 10편의 `장르 / 주 입력 / 공간 구조 / 플레이어 역할 / 실패 구조 /
+진행 구조 / 화면 표현`을 중립 지문으로 만든다. 최근작과 세 항목 이상 겹치는
+장르 후보는 제작에 넘기지 않는다. 최근 5편에 쓰지 않은 장르를 우선하되,
+목록을 순환표처럼 기계적으로 소비하지 않는다.
+
+제작자는 받은 주 장르 하나에 원하는 세계, 소재, 규칙, 보조 장르와 기술을
+결합한다. 후보 수는 강제하지 않는다. 다음을 관제에 돌려준다.
 
 ```text
-제목 / slug / 무엇을 하는 게임인가 / 주 입력 / 기술·매체 / 세션 구조
+제목 / slug / 주 장르 / 장르의 완성 약속 4~6개 / 무엇을 하는 게임인가 /
+주 입력 / 기술·매체 / 세션 구조 / 최근 10편과 다른 구조
 ```
+
+장르명이 다르다는 이유만으로 통과시키지 않는다. 같은 점을 드래그해 선이나
+면을 만드는 식으로 실제 플레이 구조가 최근작과 겹치면 콘셉트 단계에서 다시
+고른다.
 
 ## 3. 저장소와 제작
 
@@ -75,6 +87,7 @@ npm --prefix games/YYYY/YYYY-MM-DD-slug run new-game -- --id "com.sputnikworksho
 전달한다. 제작자는 다음을 수행한다.
 
 - `DAY.md`, `GDD.md`, `ART.md`, manifest 작성
+- GDD에 주 장르와 그 장르의 완성 약속 4~6개 작성
 - 원하는 기술·아트·사운드와 자원으로 게임 구현
 - 프로덕션 빌드
 - 설계 문서에 적은 규칙과 로직을 확인할 게임별 테스트 작성·실행
@@ -124,6 +137,7 @@ git -C games/YYYY/YYYY-MM-DD-slug push origin main
 검토자는 최종 GDD, 실제 프로덕션 빌드와 제작자가 남긴 테스트 결과를 대조하고
 schemaVersion 3 `design-review.json`을 커밋한다. 문서의 구체적 약속이 빌드에
 구현됐고 제작자 테스트가 통과했으며 빌드가 배포 가능하면 `verdict: "pass"`다.
+장르 이름만 빌리고 장르의 완성 약속을 축약한 프로토타입은 pass가 아니다.
 불일치는 제작자가 설계나 구현 중 의도한 쪽을 분명히 한 뒤 함께 고치고
 재검토한다.
 
