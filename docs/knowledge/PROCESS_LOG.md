@@ -490,3 +490,11 @@
 - 강제 위치: `AGENTS.md`, `docs/quality-bar.md`, ADR 0012,
   `.agents/skills/make-daily-game/SKILL.md`와 `references/creator-workflow.md`.
   현재는 ART.md와 독립 검토가 강제하며, 매체 증거의 기계 판정은 아직 없다.
+
+## 2026-07-26 · 덱빌딩을 장르 후보에서 제외했다
+
+- 계기: 장르 풀의 첫 적용작으로 덱빌딩 게임 재의 사건부를 만들었다. 다음
+  제작부터 덱빌딩을 다시 후보로 쓰지 않기로 했다.
+- 조치: 장르 풀의 전략·운영 목록에서 덱빌딩을 제거하고 제외 목록에 고정했다.
+  이미 공개된 재의 사건부의 장르 기록은 유지한다.
+- 강제 위치: `.agents/skills/make-daily-game/references/genre-pool.md`.
