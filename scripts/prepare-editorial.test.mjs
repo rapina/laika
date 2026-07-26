@@ -56,6 +56,7 @@ function fixture() {
     source: { repository: 'test/locktest', launchpadCommit: 'test' },
   });
   writeSmokeEvidence(directory);
+  writeCreatorPlaytestEvidence(directory);
   writeCspEvidence(directory);
   return { container, directory };
 }
@@ -63,9 +64,10 @@ function fixture() {
 // 잠금 게이트는 커밋된 smoke 증거와 그 sourceHash를 요구한다. 픽스처도 실제
 // 사양대로 증거를 만들어야 게이트 자체를 시험할 수 있다.
 function writeSmokeEvidence(directory) {
+  const sourceHash = computeSourceHash(directory);
   writeJson(join(directory, 'smoke-result.json'), {
     seed: '1',
-    sourceHash: computeSourceHash(directory),
+    sourceHash,
     mounted: true,
     interactionVerified: true,
     finished: true,
@@ -74,6 +76,34 @@ function writeSmokeEvidence(directory) {
     restartVerified: true,
     consoleErrors: [],
     pageErrors: [],
+  });
+  const playtestPath = join(directory, 'production-playtest.json');
+  if (existsSync(playtestPath)) {
+    const playtest = JSON.parse(readFileSync(playtestPath, 'utf8'));
+    playtest.finalBuildHash = sourceHash;
+    writeJson(playtestPath, playtest);
+  }
+}
+
+function writeCreatorPlaytestEvidence(directory) {
+  const finalBuildHash = computeSourceHash(directory);
+  writeJson(join(directory, 'production-playtest.json'), {
+    schemaVersion: 1,
+    initialBuildHash: '1'.repeat(64),
+    finalBuildHash,
+    sessions: [{
+      playerContext: 'build-only',
+      observation: {
+        understood: '화면에서 목표를 읽었다.',
+        attempted: '보이는 입력을 시도했다.',
+        reached: '첫 결과까지 도달했다.',
+        friction: '첫 피드백이 약했다.',
+      },
+    }],
+    makerResponse: {
+      changes: [{ observation: '첫 피드백이 약했다.', change: '입력 결과를 다시 만들었다.' }],
+      releaseCandidateReason: '독립 플레이 관찰을 반영한 빌드다.',
+    },
   });
 }
 
@@ -322,7 +352,7 @@ test('relock refreshes the lock with a recorded reason', () => {
     const lock = JSON.parse(readFileSync(join(directory, '.creator-lock.json'), 'utf8'));
     assert.equal(lock.relocks.length, 1);
     assert.equal(lock.relocks[0].reason, '깊이 게이트 보완');
-    assert.deepEqual(lock.relocks[0].changed, ['smoke-result.json', 'src/game.js']);
+    assert.deepEqual(lock.relocks[0].changed, ['production-playtest.json', 'smoke-result.json', 'src/game.js']);
 
     expectFailure(run(directory, '--relock', '--reason', '바뀐 것 없음'), /그대로/);
   } finally {

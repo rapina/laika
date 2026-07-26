@@ -30,7 +30,7 @@ description: Build and publish the next numbered full-production Sputnik Worksho
 
 - `AGENTS.md`, `STATUS.md`
 - `docs/quality-bar.md`
-- ADR 0001, 0003, 0008, 0009
+- ADR 0001, 0003, 0008, 0009, 0010
 
 ```bash
 node .agents/skills/make-daily-game/scripts/preflight.mjs
@@ -85,7 +85,18 @@ npm --prefix games/YYYY/YYYY-MM-DD-slug run new-game -- --id "com.sputnikworksho
 게임이 제공하지 않는 종료, 결과, 재시작, 점수, 키보드, 양언어와 자동 플레이를
 검증 편의를 위해 추가하지 않는다.
 
-## 4. 제작 잠금
+## 4. 내부 플레이와 재제작
+
+첫 구현을 릴리스 후보로 취급하지 않는다. 이전 대화를 받지 않는 새 플레이어에게
+실제 빌드만 전달하고
+[`references/internal-playtest.md`](references/internal-playtest.md)를 따른다.
+GDD, 소스, 테스트와 제작 의도는 전달하지 않는다.
+
+제작자는 플레이 관찰을 받아 게임을 다시 만들고, 게임별 테스트·빌드·스모크를
+새로 실행한다. `production-playtest.json`의 첫 구현 해시, 관찰, 변경과 최종
+해시를 기록한다. 새 빌드를 출시할 완성작이라고 판단한 뒤에만 잠근다.
+
+## 5. 제작 잠금
 
 제작자는 GDD에 적은 게임을 구현하고 자신이 정한 게임별 테스트를 통과시킨다.
 GDD는 구현 뒤 게이트를 피하기 위한 문서가 아니라, 실제로 출시하려는 규칙과
@@ -105,7 +116,7 @@ git -C games/YYYY/YYYY-MM-DD-slug push origin main
 잠금 뒤 소스가 바뀌면 부팅 스모크, 빌드와 픽스처를 갱신하고 `--relock`한 뒤
 새 검토자를 사용한다.
 
-## 5. 체르파 출고 검사
+## 6. 체르파 출고 검사
 
 이전 대화를 받지 않는 검토자에게 게임 저장소, 빌드 방법과
 [`references/design-review.md`](references/design-review.md)만 전달한다.
@@ -116,13 +127,13 @@ schemaVersion 3 `design-review.json`을 커밋한다. 문서의 구체적 약속
 불일치는 제작자가 설계나 구현 중 의도한 쪽을 분명히 한 뒤 함께 고치고
 재검토한다.
 
-## 6. 라이카 서사와 공개 준비
+## 7. 라이카 서사와 공개 준비
 
 이제 다음을 읽는다.
 
 - `docs/knowledge/STUDIO.md`, `docs/editorial-bar.md`
 - `brand/LAIKA.md`, `brand/CHERPA.md`
-- ADR 0002, 0006, 0008, 0009
+- ADR 0002, 0006, 0008, 0009, 0010
 - 릴리스·공개 계약
 - [`references/editorial-workflow.md`](references/editorial-workflow.md)
 - [`references/publication-verification.md`](references/publication-verification.md)
@@ -138,7 +149,7 @@ node scripts/prepare-editorial.mjs --game games/YYYY/YYYY-MM-DD-slug --verify
 릴리스 파일의 해시와 크기는 기록하되 창작 예산으로 차단하지 않는다.
 목표 화면과 `designProcess.scenes`는 존재할 때만 등록한다.
 
-## 7. 아케이드 공개
+## 8. 아케이드 공개
 
 게임별 포털 스모크 드라이버는 `reviewMode: "deployment-only"`를 사용한다.
 아케이드는 포털, 불변 자산, 세로 런타임과 오류 여부만 확인한다. 게임 규칙이나
@@ -155,7 +166,7 @@ node scripts/publish-game.mjs --publish --game games/YYYY/YYYY-MM-DD-slug
 
 Blob 업로드, preview, production, 운영 도메인 검증이 끝날 때까지 진행한다.
 
-## 8. 공개 후 기록
+## 9. 공개 후 기록
 
 별도 평가자가 운영 URL에서 실제로 플레이한다. 완주를 의무화하지 않고 경험한
 범위, 좋았던 점과 걸린 점만 한·영 기록에 남긴다. 깊이·재도전 분석은 선택이다.

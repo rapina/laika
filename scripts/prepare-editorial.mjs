@@ -14,6 +14,10 @@ import {
 } from 'node:fs';
 import { basename, dirname, isAbsolute, join, relative, resolve, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import {
+  CREATOR_PLAYTEST_FROM_SEQUENCE,
+  verifyCreatorPlaytest,
+} from './lib/creator-playtest.mjs';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const gamesRoot = join(root, 'games');
@@ -165,6 +169,16 @@ function verifySmokeEvidence(directory, sequence) {
   if (!acceptedHashes.includes(smoke.sourceHash)) {
     throw new Error('smoke 증거의 sourceHash가 현재 소스와 다릅니다. 소스나 자산을 바꾼 뒤에는 npm run smoke를 다시 실행해야 합니다.');
   }
+  return smoke;
+}
+
+function verifyCreatorPlaytestEvidence(directory, sequence, currentSourceHash) {
+  if (!Number.isInteger(sequence) || sequence < CREATOR_PLAYTEST_FROM_SEQUENCE) return;
+  const path = join(directory, 'production-playtest.json');
+  if (!existsSync(path)) {
+    throw new Error('production-playtest.json이 없습니다. 첫 구현을 새 맥락에서 플레이하고 관찰을 반영해 다시 제작해야 잠글 수 있습니다.');
+  }
+  verifyCreatorPlaytest(readJson(path), currentSourceHash);
 }
 
 function isValidDate(value) {
@@ -347,7 +361,8 @@ function relock(directory, studio, reason) {
   if (studio.editorialState !== 'ready') throw new Error('editorialState가 ready인 게임만 다시 잠글 수 있습니다.');
 
   // 갱신본도 최초 잠금과 같은 증거를 요구한다. 낡은 smoke로는 다시 잠글 수 없다.
-  verifySmokeEvidence(directory, studio.sequence);
+  const smoke = verifySmokeEvidence(directory, studio.sequence);
+  verifyCreatorPlaytestEvidence(directory, studio.sequence, smoke.sourceHash);
 
   const previous = readJson(lockPath);
   const snapshot = creatorSnapshot(directory, studio);
@@ -410,7 +425,8 @@ function prepare(directory, studio) {
     if (!existsSync(join(directory, required))) throw new Error(`${required} is required before game lock.`);
   }
   const sequence = Number.isInteger(studio.sequence) ? studio.sequence : nextSequence(studio.slug);
-  verifySmokeEvidence(directory, sequence);
+  const smoke = verifySmokeEvidence(directory, sequence);
+  verifyCreatorPlaytestEvidence(directory, sequence, smoke.sourceHash);
   verifyCspEvidence(directory);
   if (existsSync(join(directory, 'WHY.md'))) throw new Error('WHY.md must not exist before game lock.');
   if (existsSync(join(directory, '.creator-lock.json'))) {
