@@ -457,6 +457,23 @@
       "model": "gpt-5.6-sol",
       "metadataAmendedAfterRelease": false,
       "publishedReleaseSha": "b7e0aadb45dd02e529094b0ba2c03fd64ad247d2"
+    },
+    {
+      "sequence": 25,
+      "date": "2026-07-26",
+      "slug": "nebulacradle",
+      "title": "성운 실뜨기",
+      "maker": "Laika",
+      "laikaBaseId": "laika-base-v1",
+      "makerIllustration": "games/2026/2026-07-26-nebulacradle/public/art/laika-nebulacradle-1280.jpg",
+      "repositoryPath": "games/2026/2026-07-26-nebulacradle",
+      "intendedRepository": "rapina/laika-game-nebulacradle",
+      "launchpadCommit": "9f8b2bc",
+      "sourceHead": "ab8310f8934862d6d60d825805ad7227c12f2637",
+      "arcadeState": "draft",
+      "tossState": "not-started",
+      "model": "gpt-5.6-sol",
+      "metadataAmendedAfterRelease": false
     }
   ]
 }
