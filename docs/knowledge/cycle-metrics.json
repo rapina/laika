@@ -120,6 +120,14 @@
       "escaped": 0,
       "held": false,
       "note": "build-only 내부 플레이 뒤 재제작, 체르파 pass, 운영 지구 플레이 완료"
+    },
+    {
+      "sequence": 26,
+      "slug": "moonloom",
+      "interventions": 0,
+      "escaped": 0,
+      "held": true,
+      "note": "체르파가 설계 불일치와 피날레 판정을 공개 전 보류해 보완; 운영 지구 플레이는 2/12 결과까지 확인"
     }
   ]
 }

@@ -1,0 +1,44 @@
+{
+  "id": "murr-moonloom-v1",
+  "createdAt": "2026-07-26",
+  "generator": "OpenAI Codex built-in image_gen",
+  "reference": "brand/art/murr-base.png",
+  "prompt": "brand/prompts/murr-moonloom.md",
+  "source": {
+    "path": "brand/art/murr-moonloom.png",
+    "width": 1536,
+    "height": 1024,
+    "sha256": "abfb03b869a5aba5a3028c20368767ebc1cc8e32b5327b035be9ae24b8692e83"
+  },
+  "derivatives": [
+    {
+      "path": "arcade/public/art/murr-moonloom-640.jpg",
+      "width": 640,
+      "height": 426,
+      "sha256": "3a77602eff1730a62eb71e180014c6b3d5b53d88d727842e0b82555fe0094cae"
+    },
+    {
+      "path": "arcade/public/art/murr-moonloom-1280.jpg",
+      "width": 1280,
+      "height": 853,
+      "sha256": "fb0373ae60c7023d01831328d00621aadd9bc8ca73371be55574a624755ac125"
+    }
+  ],
+  "review": {
+    "oneCat": true,
+    "naturalFelineAnatomy": true,
+    "nickedEar": true,
+    "paleMuzzleDarkForeheadStripesAmberEyes": true,
+    "earthReceivingRoom": true,
+    "oneButtonControllerAndNotebook": true,
+    "pawHoldingButton": true,
+    "threadAcrossThreeStarNails": true,
+    "threadSnagReaction": true,
+    "roughBlackOffWhiteMossScreenprint": true,
+    "noTextLogoOrFakeMarks": true,
+    "noExtraPawsOrHumanHands": true,
+    "noSpacecraftPortholeEarthHarnessOrOrange": true,
+    "mobileCropReadable": true
+  },
+  "notes": "Visual inspection confirmed one lean tabby with the nicked ear, pale muzzle, forehead stripes, amber eyes, natural paws, old receiving-room equipment, one-button controller, notebook, and the black/off-white screenprint with moss accent. The nearest paw holds the button while a light thread passes three star nails and snags at a cracked paper edge. No text, logo, extra limb, human hand, spacecraft, round window, Earth planet, harness, or orange element is present."
+}
