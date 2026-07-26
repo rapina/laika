@@ -13,6 +13,7 @@
 - SVG 전용 게임 아트 금지 결정: `../architecture/0012-no-svg-only-game-art.md`
 - 완료 게임 제작 맥락 아카이브 결정: `../architecture/0013-archive-completed-games-from-production-context.md`
 - 실제 게임 어레인지와 출시 품질 체험판 결정: `../architecture/0014-reference-based-release-quality-demo.md`
+- 게임성 잠금 뒤 고전 아트톤 적용 결정: `../architecture/0015-fixed-retro-art-after-gameplay-lock.md`
 - 지구 플레이어 피드백 결정: `../architecture/0004-earth-player-feedback.md`
 - 연번 제작 결정: `../architecture/0005-numbered-production.md`
 - 게임 릴리스 계약: `../contracts/game-release-v1.md`

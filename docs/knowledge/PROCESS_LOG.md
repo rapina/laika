@@ -525,3 +525,16 @@
 - 강제 위치: ADR 0014, `AGENTS.md`, `docs/quality-bar.md`,
   `make-daily-game/SKILL.md`, `references/reference-adaptation.md`,
   `references/creator-verification.md`, `references/design-review.md`.
+
+## 2026-07-26 · 게임성을 먼저 잠그고 고전 아트를 입힌다
+
+- 계기: 아트톤을 고정하면 시각적 일관성은 생기지만, 처음부터 16비트·PSX
+  스타일을 생각한 제작자가 규칙까지 짧은 아케이드 구조로 좁힐 수 있다.
+- 순서: 실제 기준 게임의 핵심 루프, 변경 축, 기능 범위표와 네 상태 흐름을
+  먼저 잠근다. 고전 아트톤은 이후 별도 아트 패스로만 적용하며 변경 축에 세지
+  않는다.
+- 2D: 16비트 SNES 계열 도트, 제한 팔레트와 nearest-neighbor 확대.
+- 3D: PSX 계열 로우폴리, 저해상도 픽셀 텍스처와 낮은 내부 렌더 해상도.
+- 강제 위치: ADR 0015, `AGENTS.md`, `docs/quality-bar.md`,
+  `references/retro-art-direction.md`, `creator-workflow.md`,
+  `design-review.md`.

@@ -31,7 +31,7 @@ description: Build and publish the next numbered release-quality vertical-slice 
 
 - `AGENTS.md`, `STATUS.md`
 - `docs/quality-bar.md`
-- ADR 0001, 0003, 0008, 0009, 0010, 0011, 0012, 0013, 0014
+- ADR 0001, 0003, 0008, 0009, 0010, 0011, 0012, 0013, 0014, 0015
 
 ```bash
 node .agents/skills/make-daily-game/scripts/preflight.mjs
@@ -52,6 +52,9 @@ node .agents/skills/make-daily-game/scripts/preflight.mjs
 - 해당 장르의 실제 출시 게임 하나를 기준작으로 고르고
   [`references/reference-adaptation.md`](references/reference-adaptation.md)를
   따른다.
+- 기준작의 핵심 루프와 체험판 범위를 먼저 잠근 뒤
+  [`references/retro-art-direction.md`](references/retro-art-direction.md)를
+  적용한다. 아트톤으로 규칙을 다시 설계하지 않는다.
 - 무엇을 얼마나 크게 만들지는 자유다.
 - DOM, Canvas, WebGL, WebGPU, 셰이더, 물리, 영상, 생성 이미지와 외부 자산을
   자유롭게 사용할 수 있다.
@@ -100,7 +103,9 @@ npm --prefix games/YYYY/YYYY-MM-DD-slug run new-game -- --id "com.sputnikworksho
 - GDD에 기준 게임, 유지할 핵심 루프, 바꿀 축 2~3개, 기능 범위표, 체험판
   종료 지점과 네 상태 흐름 작성
 - ART.md에 SVG가 아닌 주 시각 매체와 실제 플레이에서의 사용 위치 작성
-- 원하는 기술·아트·사운드와 자원으로 게임 구현
+- 2D는 16비트 SNES 계열 도트, 3D는 PSX 계열 로우폴리·저해상도 픽셀 렌더로
+  아트 제작
+- 원하는 기술·사운드와 자원으로 게임 구현
 - 프로덕션 빌드
 - 설계 문서에 적은 규칙과 로직을 확인할 게임별 테스트 작성·실행
 - 세로 모바일 부팅과 필수 자산 확인
@@ -156,6 +161,8 @@ schemaVersion 3 `design-review.json`을 커밋한다. 문서의 구체적 약속
 실제 빌드에서 순서대로 이어지지 않아도 pass가 아니다.
 게임 본체가 SVG와 기본 벡터 도형만으로 구성된 경우도 pass가 아니다. 파비콘,
 검증 캡처와 잠금 뒤 라이카 일러스트는 게임 본체의 비SVG 매체로 세지 않는다.
+2D가 고해상도 일러스트·매끈한 벡터 스타일이거나, 3D가 현대적 PBR·포토리얼
+스타일이면 pass가 아니다. 혼합형은 각 2D·3D 레이어가 해당 기준을 지켜야 한다.
 불일치는 제작자가 설계나 구현 중 의도한 쪽을 분명히 한 뒤 함께 고치고
 재검토한다.
 
@@ -165,7 +172,7 @@ schemaVersion 3 `design-review.json`을 커밋한다. 문서의 구체적 약속
 
 - `docs/knowledge/STUDIO.md`, `docs/editorial-bar.md`
 - `brand/LAIKA.md`, `brand/CHERPA.md`
-- ADR 0002, 0006, 0008, 0009, 0010, 0014
+- ADR 0002, 0006, 0008, 0009, 0010, 0014, 0015
 - 릴리스·공개 계약
 - [`references/editorial-workflow.md`](references/editorial-workflow.md)
 - [`references/publication-verification.md`](references/publication-verification.md)
