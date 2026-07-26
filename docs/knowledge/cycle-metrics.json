@@ -2,6 +2,14 @@
   "schemaVersion": 1,
   "cycles": [
     {
+      "sequence": 1,
+      "slug": "moonmail",
+      "interventions": 0,
+      "escaped": 1,
+      "held": false,
+      "note": "내부 블라인드 플레이 재제작과 체르파 pass; preview에서 빠진 /play 경로를 복구하고 production 운영 스모크 통과"
+    },
+    {
       "sequence": 9,
       "slug": "drizzle",
       "interventions": 2,
