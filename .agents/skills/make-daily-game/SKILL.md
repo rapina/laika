@@ -1,15 +1,16 @@
 ---
 name: make-daily-game
-description: Build and publish the next numbered full-production Sputnik Workshop game using a portfolio-diverse genre anchor, brand-blind creative freedom, creator-owned tests, design-conformance review, immutable Arcade release, deployment verification, and post-publication Earth notes. Direct requests enter through run-studio-cycle.
+description: Build and publish the next numbered release-quality vertical-slice demo by adapting a real reference game within a selected genre, with brand-blind production, creator-owned tests, design-conformance review, immutable Arcade release, deployment verification, and post-publication Earth notes. Direct requests enter through run-studio-cycle.
 ---
 
 # Make Daily Game
 
 다음 연번 게임을 완성해 단일 아케이드에 공개한다.
 
-> 세로형 모바일 디바이스에서 플레이할 수 있는 풀 프로덕션급 웹 게임을 만든다.
-> 프로토타입, 기술 데모, 게임잼 출품작처럼 축약하지 않는다. 출시할 완성작이라고
-> 판단할 때까지 필요한 시간과 자원을 사용한다.
+> 세로형 모바일 디바이스에서 플레이할 수 있는 출시 품질의 체험판을 만든다.
+> 전체 게임의 모든 콘텐츠를 만들지 않는다. 실제 출시 게임 하나의 핵심 루프와
+> 시스템을 가져와 한 구간 안에서 학습·변주·절정·결과가 모두 작동하는
+> 풀스펙에 가까운 버티컬 슬라이스로 완성한다.
 
 ## 경계
 
@@ -30,7 +31,7 @@ description: Build and publish the next numbered full-production Sputnik Worksho
 
 - `AGENTS.md`, `STATUS.md`
 - `docs/quality-bar.md`
-- ADR 0001, 0003, 0008, 0009, 0010, 0011, 0012, 0013
+- ADR 0001, 0003, 0008, 0009, 0010, 0011, 0012, 0013, 0014
 
 ```bash
 node .agents/skills/make-daily-game/scripts/preflight.mjs
@@ -44,10 +45,13 @@ node .agents/skills/make-daily-game/scripts/preflight.mjs
 이전 대화를 받지 않는 `fork_turns: "none"` 제작 맥락에 다음만 전달한다.
 
 - 세로형 모바일 디바이스와 실제 터치를 고려한다.
-- 프로토타입이나 작은 실험에서 멈추지 않고 출시할 완성작을 만든다.
-- 완성작이라고 판단할 때까지 필요한 시간과 자원을 사용한다.
+- 전체 게임이 아니라 출시 품질의 체험판을 만든다.
+- 체험판 범위 안의 시스템과 콘텐츠는 임시·축약 상태로 남기지 않는다.
 - [`references/genre-pool.md`](references/genre-pool.md)에서 관제가 고른 하나의
   주 장르와 그 장르의 완성 약속을 지킨다.
+- 해당 장르의 실제 출시 게임 하나를 기준작으로 고르고
+  [`references/reference-adaptation.md`](references/reference-adaptation.md)를
+  따른다.
 - 무엇을 얼마나 크게 만들지는 자유다.
 - DOM, Canvas, WebGL, WebGPU, 셰이더, 물리, 영상, 생성 이미지와 외부 자산을
   자유롭게 사용할 수 있다.
@@ -66,12 +70,14 @@ node .agents/skills/make-daily-game/scripts/preflight.mjs
 장르 선택이나 제작 입력으로 읽지 않는다. 제작 에이전트에는 원장도 전달하지
 않고 선택된 주 장르 하나만 전달한다.
 
-제작자는 받은 주 장르 하나에 원하는 세계, 소재, 규칙, 보조 장르와 기술을
-결합한다. 후보 수는 강제하지 않는다. 다음을 관제에 돌려준다.
+제작자는 받은 주 장르에서 실제 출시된 기준 게임 하나를 고른다. 기준작의 핵심
+루프를 유지하고 원하는 세계, 소재, 보조 규칙과 기술을 결합한다. 다음을
+관제에 돌려준다.
 
 ```text
-제목 / slug / 주 장르 / 장르의 완성 약속 4~6개 / 무엇을 하는 게임인가 /
-주 입력 / 기술·매체 / 세션 구조
+제목 / slug / 주 장르 / 실제 기준 게임 / 유지할 핵심 루프 /
+바꿀 축 2~3개 / 체험판 경계 / 인트로→타이틀→게임→게임 결과의 한 판 /
+장르의 완성 약속 4~6개 / 주 입력 / 기술·매체
 ```
 
 이전 게임과의 비교를 요청하지 않는다. 선택된 장르가 요구하는 플레이 구조와
@@ -91,6 +97,8 @@ npm --prefix games/YYYY/YYYY-MM-DD-slug run new-game -- --id "com.sputnikworksho
 
 - `DAY.md`, `GDD.md`, `ART.md`, manifest 작성
 - GDD에 주 장르와 그 장르의 완성 약속 4~6개 작성
+- GDD에 기준 게임, 유지할 핵심 루프, 바꿀 축 2~3개, 기능 범위표, 체험판
+  종료 지점과 네 상태 흐름 작성
 - ART.md에 SVG가 아닌 주 시각 매체와 실제 플레이에서의 사용 위치 작성
 - 원하는 기술·아트·사운드와 자원으로 게임 구현
 - 프로덕션 빌드
@@ -99,8 +107,9 @@ npm --prefix games/YYYY/YYYY-MM-DD-slug run new-game -- --id "com.sputnikworksho
 - 현재 sourceHash의 `smoke-result.json` 기록
 - 테스트 명령, 확인한 결과와 미확인 항목을 `DAY.md`에 기록
 
-게임이 제공하지 않는 종료, 결과, 재시작, 점수, 키보드, 양언어와 자동 플레이를
-검증 편의를 위해 추가하지 않는다.
+모든 게임은 `인트로 → 타이틀 → 게임 → 게임 결과`를 실제 상태로 제공한다.
+결과에서 다시 시작할 수 있어야 한다. 점수, 키보드와 자동 플레이는 게임에
+필요할 때만 추가한다.
 
 ## 4. 내부 플레이와 재제작
 
@@ -111,7 +120,7 @@ GDD, 소스, 테스트와 제작 의도는 전달하지 않는다.
 
 제작자는 플레이 관찰을 받아 게임을 다시 만들고, 게임별 테스트·빌드·스모크를
 새로 실행한다. `production-playtest.json`의 첫 구현 해시, 관찰, 변경과 최종
-해시를 기록한다. 새 빌드를 출시할 완성작이라고 판단한 뒤에만 잠근다.
+해시를 기록한다. 새 빌드를 출시 가능한 체험판이라고 판단한 뒤에만 잠근다.
 
 ## 5. 제작 잠금
 
@@ -142,6 +151,9 @@ git -C games/YYYY/YYYY-MM-DD-slug push origin main
 schemaVersion 3 `design-review.json`을 커밋한다. 문서의 구체적 약속이 빌드에
 구현됐고 제작자 테스트가 통과했으며 빌드가 배포 가능하면 `verdict: "pass"`다.
 장르 이름만 빌리고 장르의 완성 약속을 축약한 프로토타입은 pass가 아니다.
+기준작의 핵심 루프를 알아볼 수 없거나 기능 범위표에서 포함한다고 약속한
+시스템이 임시 상태면 pass가 아니다. `인트로 → 타이틀 → 게임 → 게임 결과`가
+실제 빌드에서 순서대로 이어지지 않아도 pass가 아니다.
 게임 본체가 SVG와 기본 벡터 도형만으로 구성된 경우도 pass가 아니다. 파비콘,
 검증 캡처와 잠금 뒤 라이카 일러스트는 게임 본체의 비SVG 매체로 세지 않는다.
 불일치는 제작자가 설계나 구현 중 의도한 쪽을 분명히 한 뒤 함께 고치고
@@ -153,7 +165,7 @@ schemaVersion 3 `design-review.json`을 커밋한다. 문서의 구체적 약속
 
 - `docs/knowledge/STUDIO.md`, `docs/editorial-bar.md`
 - `brand/LAIKA.md`, `brand/CHERPA.md`
-- ADR 0002, 0006, 0008, 0009, 0010
+- ADR 0002, 0006, 0008, 0009, 0010, 0014
 - 릴리스·공개 계약
 - [`references/editorial-workflow.md`](references/editorial-workflow.md)
 - [`references/publication-verification.md`](references/publication-verification.md)

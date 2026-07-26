@@ -510,3 +510,18 @@
 - 강제 위치: ADR 0013, `docs/archive/GAMES.md`,
   `docs/knowledge/GENRE_LEDGER.json`, `AGENTS.md`, `make-daily-game` 스킬과
   `preflight.mjs`. 프리플라이트에서 최근 게임 목록 출력도 제거했다.
+
+## 2026-07-26 · 전체 게임 대신 출시 품질 체험판을 만든다
+
+- 계기: 장르만 정한 뒤 규칙을 다시 발명하자 GDD를 읽어도 한 판이 그려지지
+  않았다. 전체 게임 완성을 요구하면 콘텐츠 수만 늘고 각 시스템은 얇아졌다.
+- 조치: 선택된 장르의 실제 출시 게임 하나를 기준작으로 고른다. 핵심 루프를
+  유지하고 변경 축은 2~3개로 제한한다. GDD는 기준작, 유지, 변경, 기능 범위표와
+  체험판 끝을 먼저 적는다.
+- 범위: 전체 게임을 만들지 않는다. 한 챕터·코스·지역·사건·런만 만들 수 있다.
+  대신 `FULL`과 `ADAPTED`로 넣은 시스템, 아트와 사운드는 출시 상태로 완성한다.
+- 필수 흐름: 모든 체험판은 `인트로 → 타이틀 → 게임 → 게임 결과`를 순서대로
+  거치고 결과에서 다시 시작할 수 있어야 한다.
+- 강제 위치: ADR 0014, `AGENTS.md`, `docs/quality-bar.md`,
+  `make-daily-game/SKILL.md`, `references/reference-adaptation.md`,
+  `references/creator-verification.md`, `references/design-review.md`.

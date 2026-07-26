@@ -1,12 +1,13 @@
 ---
 name: run-studio-cycle
-description: Run one full studio cycle for Sputnik Workshop: check the verification layer is healthy, delegate game production to an isolated orchestrator, independently verify what it reports, then repair the process with what the cycle exposed and record it. Use from the toss-game-studio workspace when the user asks for a new game ("게임 만들어줘", "다음 게임 만들어줘", "새 게임을 만들자", "make the next game") or asks to run a studio cycle. This is the entry point; it delegates make-daily-game to a sub-agent rather than running it directly.
+description: "Run one full studio cycle for Sputnik Workshop: check the verification layer, delegate a reference-based release-quality demo to an isolated orchestrator, independently verify it, repair exposed process faults, and record the cycle. Use from the toss-game-studio workspace when the user asks for a new game or studio cycle. This entry point delegates make-daily-game to a sub-agent."
 ---
 
 # Run Studio Cycle
 
-한 사이클은 풀 프로덕션급 게임 한 편과 출고 공정 한 바퀴다. 창작에는 세로
-모바일과 완성작 목표만 전달한다. 제작자는 범위와 게임별 테스트를 소유하고,
+한 사이클은 출시 품질의 게임 체험판 한 편과 출고 공정 한 바퀴다. 창작에는
+세로 모바일, 선택된 장르와 실제 기준 게임을 이용한 버티컬 슬라이스 목표를
+전달한다. 제작자는 범위와 게임별 테스트를 소유하고,
 첫 구현 뒤 새 맥락의 내부 플레이 관찰을 받아 다시 만든다. 공정 개선은 설계
 일치 검토와 공개 안정성을 다룬다.
 

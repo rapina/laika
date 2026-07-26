@@ -1,4 +1,4 @@
 interface:
   display_name: "Make Daily Game"
-  short_description: "Genre-anchored full-production daily game cycle"
-  default_prompt: "Use $make-daily-game to select a portfolio-diverse genre anchor, build a finished daily game, publish it, and verify production."
+  short_description: "Reference-based release-quality game demo cycle"
+  default_prompt: "Use $make-daily-game to select a genre and real reference game, build a release-quality vertical-slice demo, publish it, and verify production."
