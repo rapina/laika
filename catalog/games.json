@@ -451,7 +451,7 @@
       "repositoryPath": "games/2026/2026-07-26-stormpost",
       "intendedRepository": "rapina/laika-game-stormpost",
       "launchpadCommit": "template-derived",
-      "sourceHead": "514935146e7e7fb02f5d723a443db579cf06dea3",
+      "sourceHead": "b7e0aadb45dd02e529094b0ba2c03fd64ad247d2",
       "arcadeState": "draft",
       "tossState": "not-started",
       "model": "gpt-5.6-sol",
