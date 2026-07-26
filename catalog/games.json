@@ -505,12 +505,12 @@
       "repositoryPath": "games/2026/2026-07-26-ashdocket",
       "intendedRepository": "rapina/laika-game-ashdocket",
       "launchpadCommit": "9f8b2bc",
-      "sourceHead": "9e36056ebae0cb602db5ea724afa3c655bef5d0a",
+      "sourceHead": "4765155ac6f60396fe51e79240b0c7cc56fb051f",
       "arcadeState": "published",
       "tossState": "not-started",
       "model": "gpt-5.6-sol",
       "metadataAmendedAfterRelease": false,
-      "publishedReleaseSha": "9e36056ebae0cb602db5ea724afa3c655bef5d0a"
+      "publishedReleaseSha": "4765155ac6f60396fe51e79240b0c7cc56fb051f"
     }
   ]
 }
