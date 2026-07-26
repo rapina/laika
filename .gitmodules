@@ -82,3 +82,6 @@
 [submodule "games/2026/2026-07-26-moonloom"]
 	path = games/2026/2026-07-26-moonloom
 	url = https://github.com/rapina/laika-game-moonloom.git
+[submodule "games/2026/2026-07-26-ashdocket"]
+	path = games/2026/2026-07-26-ashdocket
+	url = https://github.com/rapina/laika-game-ashdocket.git

@@ -493,6 +493,23 @@
       "model": "gpt-5.6-sol",
       "metadataAmendedAfterRelease": false,
       "publishedReleaseSha": "8e038ceff4c1fb441c09b3ce768172a128407a69"
+    },
+    {
+      "sequence": 27,
+      "date": "2026-07-26",
+      "slug": "ashdocket",
+      "title": "재의 사건부",
+      "maker": "Laika",
+      "laikaBaseId": "laika-base-v1",
+      "makerIllustration": "games/2026/2026-07-26-ashdocket/public/art/laika-ashdocket-1280.jpg",
+      "repositoryPath": "games/2026/2026-07-26-ashdocket",
+      "intendedRepository": "rapina/laika-game-ashdocket",
+      "launchpadCommit": "9f8b2bc",
+      "sourceHead": "9e36056ebae0cb602db5ea724afa3c655bef5d0a",
+      "arcadeState": "local-preview",
+      "tossState": "not-started",
+      "model": "gpt-5.6-sol",
+      "metadataAmendedAfterRelease": false
     }
   ]
 }
