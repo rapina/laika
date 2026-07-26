@@ -439,6 +439,24 @@
       "model": "gpt-5.6-sol",
       "metadataAmendedAfterRelease": true,
       "publishedReleaseSha": "dec3d21f7b191f19c848231d81954a6cdd768d8c"
+    },
+    {
+      "sequence": 24,
+      "date": "2026-07-26",
+      "slug": "stormpost",
+      "title": "폭풍 우편",
+      "maker": "Laika",
+      "laikaBaseId": "laika-base-v1",
+      "makerIllustration": "games/2026/2026-07-26-stormpost/public/art/laika-stormpost-1280.jpg",
+      "repositoryPath": "games/2026/2026-07-26-stormpost",
+      "intendedRepository": "rapina/laika-game-stormpost",
+      "launchpadCommit": "template-derived",
+      "sourceHead": "514935146e7e7fb02f5d723a443db579cf06dea3",
+      "arcadeState": "draft",
+      "tossState": "not-started",
+      "model": "gpt-5.6-sol",
+      "metadataAmendedAfterRelease": false,
+      "publishedReleaseSha": null
     }
   ]
 }
