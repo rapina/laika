@@ -1,14 +1,15 @@
 ---
 name: make-daily-game
-description: Build and publish the next numbered Sputnik Workshop game with brand-blind creative freedom, creator-owned tests, design-conformance review, immutable Arcade release, deployment verification, and post-publication Earth notes. Direct requests enter through run-studio-cycle.
+description: Build and publish the next numbered full-production Sputnik Workshop game with brand-blind creative freedom, creator-owned tests, design-conformance review, immutable Arcade release, deployment verification, and post-publication Earth notes. Direct requests enter through run-studio-cycle.
 ---
 
 # Make Daily Game
 
-다음 연번 게임을 완성해 단일 아케이드에 공개한다. sequence 23부터 제작 조건은
-하나다.
+다음 연번 게임을 완성해 단일 아케이드에 공개한다.
 
-> 세로형 모바일 디바이스에서 터치로 플레이되는 웹 게임을 만든다.
+> 세로형 모바일 디바이스에서 플레이할 수 있는 풀 프로덕션급 웹 게임을 만든다.
+> 프로토타입, 기술 데모, 게임잼 출품작처럼 축약하지 않는다. 출시할 완성작이라고
+> 판단할 때까지 필요한 시간과 자원을 사용한다.
 
 ## 경계
 
@@ -29,7 +30,7 @@ description: Build and publish the next numbered Sputnik Workshop game with bran
 
 - `AGENTS.md`, `STATUS.md`
 - `docs/quality-bar.md`
-- ADR 0001, 0003, 0008
+- ADR 0001, 0003, 0008, 0009
 
 ```bash
 node .agents/skills/make-daily-game/scripts/preflight.mjs
@@ -43,6 +44,8 @@ node .agents/skills/make-daily-game/scripts/preflight.mjs
 이전 대화를 받지 않는 `fork_turns: "none"` 제작 맥락에 다음만 전달한다.
 
 - 세로형 모바일 디바이스와 실제 터치를 고려한다.
+- 프로토타입이나 작은 실험에서 멈추지 않고 출시할 완성작을 만든다.
+- 완성작이라고 판단할 때까지 필요한 시간과 자원을 사용한다.
 - 무엇을 얼마나 크게 만들지는 자유다.
 - DOM, Canvas, WebGL, WebGPU, 셰이더, 물리, 영상, 생성 이미지와 외부 자산을
   자유롭게 사용할 수 있다.
@@ -119,7 +122,7 @@ schemaVersion 3 `design-review.json`을 커밋한다. 문서의 구체적 약속
 
 - `docs/knowledge/STUDIO.md`, `docs/editorial-bar.md`
 - `brand/LAIKA.md`, `brand/CHERPA.md`
-- ADR 0002, 0006, 0008
+- ADR 0002, 0006, 0008, 0009
 - 릴리스·공개 계약
 - [`references/editorial-workflow.md`](references/editorial-workflow.md)
 - [`references/publication-verification.md`](references/publication-verification.md)
