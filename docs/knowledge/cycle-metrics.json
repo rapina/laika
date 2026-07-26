@@ -112,6 +112,14 @@
       "escaped": 0,
       "held": true,
       "note": "체르파가 GDD 불일치를 세 차례 막아 구현·테스트를 보완한 뒤 통과; 운영 배포 오류 없음"
+    },
+    {
+      "sequence": 25,
+      "slug": "nebulacradle",
+      "interventions": 0,
+      "escaped": 0,
+      "held": false,
+      "note": "build-only 내부 플레이 뒤 재제작, 체르파 pass, 운영 지구 플레이 완료"
     }
   ]
 }

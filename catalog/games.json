@@ -469,11 +469,11 @@
       "repositoryPath": "games/2026/2026-07-26-nebulacradle",
       "intendedRepository": "rapina/laika-game-nebulacradle",
       "launchpadCommit": "9f8b2bc",
-      "sourceHead": "ab8310f8934862d6d60d825805ad7227c12f2637",
+      "sourceHead": "591a3b5d56de9f801db23139b6f4042a28b7a286",
       "arcadeState": "published",
       "tossState": "not-started",
       "model": "gpt-5.6-sol",
-      "metadataAmendedAfterRelease": false,
+      "metadataAmendedAfterRelease": true,
       "publishedReleaseSha": "ab8310f8934862d6d60d825805ad7227c12f2637"
     }
   ]
