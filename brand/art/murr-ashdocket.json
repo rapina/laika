@@ -1,0 +1,44 @@
+{
+  "id": "murr-ashdocket-v1",
+  "createdAt": "2026-07-26",
+  "generator": "OpenAI Codex built-in image_gen",
+  "reference": "brand/art/murr-base.png",
+  "prompt": "brand/prompts/murr-ashdocket.md",
+  "source": {
+    "path": "brand/art/murr-ashdocket.png",
+    "width": 1536,
+    "height": 1024,
+    "sha256": "3d95ff89f6949424ffe8b61220f08e52f492a56f02c5653e05176b7406042e5c"
+  },
+  "derivatives": [
+    {
+      "path": "arcade/public/art/murr-ashdocket-640.jpg",
+      "width": 640,
+      "height": 426,
+      "sha256": "aab4e2994ed6b16f6545607191fab2a8080801567f355224ddd986de81f60414"
+    },
+    {
+      "path": "arcade/public/art/murr-ashdocket-1280.jpg",
+      "width": 1280,
+      "height": 853,
+      "sha256": "d0d504f07c8421aa3665d7f12d86e26c303b91cd50949120544ca0a8750cfc0c"
+    }
+  ],
+  "review": {
+    "oneCat": true,
+    "naturalFelineAnatomy": true,
+    "nickedEar": true,
+    "paleMuzzleDarkForeheadStripesAmberEyes": true,
+    "earthReceivingRoom": true,
+    "oneButtonControllerAndNotebook": true,
+    "pawPressingButton": true,
+    "selectedBlankArgumentCard": true,
+    "separateUntouchedTargetSeal": true,
+    "roughBlackOffWhiteMossScreenprint": true,
+    "noTextLogoOrFakeMarks": true,
+    "noExtraPawsOrHumanHands": true,
+    "noSpacecraftPortholeEarthHarnessOrOrange": true,
+    "mobileCropReadable": true
+  },
+  "notes": "Visual inspection confirmed one lean tabby with the nicked ear, pale muzzle, forehead stripes, amber eyes, natural paws, worn receiving-room equipment, one-button controller, blank notebook, and black/off-white screenprint with moss accent. One paw presses the button beside a raised blank argument card, while the separate target seal remains untouched. No text, logo, extra limb, human hand, spacecraft, round window, Earth planet, harness, or orange element is present."
+}

@@ -128,6 +128,14 @@
       "escaped": 0,
       "held": true,
       "note": "체르파가 설계 불일치와 피날레 판정을 공개 전 보류해 보완; 운영 지구 플레이는 2/12 결과까지 확인"
+    },
+    {
+      "sequence": 27,
+      "slug": "ashdocket",
+      "interventions": 0,
+      "escaped": 1,
+      "held": true,
+      "note": "첫 공개 뒤 ADR 0012가 SVG·기본 도형 전용 게임 본체를 출고 불가로 규정해 Earth 평가를 중단; 래스터 상대 초상을 실제 플레이에 통합하고 새 체르파 pass 뒤 불변 릴리스를 교체"
     }
   ]
 }
