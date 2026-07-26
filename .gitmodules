@@ -79,3 +79,6 @@
 [submodule "games/2026/2026-07-26-nebulacradle"]
 	path = games/2026/2026-07-26-nebulacradle
 	url = https://github.com/rapina/laika-game-nebulacradle.git
+[submodule "games/2026/2026-07-26-moonloom"]
+	path = games/2026/2026-07-26-moonloom
+	url = https://github.com/rapina/laika-game-moonloom.git

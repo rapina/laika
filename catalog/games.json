@@ -475,6 +475,23 @@
       "model": "gpt-5.6-sol",
       "metadataAmendedAfterRelease": true,
       "publishedReleaseSha": "ab8310f8934862d6d60d825805ad7227c12f2637"
+    },
+    {
+      "sequence": 26,
+      "date": "2026-07-26",
+      "slug": "moonloom",
+      "title": "달의 직조공",
+      "maker": "Laika",
+      "laikaBaseId": "laika-base-v1",
+      "makerIllustration": "games/2026/2026-07-26-moonloom/public/art/laika-moonloom-1280.jpg",
+      "repositoryPath": "games/2026/2026-07-26-moonloom",
+      "intendedRepository": "rapina/laika-game-moonloom",
+      "launchpadCommit": "9f8b2bc",
+      "sourceHead": "1a19f359b7b0a6a40fa4bf81ecc2cfb0c4d8af5a",
+      "arcadeState": "local-preview",
+      "tossState": "not-started",
+      "model": "gpt-5.6-sol",
+      "metadataAmendedAfterRelease": false
     }
   ]
 }
