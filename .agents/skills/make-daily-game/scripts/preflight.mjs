@@ -114,8 +114,13 @@ if (!isValidDate(date)) throw new Error(`Invalid date: ${date}`)
 // any number of games may share a date. One game is in flight at a time —
 // finish (or publish) the pending one before starting the next sequence.
 const arcadeCatalog = readJson(join(root, 'arcade/public/catalog/games.json'))
+const genreLedgerPath = join(root, 'docs/knowledge/GENRE_LEDGER.json')
+const archiveThroughSequence = existsSync(genreLedgerPath)
+  ? Number(readJson(genreLedgerPath).archiveThroughSequence ?? 0)
+  : 0
 const games = gameDirectories(root)
   .map(gameSummary)
+  .map((game, index) => ({ ...game, archived: index < archiveThroughSequence }))
   .map((game) => publicationSummary(game, arcadeCatalog))
   .map((game) => ({
     ...game,
@@ -125,8 +130,9 @@ const completedStates = new Set(['local-preview', 'published'])
 // retired: 공개 이력이 있고 카탈로그에서 은퇴로 전시 중인 종결 상태.
 // 재공개 대상이 아니므로 pending으로 세지 않는다.
 const terminalArcadeStates = new Set(['published', 'retired'])
-const pendingGames = games.filter((game) =>
-  !completedStates.has(game.publishState) || !terminalArcadeStates.has(game.arcadeState))
+const pendingGames = games.filter((game) => !game.archived && (
+  !completedStates.has(game.publishState) || !terminalArcadeStates.has(game.arcadeState)
+))
 const unfinished = pendingGames.find((game) => !completedStates.has(game.publishState)) ?? null
 const unpublished = pendingGames.find((game) => completedStates.has(game.publishState)) ?? null
 const highestSequence = Math.max(0, ...(arcadeCatalog.games ?? []).map((game) => game.sequence ?? 0))
@@ -145,7 +151,7 @@ const report = {
   targetGame,
   nextSequence: highestSequence + 1,
   pendingGames,
-  archivedGameCount: games.filter((game) => game.sequence <= 27).length,
+  archivedGameCount: games.filter((game) => game.archived).length,
   repositories: {
     root: gitSummary(root),
     launchpad: gitSummary(join(root, 'launchpad')),
