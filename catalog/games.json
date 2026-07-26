@@ -487,7 +487,7 @@
       "repositoryPath": "games/2026/2026-07-26-moonloom",
       "intendedRepository": "rapina/laika-game-moonloom",
       "launchpadCommit": "9f8b2bc",
-      "sourceHead": "1a19f359b7b0a6a40fa4bf81ecc2cfb0c4d8af5a",
+      "sourceHead": "8e038ceff4c1fb441c09b3ce768172a128407a69",
       "arcadeState": "local-preview",
       "tossState": "not-started",
       "model": "gpt-5.6-sol",
