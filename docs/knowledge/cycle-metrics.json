@@ -132,10 +132,10 @@
     {
       "sequence": 27,
       "slug": "ashdocket",
-      "interventions": 0,
+      "interventions": 1,
       "escaped": 1,
       "held": true,
-      "note": "첫 공개 뒤 ADR 0012가 SVG·기본 도형 전용 게임 본체를 출고 불가로 규정해 Earth 평가를 중단; 래스터 상대 초상을 실제 플레이에 통합하고 새 체르파 pass 뒤 불변 릴리스를 교체"
+      "note": "운영자가 SVG·기본 도형 전용 게임 본체를 지적해 Earth 평가를 중단; 래스터 상대 초상을 실제 플레이에 통합하고 새 체르파 pass 뒤 불변 릴리스를 교체"
     }
   ]
 }
