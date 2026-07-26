@@ -506,10 +506,11 @@
       "intendedRepository": "rapina/laika-game-ashdocket",
       "launchpadCommit": "9f8b2bc",
       "sourceHead": "9e36056ebae0cb602db5ea724afa3c655bef5d0a",
-      "arcadeState": "local-preview",
+      "arcadeState": "published",
       "tossState": "not-started",
       "model": "gpt-5.6-sol",
-      "metadataAmendedAfterRelease": false
+      "metadataAmendedAfterRelease": false,
+      "publishedReleaseSha": "9e36056ebae0cb602db5ea724afa3c655bef5d0a"
     }
   ]
 }
