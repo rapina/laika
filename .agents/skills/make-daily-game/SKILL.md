@@ -51,6 +51,10 @@ node .agents/skills/make-daily-game/scripts/preflight.mjs
 - 무엇을 얼마나 크게 만들지는 자유다.
 - DOM, Canvas, WebGL, WebGPU, 셰이더, 물리, 영상, 생성 이미지와 외부 자산을
   자유롭게 사용할 수 있다.
+- SVG와 절차적 기본 도형을 사용할 수 있지만 게임 아트 전체를 그것만으로
+  제한하지 않는다. 실제 플레이에 쓰이는 주 시각 매체 하나 이상은 래스터
+  이미지, 페인팅, 3D, 영상, 텍스처, 셰이더 기반 재질처럼 SVG가 아닌 매체로
+  만든다.
 - 기존 게임을 모방·변형·재창작해도 된다.
 - 결정론, 자동 완주, 깊이, 하나의 조작·재료·색, 목표 화면과 감산은 의무가
   아니다.
@@ -88,6 +92,7 @@ npm --prefix games/YYYY/YYYY-MM-DD-slug run new-game -- --id "com.sputnikworksho
 
 - `DAY.md`, `GDD.md`, `ART.md`, manifest 작성
 - GDD에 주 장르와 그 장르의 완성 약속 4~6개 작성
+- ART.md에 SVG가 아닌 주 시각 매체와 실제 플레이에서의 사용 위치 작성
 - 원하는 기술·아트·사운드와 자원으로 게임 구현
 - 프로덕션 빌드
 - 설계 문서에 적은 규칙과 로직을 확인할 게임별 테스트 작성·실행
@@ -138,6 +143,8 @@ git -C games/YYYY/YYYY-MM-DD-slug push origin main
 schemaVersion 3 `design-review.json`을 커밋한다. 문서의 구체적 약속이 빌드에
 구현됐고 제작자 테스트가 통과했으며 빌드가 배포 가능하면 `verdict: "pass"`다.
 장르 이름만 빌리고 장르의 완성 약속을 축약한 프로토타입은 pass가 아니다.
+게임 본체가 SVG와 기본 벡터 도형만으로 구성된 경우도 pass가 아니다. 파비콘,
+검증 캡처와 잠금 뒤 라이카 일러스트는 게임 본체의 비SVG 매체로 세지 않는다.
 불일치는 제작자가 설계나 구현 중 의도한 쪽을 분명히 한 뒤 함께 고치고
 재검토한다.
 

@@ -10,6 +10,7 @@
 - 풀 프로덕션 완성작 목표 결정: `../architecture/0009-full-production-not-prototype.md`
 - 제작자 내부 플레이와 재제작 결정: `../architecture/0010-creator-internal-playtest-loop.md`
 - 장르 앵커와 작품군 다양성 결정: `../architecture/0011-genre-anchored-portfolio-diversity.md`
+- SVG 전용 게임 아트 금지 결정: `../architecture/0012-no-svg-only-game-art.md`
 - 지구 플레이어 피드백 결정: `../architecture/0004-earth-player-feedback.md`
 - 연번 제작 결정: `../architecture/0005-numbered-production.md`
 - 게임 릴리스 계약: `../contracts/game-release-v1.md`
