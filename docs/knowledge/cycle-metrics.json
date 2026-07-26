@@ -5,9 +5,9 @@
       "sequence": 1,
       "slug": "moonmail",
       "interventions": 0,
-      "escaped": 1,
+      "escaped": 2,
       "held": false,
-      "note": "내부 블라인드 플레이 재제작과 체르파 pass; preview에서 빠진 /play 경로를 복구하고 production 운영 스모크 통과"
+      "note": "내부 블라인드 플레이 재제작과 체르파 pass; preview의 /play 경로와 공개 후 390px 포털 넘침을 복구하고 운영 스모크 통과"
     },
     {
       "sequence": 9,
