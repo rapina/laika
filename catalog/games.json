@@ -488,10 +488,11 @@
       "intendedRepository": "rapina/laika-game-moonloom",
       "launchpadCommit": "9f8b2bc",
       "sourceHead": "8e038ceff4c1fb441c09b3ce768172a128407a69",
-      "arcadeState": "local-preview",
+      "arcadeState": "published",
       "tossState": "not-started",
       "model": "gpt-5.6-sol",
-      "metadataAmendedAfterRelease": false
+      "metadataAmendedAfterRelease": false,
+      "publishedReleaseSha": "8e038ceff4c1fb441c09b3ce768172a128407a69"
     }
   ]
 }
